@@ -1,0 +1,74 @@
+/* =========================================================
+   tokens.css – צבעים, גופנים וגדלים של מסע החשמל
+   כל הצבעים מוגדרים כאן פעם אחת. שאר הקבצים משתמשים בשמות.
+   ========================================================= */
+
+/* ----- גופנים (שמורים בתוך האתר, בלי חיבור לאינטרנט) ----- */
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/Rubik-Variable.ttf") format("truetype");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("../assets/fonts/Assistant-Variable.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ----- צבעים ----- */
+  --blue-grid: #1D3A66;      /* כחול רשת – צבע ראשי */
+  --blue-dark: #12284A;      /* כחול כהה יותר */
+  --copper: #A5561F;         /* נחושת – הדגשה */
+  --copper-light: #F3E3D6;   /* נחושת בהיר */
+  --light: #FFCF4A;          /* צהוב אור – רק למה שמאיר או מודד חשמל */
+  --bg: #F6F8FB;             /* רקע */
+  --surface: #FFFFFF;        /* כרטיסים */
+  --text: #16233A;           /* טקסט */
+  --text-2: #4A5870;         /* טקסט משני */
+  --line: #D9E0EA;           /* קווים */
+  --success: #1F7A4D;        /* הצלחה */
+  --warn: #9A5B00;           /* אזהרה עדינה */
+
+  /* ----- גופנים ----- */
+  --font-head: "Rubik", "Assistant", Arial, sans-serif;
+  --font-body: "Assistant", "Rubik", Arial, sans-serif;
+
+  /* ----- גדלי טקסט ----- */
+  --fs-body: 1.125rem;       /* 18px – טקסט גוף */
+  --fs-small: 1rem;          /* 16px – רק לשורות עזר קצרות */
+  --fs-h3: 1.375rem;
+  --fs-h2: 1.75rem;
+  --fs-h1: clamp(2rem, 5vw, 2.75rem);
+  --lh-body: 1.6;
+  --lh-head: 1.25;
+
+  /* ----- ריווחים ----- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+
+  /* ----- צורות ----- */
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --shadow-card: 0 1px 2px rgba(22, 35, 58, 0.06), 0 4px 16px rgba(22, 35, 58, 0.06);
+
+  /* ----- נגישות ----- */
+  --tap: 44px;               /* גודל מינימלי לאזור לחיצה */
+  --focus-ring: 3px solid var(--copper);
+  --focus-offset: 3px;
+
+  /* ----- פריסה ----- */
+  --content-max: 46rem;
+  --page-max: 72rem;
+}

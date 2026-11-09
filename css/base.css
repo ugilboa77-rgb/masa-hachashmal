@@ -1,0 +1,180 @@
+/* =========================================================
+   base.css – עיצוב כללי ורכיבים בסיסיים
+   (גרסה ראשונה לשלב 0. יורחב בשלב 1)
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  text-align: start;
+  overflow-wrap: break-word;
+}
+
+/* בעברית אין הטיה */
+em, i, cite, address {
+  font-style: normal;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  line-height: var(--lh-head);
+  color: var(--blue-dark);
+  margin: 0 0 var(--sp-3);
+}
+h1 { font-size: var(--fs-h1); font-weight: 700; }
+h2 { font-size: var(--fs-h2); font-weight: 600; }
+h3 { font-size: var(--fs-h3); font-weight: 600; }
+
+p { margin: 0 0 var(--sp-4); }
+
+a { color: var(--blue-grid); text-underline-offset: 3px; }
+a:hover { color: var(--copper); }
+
+img, svg, video, iframe { max-width: 100%; }
+
+/* ----- מסגרת מיקוד נראית ----- */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-s);
+}
+
+/* ----- דילוג לתוכן (מקלדת) ----- */
+.skip-link {
+  position: absolute;
+  inset-inline-start: var(--sp-4);
+  top: -100px;
+  background: var(--blue-dark);
+  color: #fff;
+  padding: var(--sp-2) var(--sp-4);
+  border-radius: var(--radius-s);
+  z-index: 100;
+}
+.skip-link:focus { top: var(--sp-4); color: #fff; }
+
+/* ----- פריסה ----- */
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--sp-6) var(--sp-4) var(--sp-7);
+}
+
+.eyebrow {
+  font-family: var(--font-head);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--copper);
+  margin-bottom: var(--sp-2);
+}
+
+.lead { color: var(--text-2); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-card);
+  padding: var(--sp-5);
+  margin-bottom: var(--sp-5);
+}
+
+/* ----- כפתורים ----- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: var(--sp-2) var(--sp-5);
+  border: 2px solid transparent;
+  border-radius: var(--radius-m);
+  font-family: var(--font-head);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-primary {
+  background: var(--blue-grid);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--blue-dark); color: #fff; }
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--blue-grid);
+  border-color: var(--blue-grid);
+}
+.btn-secondary:hover { background: var(--copper-light); color: var(--blue-dark); }
+
+/* קישור שעוד לא הוגדר: "בקרוב" */
+.btn-soon,
+.btn-soon:hover {
+  background: var(--bg);
+  color: var(--text-2);
+  border: 2px dashed var(--line);
+  cursor: default;
+}
+
+/* ----- סרטון ----- */
+.video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--blue-dark);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+.video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video-fallback {
+  margin-top: var(--sp-3);
+  color: var(--text-2);
+}
+
+/* ----- הודעות מצב ----- */
+.status {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+.status-ok { border-color: var(--success); color: var(--success); }
+.status-warn { border-color: var(--warn); color: var(--warn); }
+
+/* ----- צמצום תנועה ----- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

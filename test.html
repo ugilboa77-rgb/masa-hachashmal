@@ -1,0 +1,101 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>עמוד בדיקה · מסע החשמל</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+
+  <main id="main" class="page">
+    <p class="eyebrow">מדע וטכנולוגיה · כיתה ו׳</p>
+    <h1>עמוד בדיקה</h1>
+    <p class="lead">עמוד זמני לשלב 0: בודקים שהסרטון מתנגן, שהקישור נפתח בלשונית חדשה, ושהשמירה במחשב עובדת.</p>
+
+    <section class="card" aria-labelledby="video-title">
+      <h2 id="video-title">1. סרטון מוטמע</h2>
+      <div class="video-frame" id="video-slot"></div>
+      <p class="video-fallback" id="video-fallback" hidden>
+        <a id="video-link" href="#" target="_blank" rel="noopener">הסרטון לא נפתח כאן. צפו בו ב-YouTube.</a>
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="link-title">
+      <h2 id="link-title">2. קישור בלשונית חדשה</h2>
+      <p>הכפתור הראשון פותח קישור בלשונית חדשה. הכפתור השני מראה איך נראה קישור שעוד לא הוגדר.</p>
+      <p style="display:flex; flex-wrap:wrap; gap:var(--sp-3);">
+        <span id="link-ready"></span>
+        <span id="link-empty"></span>
+      </p>
+    </section>
+
+    <section class="card" aria-labelledby="storage-title">
+      <h2 id="storage-title">3. שמירה במחשב</h2>
+      <p class="status" id="storage-status" role="status"></p>
+    </section>
+  </main>
+
+  <script type="module">
+    import { config } from "./js/config.js";
+    import { isAvailable, load, save } from "./js/storage.js";
+
+    // ----- 1. סרטון -----
+    const videoId = config.videos.station3.video1;
+    const slot = document.getElementById("video-slot");
+    const fallback = document.getElementById("video-fallback");
+    const videoLink = document.getElementById("video-link");
+
+    if (videoId) {
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?rel=0`;
+      iframe.title = "סרטון: חשמל הידרואלקטרי – כיצד זה פועל (מכון דוידסון)";
+      iframe.allow = "accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+      iframe.allowFullscreen = true;
+      iframe.loading = "lazy";
+      slot.append(iframe);
+      videoLink.href = `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+      // קישור ישיר תמיד זמין מתחת לסרטון, למקרה שסינון הרשת חוסם את ההטמעה
+      fallback.hidden = false;
+    } else {
+      slot.innerHTML = '<p style="color:#fff; padding:1rem;">בקרוב</p>';
+    }
+
+    // ----- 2. כפתורי קישור -----
+    function linkButton(url, label) {
+      if (url) {
+        const a = document.createElement("a");
+        a.className = "btn btn-primary";
+        a.href = url;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.textContent = label;
+        a.setAttribute("aria-label", `${label} (נפתח בלשונית חדשה)`);
+        return a;
+      }
+      const span = document.createElement("span");
+      span.className = "btn btn-soon";
+      span.setAttribute("aria-disabled", "true");
+      span.textContent = "בקרוב";
+      return span;
+    }
+    document.getElementById("link-ready").append(linkButton(config.testLink, "פתיחת הקישור"));
+    document.getElementById("link-empty").append(linkButton(config.challengeForm, "טופס ההגשה"));
+
+    // ----- 3. שמירה -----
+    const visits = (load("test-visits", 0) || 0) + 1;
+    const saved = save("test-visits", visits);
+    const status = document.getElementById("storage-status");
+    if (isAvailable() && saved) {
+      status.classList.add("status-ok");
+      status.textContent = `✔ השמירה עובדת. מספר הפתיחות של העמוד במחשב הזה: ${visits}.`;
+    } else {
+      status.classList.add("status-warn");
+      status.textContent = "⚠ השמירה במחשב חסומה. העמוד עדיין עובד, אבל לא יזכור כלום אחרי סגירה.";
+    }
+  </script>
+</body>
+</html>

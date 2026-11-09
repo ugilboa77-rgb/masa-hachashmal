@@ -1,0 +1,7 @@
+# קבצים זמניים של מערכת ההפעלה
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# הגדרות אישיות של Claude Code
+.claude/settings.local.json
