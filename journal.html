@@ -1,0 +1,45 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>יומן המהנדס · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body data-page="journal">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="page">
+    <h1>יומן המהנדס</h1>
+    <!-- הטקסט מתוך תחנה 0 > הכלים שלכם -->
+    <p class="lead">כל מה שתכתבו נשמר כאן, במחשב הזה. תוכלו לקרוא בו בכל רגע.</p>
+
+    <p class="status status-warn" id="journal-storage-warning" hidden>
+      ⚠ השמירה במחשב חסומה. העמוד עדיין עובד, אבל לא יזכור כלום אחרי סגירה.
+    </p>
+
+    <p class="card journal-empty" id="journal-empty" hidden>עוד לא כתבתם כלום ביומן.</p>
+
+    <div id="journal-entries"></div>
+
+    <div id="journal-tools" class="journal-tools" hidden>
+      <div id="journal-copy"></div>
+    </div>
+
+    <div class="journal-actions">
+      <button type="button" class="btn btn-secondary" id="journal-print"></button>
+      <button type="button" class="btn btn-ghost btn-danger" id="journal-reset">התחלה מחדש</button>
+    </div>
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module">
+    import { renderJournalPage } from "./js/ui/journal-page.js";
+    renderJournalPage();
+  </script>
+</body>
+</html>

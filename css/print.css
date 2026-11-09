@@ -1,0 +1,35 @@
+/* =========================================================
+   print.css – הדפסה (A4, קריא בשחור-לבן)
+   גרסה ראשונה: יומן המהנדס. דפי הניסוי יתווספו בשלב 5.
+   ========================================================= */
+
+@page { size: A4; margin: 2cm; }
+
+body {
+  background: #fff;
+  color: #000;
+  font-size: 12pt;
+  padding: 0;
+}
+
+.site-header,
+.traffic-light,
+.skip-link,
+.journal-actions,
+.journal-tools,
+.reminder,
+.part-nav {
+  display: none !important;
+}
+
+.page { max-width: none; padding: 0; }
+
+.card {
+  box-shadow: none;
+  border: 1px solid #000;
+  break-inside: avoid;
+}
+
+h1, h2, h3, .journal-list dt { color: #000; }
+.journal-num { background: none; color: #000; border: 1px solid #000; }
+.journal-list dd { border-inline-start-color: #000; }

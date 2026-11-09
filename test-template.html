@@ -1,0 +1,99 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>בדיקת תבנית התחנה · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  עמוד בדיקה זמני לשלב 1: מראה את תבנית התחנה ואת הרכיבים המשותפים
+  (מחוון התקדמות, תגיות, רמזים, נעילת ניסויים, נקודת העתקה, יומן).
+  הטקסטים לקוחים מתחנה 1. העמוד יימחק אחרי שתחנה 1 תיבנה.
+-->
+<body data-page="demo" data-station="demo" data-reminder="station1">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="page">
+    <p class="eyebrow">עמוד בדיקה</p>
+    <h1>תבנית התחנה</h1>
+
+    <nav id="station-progress"></nav>
+
+    <section class="part" data-title="פתיחה מהאי" data-tag="core" data-time="5 דק'">
+      <h2>פתיחה מהאי</h2>
+      <p><strong>נעמה אומרת:</strong> "פתחנו את המחולל הישן. אף אחד כאן לא יודע מה מהחלקים האלה עושה. תעזרו לנו להבין?"</p>
+      <fieldset class="card" data-journal="demo.predict">
+        <legend>מה לדעתכם צריך לקרות במחולל כדי שייצא ממנו חשמל?</legend>
+        <label class="choice"><input type="radio" name="predict" value="צריך להכניס לתוכו סוללה."> צריך להכניס לתוכו סוללה.</label>
+        <label class="choice"><input type="radio" name="predict" value="משהו בתוכו צריך להסתובב."> משהו בתוכו צריך להסתובב.</label>
+        <label class="choice"><input type="radio" name="predict" value="צריך לחמם אותו."> צריך לחמם אותו.</label>
+        <label class="choice"><input type="radio" name="predict" value="אין לי מושג."> אין לי מושג.</label>
+      </fieldset>
+    </section>
+
+    <section class="part" data-title="מעבדה" data-tag="core" data-time="15–20 דק'">
+      <h2>מעבדה: מה משפיע על החשמל?</h2>
+      <p class="status">כאן תהיה הדמיית המחולל. בעמוד הבדיקה רק הרמזים, הנעילה וההעתקה.</p>
+
+      <div class="lab">
+        <article class="experiment card">
+          <div class="experiment-body">
+            <h3>ניסוי 1: מהירות הסיבוב</h3>
+            <p><strong>הסבירו:</strong></p>
+            <label for="demo-e1">מה הקשר בין מהירות הסיבוב לכמות החשמל?</label>
+            <textarea id="demo-e1" rows="3" data-journal="demo.e1.explain" data-explain></textarea>
+            <div class="hints" data-hint-key="e1">
+              <p class="hint" data-level="1">הסתכלו על המד במהירות הנמוכה ובמהירות הגבוהה. האם המספר זהה?</p>
+              <p class="hint" data-level="2">נסו להשלים: "ככל שמסובבים מהר יותר, החשמל …"</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="experiment card">
+          <div class="experiment-body">
+            <h3>ניסוי 2: חוזק המגנט</h3>
+            <p><strong>הסבירו:</strong></p>
+            <label for="demo-e2">למה חשוב שהמהירות תישאר אותו דבר כשמחליפים מגנט?</label>
+            <textarea id="demo-e2" rows="3" data-journal="demo.e2.explain" data-explain></textarea>
+            <div class="hints" data-hint-key="e2">
+              <p class="hint" data-level="1">אם גם המהירות תשתנה, תוכלו לדעת מה גרם לשינוי?</p>
+              <p class="hint" data-level="2">כשמשנים שני דברים ביחד, אי אפשר לדעת מי מהם השפיע.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div id="demo-copy"></div>
+    </section>
+
+    <section class="part" data-title="רוצים עוד?" data-tag="extra">
+      <h2>רוצים עוד?</h2>
+      <p>חלק "אם יש זמן" לדוגמה.</p>
+    </section>
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module">
+    import { createCopyPoint, stamp } from "./js/ui/copy.js";
+    import { getJournalEntry, hintsUsed } from "./js/progress.js";
+
+    const v = (key) => (getJournalEntry("demo", key) || {}).value || "...";
+    createCopyPoint(document.getElementById("demo-copy"), {
+      message: "סיימתם את המעבדה! העתיקו את העבודה שלכם ליומן המהנדס ב-Classroom.",
+      getText: () => [
+        `עמוד בדיקה – מעבדה | ${stamp()}`,
+        `הניבוי שלי בפתיחה: ${v("demo.predict")}`,
+        `ניסוי 1 – מהירות`,
+        `ההסבר שלי: ${v("demo.e1.explain")}`,
+        `ניסוי 2 – חוזק מגנט`,
+        `ההסבר שלי: ${v("demo.e2.explain")}`,
+        `רמזים שהשתמשתי בהם: ${hintsUsed("demo")}`,
+      ].join("\n"),
+    });
+  </script>
+</body>
+</html>

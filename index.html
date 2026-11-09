@@ -1,0 +1,104 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+
+    <!-- ===== כותרת ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">מדע וטכנולוגיה · כיתה ו׳</p>
+        <h1 id="hero-title">מסע החשמל</h1>
+        <p class="hero-sub">אי שלם נשאר בחושך. אתם המהנדסים שיחזירו לו את האור.</p>
+        <div class="hero-cta" id="hero-cta"></div>
+      </div>
+    </section>
+
+    <div class="home-body">
+
+      <!-- ===== פתיחה ===== -->
+      <section class="home-intro" aria-label="פתיחה">
+        <p class="intro-question"><strong>לחצתם על המתג והאור נדלק. אבל מאיפה הגיע החשמל?</strong></p>
+        <p>באי האלמוג אף אחד לא שאל את השאלה הזו, עד שהאור כבה. סערה השביתה את המחולל היחיד של האי. עכשיו התושבים צריכים מערכת חשמל חדשה, והם פנו אליכם.</p>
+        <p>במסע תעברו בחמש תחנות. בכל תחנה תגלו דרך אחרת לייצר חשמל. בסוף תתכננו לאי מערכת שלמה.</p>
+      </section>
+
+      <!-- ===== מפת המסע ===== -->
+      <section class="home-section" aria-labelledby="map-title">
+        <p class="eyebrow">מפת המסע</p>
+        <h2 id="map-title">חמש תחנות ואתגר אחד בסוף</h2>
+        <div class="journey">
+          <figure class="island" id="island-map"></figure>
+          <ol class="journey-list" id="journey-list"></ol>
+        </div>
+      </section>
+
+      <!-- ===== איך לומדים כאן ===== -->
+      <section class="home-section" aria-labelledby="how-title">
+        <p class="eyebrow">איך לומדים כאן</p>
+        <h2 id="how-title">בכל תחנה ארבעה שלבים</h2>
+        <ol class="how-steps">
+          <li class="how-step">
+            <img src="assets/images/icon-watch.png" alt="" width="64" height="64">
+            <h3>מגלים</h3>
+            <p>קוראים, צופים ומנבאים מה יקרה.</p>
+          </li>
+          <li class="how-step">
+            <img src="assets/images/icon-try.png" alt="" width="64" height="64">
+            <h3>מנסים</h3>
+            <p>בודקים בהדמיה מה משנה את התוצאה.</p>
+          </li>
+          <li class="how-step">
+            <img src="assets/images/icon-practice.png" alt="" width="64" height="64">
+            <h3>חוקרים בידיים</h3>
+            <p>עושים ניסוי אמיתי בשולחן הניסויים.</p>
+          </li>
+          <li class="how-step">
+            <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
+            <h3>מדווחים למועצה</h3>
+            <p>עונים על נקודת הביקורת ב-Classroom.</p>
+          </li>
+        </ol>
+        <p class="card pace-note"><strong>קצב אישי:</strong> כל אחד מתקדם בקצב שלו. חלקים שמסומנים "אם יש זמן" הם למי שסיים את השאר. תקועים? נסו קודם את כפתור הרמז, ואז הפכו את כרטיס הרמזור.</p>
+      </section>
+
+      <!-- ===== לוח השבועות (מתוך מסמך הדרישות) ===== -->
+      <section class="home-section" aria-labelledby="weeks-title">
+        <h2 id="weeks-title">לוח השבועות</h2>
+        <div class="table-wrap">
+          <table class="weeks">
+            <thead>
+              <tr>
+                <th scope="col">שבוע</th>
+                <th scope="col">תחנות בשעות המחשבים</th>
+                <th scope="col">נקודת ביקורת</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>נקודת זינוק והמחולל</td><td>המחולל</td></tr>
+              <tr><td>2</td><td>טורבינת רוח</td><td>טורבינת רוח</td></tr>
+              <tr><td>3</td><td>תחנה הידרואלקטרית</td><td>תחנה הידרואלקטרית</td></tr>
+              <tr><td>4</td><td>תחנה קיטורית והשוואה</td><td>קיטור והשוואה</td></tr>
+              <tr><td>בסיום</td><td>אתגר אי האנרגיה: עבודה בבית הספר והשלמה בבית</td><td>הגשת התוכנית</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>
