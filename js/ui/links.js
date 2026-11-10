@@ -49,7 +49,7 @@ export function embedVideo(slot, videoId, title) {
 
   const fallback = document.createElement("p");
   fallback.className = "video-fallback";
-  fallback.innerHTML = `<a href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}" target="_blank" rel="noopener">הסרטון לא נפתח כאן? צפו בו ב-YouTube.</a>`;
+  fallback.innerHTML = `<a href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}" target="_blank" rel="noopener">הסרטון לא נפתח כאן. צפו בו ב-YouTube.</a>`;
 
   slot.append(frame, fallback);
 }

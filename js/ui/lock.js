@@ -13,8 +13,9 @@
 import { icon } from "./icons.js";
 
 export const MIN_EXPLAIN = 10;
-// הטקסט מתוך תחנה 1 > מעבדה > [הדמיה] הודעת נעילה
-const LOCK_MESSAGE = "כתבו הסבר קצר כדי לפתוח את הניסוי הבא.";
+// הטקסטים מתוך "טקסטי ממשק" במילון
+const LOCK_MESSAGE = "כתבו הסבר קצר לניסוי הקודם כדי לפתוח את הניסוי הזה.";
+export const TOO_SHORT = "נסו לכתוב עוד קצת. מה ראיתם, ולמה לדעתכם זה קרה?";
 
 function explainLength(exp) {
   const t = exp.querySelector("[data-explain]");

@@ -34,7 +34,7 @@ export function setupReminder() {
   const close = document.createElement("button");
   close.type = "button";
   close.className = "btn btn-ghost";
-  close.innerHTML = `${icon("close")}<span>סגירה</span>`;
+  close.innerHTML = `<span>כן, ממשיכים</span>`;
   close.addEventListener("click", () => {
     dismissed.push(here);
     save("reminders-closed", dismissed);

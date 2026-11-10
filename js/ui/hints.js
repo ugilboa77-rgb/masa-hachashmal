@@ -34,12 +34,12 @@ function setupOne(box, stationId) {
   button.className = "btn btn-hint";
   box.prepend(button);
 
-  // ההצעה לבקש עזרה – הטקסט מתוך תחנה 0, "הכלים שלכם"
+  // ההצעה לבקש עזרה – הטקסט מתוך "טקסטי ממשק" במילון
   const help = document.createElement("div");
   help.className = "hint-help";
   help.hidden = true;
   help.innerHTML = `
-    <p><strong>כרטיס הרמזור:</strong> עדיין תקועים? הפכו אותו לצהוב, והמורה יגיע.</p>
+    <p>עדיין תקועים? הפכו את כרטיס הרמזור לצהוב.</p>
     <button type="button" class="btn btn-secondary btn-help">${icon("hand")}<span>תקוע, צריך עזרה</span></button>`;
   box.append(help);
   help.querySelector(".btn-help").addEventListener("click", () => setTrafficLight("help"));
@@ -50,7 +50,8 @@ function setupOne(box, stationId) {
     hints.forEach((h, i) => { h.hidden = i >= opened; });
     if (opened < hints.length) {
       button.hidden = false;
-      button.innerHTML = `${icon("bulb")}<span>רמז ${opened + 1}</span>`;
+      // טקסט הכפתור מתוך "טקסטי ממשק": רמז · עוד רמז
+      button.innerHTML = `${icon("bulb")}<span>${opened === 0 ? "רמז" : "עוד רמז"}</span>`;
       button.setAttribute("aria-controls", hints[opened].id);
     } else {
       button.hidden = true;

@@ -57,8 +57,11 @@ export function setupStation() {
         `<span class="tag tag-${tag}">${TAGS[tag]}</span>`);
     }
     if (part.dataset.time) {
+      // "5 דק'" מוצג כמו ב"טקסטי ממשק": כ-5 דקות
+      const m = /^([\d–-]+) דק'$/.exec(part.dataset.time);
+      const time = m ? `כ-${m[1]} דקות` : part.dataset.time;
       meta.insertAdjacentHTML("beforeend",
-        `<span class="part-time">${icon("clock")}<span><span class="visually-hidden">זמן משוער: </span>${part.dataset.time}</span></span>`);
+        `<span class="part-time">${icon("clock")}<span><span class="visually-hidden">זמן משוער: </span>${time}</span></span>`);
     }
     if (meta.children.length && h2) h2.after(meta);
   });

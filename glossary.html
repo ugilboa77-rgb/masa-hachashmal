@@ -1,0 +1,39 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>מילון מושגים · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  מילון המושגים. המושגים עצמם נמצאים ב-js/glossary-data.js
+  (הטקסטים מתוך docs/content/מילון ומקורות.md)
+-->
+<body data-page="glossary">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="page">
+    <h1>מילון מושגים</h1>
+    <dl class="glossary" id="glossary"></dl>
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module">
+    import { TERMS } from "./js/glossary-data.js";
+    import { stations } from "./js/site.js";
+    const list = document.getElementById("glossary");
+    list.innerHTML = TERMS.map((t) => {
+      const s = stations.find((x) => x.num === t.station);
+      return `<div class="card glossary-item">
+        <dt>${t.term}</dt>
+        <dd>${t.text}</dd>
+        <dd class="glossary-station"><a href="${s.href}">תחנה ${s.num}: ${s.title}</a></dd>
+      </div>`;
+    }).join("");
+  </script>
+</body>
+</html>

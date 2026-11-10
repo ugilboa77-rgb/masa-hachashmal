@@ -86,8 +86,8 @@ export function createCopyPoint(host, { message, getText, link = null }) {
     const ok = await copyText(textarea.value, textarea);
     status.className = "copy-status " + (ok ? "is-ok" : "is-warn");
     status.innerHTML = ok
-      ? `${icon("check")}<span>הועתק! עכשיו הדביקו ביומן (Ctrl+V).</span>`
-      : `<span>הטקסט מסומן. העתיקו אותו בעצמכם (Ctrl+C).</span>`;
+      ? `${icon("check")}<span>הועתק! עכשיו הדביקו במקום המתאים.</span>`
+      : `<span>לא הצלחנו להעתיק. סמנו את הטקסט ולחצו Ctrl+C.</span>`;
     if (!ok) { textarea.focus(); textarea.select(); }
   });
 

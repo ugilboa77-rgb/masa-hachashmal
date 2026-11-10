@@ -1747,3 +1747,64 @@ input[type="number"]:focus { border-color: var(--blue-grid); }
 .ch-num { direction: ltr; text-align: end; white-space: nowrap; }
 .ch-prepare { margin-top: var(--sp-4); }
 .ch-pick { font: inherit; width: 100%; min-height: var(--tap); padding: var(--sp-2) var(--sp-3); border: 2px solid #A9B5C6; border-radius: var(--radius-s); background: var(--surface); margin-bottom: var(--sp-3); }
+
+/* =========================================================
+   טקסטי ממשק: נשמר ביומן, הסבר קצר מדי, חלון אישור
+   ========================================================= */
+.saved-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: var(--sp-1);
+  font-size: var(--fs-small);
+  color: var(--success);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.saved-note .icon { width: 1rem; height: 1rem; }
+.saved-note.is-on { opacity: 1; }
+fieldset + .saved-note { margin: calc(-1 * var(--sp-3)) 0 var(--sp-3); }
+.too-short { margin: var(--sp-2) 0 0; color: #7A4800; font-weight: 600; }
+.confirm-dialog {
+  max-width: 26rem;
+  padding: var(--sp-5);
+  border: 0;
+  border-radius: var(--radius-m);
+  box-shadow: 0 20px 50px rgba(18, 40, 74, 0.3);
+  color: var(--text);
+}
+.confirm-dialog::backdrop { background: rgba(18, 40, 74, 0.45); }
+.confirm-dialog h2 { margin-top: 0; font-size: 1.5rem; }
+.confirm-actions { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.btn-danger-solid { background: #9B2C1C; color: #fff; }
+.btn-danger-solid:hover { background: #7A1F12; color: #fff; }
+
+/* =========================================================
+   מילון: מושגים בטקסט ועמוד המילון
+   ========================================================= */
+.term {
+  font: inherit;
+  font-weight: 700;
+  color: var(--blue-grid);
+  background: none;
+  border: 0;
+  border-bottom: 2px dotted var(--copper);
+  padding: 0 1px;
+  min-height: 1.6em;
+  cursor: pointer;
+}
+.term:hover, .term[aria-expanded="true"] { background: var(--copper-light); }
+.term-pop {
+  margin: 0 0 var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg);
+  border-inline-start: 4px solid var(--copper);
+  border-radius: var(--radius-s);
+}
+.term-pop p { margin: 0 0 var(--sp-1); }
+.term-pop a { font-size: var(--fs-small); font-weight: 600; }
+.glossary { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); gap: var(--sp-3); }
+.glossary-item { margin: 0; }
+.glossary-item dt { font-family: var(--font-head); font-size: 1.375rem; font-weight: 600; color: var(--blue-dark); }
+.glossary-item dd { margin: var(--sp-2) 0 0; }
+.glossary-station { font-size: var(--fs-small); }

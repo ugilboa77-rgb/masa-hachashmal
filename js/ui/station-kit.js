@@ -13,7 +13,7 @@
 
 import { config } from "../config.js";
 import { embedVideo, linkButton } from "./links.js";
-import { MIN_EXPLAIN } from "./lock.js";
+import { MIN_EXPLAIN, TOO_SHORT } from "./lock.js";
 
 export function setupVideos(root = document) {
   root.querySelectorAll(".video-slot[data-video]").forEach((slot) => {
@@ -44,9 +44,17 @@ export function setupExpFeedback(root = document) {
     const text = exp.querySelector("[data-explain]");
     const fb = exp.querySelector(".exp-feedback");
     if (!text || !fb) return;
+    // "הסבר קצר מדי": מופיע כשכתבו משהו, אבל פחות מ-10 תווים
+    const short = document.createElement("p");
+    short.className = "too-short";
+    short.hidden = true;
+    short.textContent = TOO_SHORT;
+    text.after(short);
     let timer = 0;
     const check = () => {
-      if (text.value.trim().length >= MIN_EXPLAIN) fb.hidden = false;
+      const len = text.value.trim().length;
+      if (len >= MIN_EXPLAIN) fb.hidden = false;
+      short.hidden = !(len > 0 && len < MIN_EXPLAIN);
     };
     text.addEventListener("input", () => {
       clearTimeout(timer);

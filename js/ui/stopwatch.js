@@ -35,7 +35,7 @@ function setupOne(box) {
     num.textContent = fmt(now());
     start.innerHTML = running
       ? `${icon("stop")}<span>עצירה</span>`
-      : `${icon("play")}<span>${elapsed ? "המשך" : "התחלה"}</span>`;
+      : `${icon("play")}<span>התחלה</span>`;
     box.classList.toggle("is-running", running);
   }
 

@@ -77,12 +77,30 @@ export function renderJournalPage() {
   printBtn.innerHTML = `${icon("print")}<span>הדפסה</span>`;
   printBtn.addEventListener("click", () => window.print());
 
-  document.getElementById("journal-reset").addEventListener("click", () => {
-    const ok = window.confirm(
-      "למחוק את כל מה שנשמר במחשב הזה? היומן, החלקים שהושלמו והמקום שבו עצרתם יימחקו. אי אפשר לבטל."
-    );
-    if (!ok) return;
-    clearAll();
-    location.href = "index.html";
+  // התחלה מחדש – הטקסטים מתוך "טקסטי ממשק" במילון
+  const resetBtn = document.getElementById("journal-reset");
+  const dlg = document.createElement("dialog");
+  dlg.className = "confirm-dialog";
+  dlg.setAttribute("aria-labelledby", "reset-title");
+  dlg.innerHTML = `
+    <h2 id="reset-title">התחלה מחדש</h2>
+    <p>כל מה שכתבתם במחשב הזה יימחק. להמשיך?</p>
+    <div class="confirm-actions">
+      <button type="button" class="btn btn-danger-solid" value="yes">מחיקה</button>
+      <button type="button" class="btn btn-secondary" value="no">ביטול</button>
+    </div>`;
+  document.body.append(dlg);
+  dlg.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+    dlg.close();
+    if (b.value === "yes") {
+      clearAll();
+      location.href = "index.html";
+    } else {
+      resetBtn.focus();
+    }
+  }));
+  resetBtn.addEventListener("click", () => {
+    if (typeof dlg.showModal === "function") dlg.showModal();
+    else if (window.confirm("כל מה שכתבתם במחשב הזה יימחק. להמשיך?")) { clearAll(); location.href = "index.html"; }
   });
 }

@@ -18,6 +18,7 @@ import { setupReminder } from "./ui/reminder.js";
 import { setupOrders } from "./ui/order.js";
 import { setupSlides } from "./ui/slides.js";
 import { setupStopwatches } from "./ui/stopwatch.js";
+import { setupTerms } from "./ui/terms.js";
 import { setupVideos, setupCheckpoints, setupRevealAfter, setupExpFeedback, setupExplore } from "./ui/station-kit.js";
 
 renderHeader();
@@ -32,6 +33,7 @@ if (document.body.dataset.station) {
   setupExpFeedback();
   setupStopwatches();
   setupExplore();
+  setupTerms();
   setupHints();
   setupLocks();
   setupOrders();

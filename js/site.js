@@ -20,7 +20,7 @@ export const challenge = { id: "challenge", title: "אתגר", sub: "התוכנ�
 
 // כלים שמופיעים בתפריט מימין לתחנות
 export const tools = [
-  { id: "glossary", title: "מילון מושגים", href: "glossary.html", ready: false },
+  { id: "glossary", title: "מילון מושגים", href: "glossary.html", ready: true  },
   { id: "journal",  title: "יומן המהנדס",  href: "journal.html",  ready: true  },
 ];
 

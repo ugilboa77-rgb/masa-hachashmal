@@ -34,6 +34,27 @@ function partNum(el) {
   return part ? Number(part.dataset.part) : 0;
 }
 
+/** "נשמר ביומן" – סימן קטן מתחת לשדה, שמופיע אחרי שמפסיקים להקליד */
+function savedNote(el) {
+  let span = null;
+  let timer = 0;
+  return {
+    show() {
+      if (!span) {
+        span = document.createElement("span");
+        span.className = "saved-note";
+        span.innerHTML = `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>נשמר ביומן`;
+        const td = el.closest("td");
+        if (td && el.tagName !== "FIELDSET") td.append(span);
+        else el.after(span);
+      }
+      span.classList.remove("is-on");
+      clearTimeout(timer);
+      timer = setTimeout(() => span.classList.add("is-on"), 700);
+    },
+  };
+}
+
 /** שולח אירוע כדי שרכיבים אחרים (נעילה, העתקה) ידעו שמשהו השתנה */
 function announce(el, value) {
   el.dispatchEvent(new CustomEvent("journal-change", { bubbles: true, detail: { value } }));
@@ -46,7 +67,9 @@ function bindText(el, stationId) {
   const myOrder = order++;
 
   // שומרים בכל הקלדה, כך ששום דבר לא הולך לאיבוד גם אם סוגרים את הלשונית
+  const note = savedNote(el);
   el.addEventListener("input", () => {
+    note.show();
     setJournalEntry(stationId, key, {
       label: labelFor(el), value: el.value.trim(), order: myOrder, part: partNum(el),
     });
@@ -63,12 +86,14 @@ function bindChoice(fs, stationId) {
     if (match) match.checked = true;
   }
   const myOrder = order++;
+  const note = savedNote(fs);
   radios.forEach((r) => {
     r.addEventListener("change", () => {
       if (!r.checked) return;
       setJournalEntry(stationId, key, {
         label: labelFor(fs), value: r.value, order: myOrder, part: partNum(fs),
       });
+      note.show();
       announce(fs, r.value);
     });
   });
