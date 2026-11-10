@@ -33,3 +33,32 @@ body {
 h1, h2, h3, .journal-list dt { color: #000; }
 .journal-num { background: none; color: #000; border: 1px solid #000; }
 .journal-list dd { border-inline-start-color: #000; }
+
+/* ----- דפי ניסוי, כרטיסים ומחוון (print.html) ----- */
+.print-bar { display: none !important; }
+.sheet { border: 0; padding: 0; border-radius: 0; }
+.sheet h1, .sheet h2, .sheet-eyebrow { color: #000; }
+.sheet-two { grid-template-columns: 1fr 1fr; }
+.sheet section { break-inside: avoid; }
+.print-table th, .print-table td { border-color: #000; }
+.ch-table th, .ch-table td { border: 1px solid #000; }
+.table-card { font-size: 16pt; }
+
+/* ----- עמוד המורה: פותחים את כל המדריכים בהדפסה ----- */
+.teacher-page details > *:not(summary) { display: block; }
+.t-meta { display: none; }
+
+/* דף ניסוי נכנס בעמוד A4 אחד */
+.sheet:not(.table-card) { font-size: 10.5pt; line-height: 1.4; }
+.sheet:not(.table-card) h1 { font-size: 16pt; margin: 2pt 0 4pt; }
+.sheet:not(.table-card) h2 { font-size: 12pt; margin: 8pt 0 3pt; }
+.sheet:not(.table-card) .goal { font-size: 11pt; margin: 0 0 4pt; }
+.sheet:not(.table-card) p { margin-bottom: 3pt; }
+.sheet:not(.table-card) li { margin-bottom: 2pt; }
+.sheet:not(.table-card) .sheet-head { margin-bottom: 6pt; padding-bottom: 4pt; }
+.sheet:not(.table-card) .print-table th,
+.sheet:not(.table-card) .print-table td { height: auto; padding: 4pt 6pt; }
+.sheet:not(.table-card) .print-table td { height: 22pt; }
+.sheet:not(.table-card) .sheet-q { margin-top: 5pt; }
+.sheet:not(.table-card) .write-lines span { height: 18pt; }
+.sheet-safety { padding: 0 6pt 4pt; }

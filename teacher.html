@@ -1,0 +1,217 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>למורה · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<!--
+  עמוד המורה. לא מופיע בתפריט התלמידים, ולא נעול.
+  הטקסטים מתוך:
+    docs/מסמך דרישות … (מטרות התחנות, קצב אישי, אזור המורה)
+    docs/content/… (החלקים "למורה" בכל תחנה, ומקורות "ובישראל?")
+  הקישורים לטפסים נלקחים מ-js/config.js
+-->
+<body data-page="teacher">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="page teacher-page">
+    <p class="eyebrow">מסע החשמל</p>
+    <h1>למורה</h1>
+    <p class="lead">עמוד המורה רק לא מופיע בתפריט ולא נעול, ותלמיד שמגיע אליו יראה רק הנחיות למורה. תשובות למעבדות נשמרות מחוץ לאתר, במסמך נפרד של המורה.</p>
+
+    <!-- ===== כללי ===== -->
+    <section class="t-section" aria-labelledby="t-general">
+      <h2 id="t-general">איך היחידה עובדת</h2>
+      <div class="card">
+        <h3>קצב אישי וליווי המורה</h3>
+        <p>כל תלמיד מתקדם בקצב שלו, והמורה מסתובב בכיתה ומלווה. לוח השבועות הוא המלצה ולא חובה: תלמיד שסיים תחנה עובר לבאה, ותלמיד שצריך יותר זמן ממשיך באותה תחנה בשבוע שאחרי או בבית.</p>
+        <p><strong>סדר גמיש בין מעבדה לניסוי פיזי:</strong> חלקים 4 ו-5 כתובים כך שאפשר לעשות אותם בכל סדר. כך העומס על שולחן הניסויים מתפזר, ומספיקות 3–4 ערכות לתחנה, בתנאי שעובדים בשלישיות. כשכל הערכות תפוסות, התלמיד עובר למעבדה וחוזר לניסוי אחר כך. מותר להשלים את הניסוי גם בשבוע שאחרי.</p>
+        <p><strong>הערה על הצגה על הלוח:</strong> בכל הדמיה יש כפתור "מסך מלא", כדי שתוכל להקרין אותה בשעה הפרונטלית.</p>
+      </div>
+      <div class="card">
+        <h3>מה המורה רואה ומה לא</h3>
+        <ul>
+          <li>ב-Classroom המורה רואה מי הגיש איזו נקודת ביקורת, וזו תמונת ההתקדמות לאורך השבועות.</li>
+          <li>בתוך השיעור, התמונה מגיעה מכרטיסי הרמזור ומהסיבוב בכיתה.</li>
+          <li>אין לוח מעקב חי, כי זה דורש שרת ושמירת מידע על תלמידים. אם יתברר שחסר, אפשר להוסיף בהמשך טופס קצר "איפה אני?" שהתלמיד ממלא בסוף כל שיעור.</li>
+        </ul>
+        <p><strong>יומן מהנדס ב-Google Docs, מגבלה:</strong> ההעתקה ידנית, ותלמיד יכול לשכוח להדביק. שווה לבדוק בסוף השיעור הראשון שכל היומנים התמלאו, עד שזה נהיה הרגל.</p>
+        <p>המרפאה והמאפייה נותנות לתלמידים סיבה אמיתית למה חשוב שלא יהיו שעות חושך, והן חוזרות באתגר.</p>
+      </div>
+      <div class="card">
+        <h3>קישורים</h3>
+        <p>כל הקישורים נמצאים בקובץ <code>js/config.js</code>. ההסבר המלא נמצא בקובץ README.</p>
+        <ul class="t-links" id="t-links"></ul>
+      </div>
+    </section>
+
+    <!-- ===== דפי הדפסה ===== -->
+    <section class="t-section" aria-labelledby="t-print">
+      <h2 id="t-print">דפי הדפסה</h2>
+      <div class="card">
+        <ul class="t-print-list">
+          <li><span>דף ניסוי לכל תחנה</span>
+            <a href="print.html?sheet=s1">תחנה 1</a> <a href="print.html?sheet=s2">תחנה 2</a> <a href="print.html?sheet=s3">תחנה 3</a></li>
+          <li><span>כרטיס הוראות לשולחן הניסוי</span>
+            <a href="print.html?card=s1">תחנה 1</a> <a href="print.html?card=s2">תחנה 2</a> <a href="print.html?card=s3">תחנה 3</a></li>
+          <li><span>יומן המהנדס של התלמיד</span> <a href="journal.html">יומן המהנדס</a></li>
+          <li><span>מחוון האתגר</span> <a href="print.html?rubric=1">אי האנרגיה</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== מדריך לכל תחנה ===== -->
+    <section class="t-section" aria-labelledby="t-stations">
+      <h2 id="t-stations">מדריך לכל תחנה</h2>
+
+      <details class="card t-station">
+        <summary>תחנה 0: נקודת זינוק</summary>
+        <p><strong>מטרה:</strong> להכיר את הסיפור ואת האתר, ולאסוף ידע מוקדם.</p>
+        <p>אין הדמיה ואין ניסוי פיזי. התחנה נעשית בתחילת שבוע 1, לפני המחולל.</p>
+        <ul>
+          <li><strong>תפיסה שגויה נפוצה:</strong> "החשמל נמצא בשקע" או "בקיר". כרטיס 5 מטפל בה.</li>
+          <li><strong>הצעה לשעה הפרונטלית:</strong> לכבות את האור בכיתה לדקה ולשאול מה עוד הפסיק לעבוד. אחר כך להדגים דינמו של אופניים או פנס עם ידית סיבוב, כהכנה לתחנה 1.</li>
+        </ul>
+        <p><a href="station-0.html">לתחנה 0</a></p>
+      </details>
+
+      <details class="card t-station">
+        <summary>תחנה 1: המחולל</summary>
+        <p><strong>מטרות:</strong> במחולל יש מגנט וסליל נחושת. הוא הופך תנועה של סיבוב לחשמל. בלי תנועה אין חשמל. הוא לא יוצר אנרגיה מכלום.</p>
+        <ul>
+          <li><strong>תפיסות שגויות:</strong> "המחולל יוצר אנרגיה" (כרטיס 4), "במחולל יש סוללה" (משימת התיקון), "מגנט חזק מספיק גם בלי תנועה" (ניסוי המצפן, שורה 4).</li>
+          <li><strong>הכנת הערכה:</strong> חוט נחושת מבודד (מצופה לכה). מגרדים את הציפוי בקצוות לפני שמחברים. המצפן חייב להיות רחוק מהמגנט, אחרת המגנט עצמו מזיז את המחט והתוצאה מטעה.</li>
+          <li><strong>גרסה חלופית:</strong> פנס עם ידית סיבוב. מסובבים לאט ומהר, ומשווים את האור. בפנס עם סוללה נטענת האור לא תמיד משתנה מיד, ולכן עדיף דגם בלי סוללה.</li>
+          <li><strong>שעה פרונטלית:</strong> להציג במקרן תשובות משאלת הניבוי (בלי שמות) ולברר מי שינה את דעתו ולמה.</li>
+        </ul>
+        <p class="t-meta"><span data-checkpoint-link="station1"></span> <a href="print.html?sheet=s1">דף ניסוי</a> <a href="print.html?card=s1">כרטיס לשולחן</a> <a href="station-1.html">לתחנה 1</a></p>
+      </details>
+
+      <details class="card t-station">
+        <summary>תחנה 2: טורבינת רוח</summary>
+        <p><strong>מטרות:</strong> הרוח מסובבת את הלהבים, והלהבים מסובבים מחולל. ככל שהרוח חזקה יותר, יש יותר חשמל. בלי רוח אין חשמל, וברוח סוערת מדי עוצרים את הטורבינה כדי לשמור עליה. לא קובעים מתי יש רוח.</p>
+        <ul>
+          <li><strong>תפיסות שגויות:</strong> "סערה = הכי הרבה חשמל", "טורבינה עובדת כל הזמן", "הטורבינה עצמה היא המחולל". הטורבינה מסובבת, המחולל מייצר.</li>
+          <li><strong>הכנת הערכה:</strong> כדאי להכין את הטורבינות מראש ב-MakerSpace. הצבעות של המאוורר צריכות להיות מוגנות.</li>
+        </ul>
+        <p class="t-meta"><span data-checkpoint-link="station2"></span> <a href="print.html?sheet=s2">דף ניסוי</a> <a href="print.html?card=s2">כרטיס לשולחן</a> <a href="station-2.html">לתחנה 2</a></p>
+      </details>
+
+      <details class="card t-station">
+        <summary>תחנה 3: תחנה הידרואלקטרית</summary>
+        <p><strong>מטרות:</strong> מים נופלים מסובבים טורבינה, והטורבינה מסובבת מחולל. ככל שהמים נופלים מגובה גבוה יותר ויש יותר מים, יש יותר חשמל. סכר שומר מים, ולכן אפשר לייצר חשמל מתי שצריך. זה ההבדל החשוב מרוח.</p>
+        <ul>
+          <li><strong>תפיסות שגויות:</strong> "המים נהפכים לחשמל" או "נעלמים". המים רק מסובבים, וממשיכים לזרום בנהר.</li>
+          <li><strong>קשר לאתגר:</strong> זו התחנה שבה תלמידים מגלים את הרעיון של אגירה. באתגר הסכר הוא הכלי העיקרי לכסות שעות ערב בלי רוח.</li>
+          <li><strong>סידור:</strong> שולחן הניסוי צריך לעמוד ליד כיור, ורחוק מהמחשבים.</li>
+        </ul>
+        <p class="t-meta"><span data-checkpoint-link="station3"></span> <a href="print.html?sheet=s3">דף ניסוי</a> <a href="print.html?card=s3">כרטיס לשולחן</a> <a href="station-3.html">לתחנה 3</a></p>
+      </details>
+
+      <details class="card t-station">
+        <summary>תחנה 4: תחנה קיטורית</summary>
+        <p><strong>מטרות:</strong> שריפת דלק מרתיחה מים, הקיטור מסובב טורבינה, והטורבינה מסובבת מחולל. התחנה עובדת יום ולילה, כל עוד יש דלק. היא מזהמת אוויר ותלויה באספקת דלק.</p>
+        <p>בתחנה הזו אין ניסוי של תלמידים, כי הוא דורש אש ומים רותחים. במקומו יש הדגמת מורה או סרטון.</p>
+        <ul>
+          <li><strong>הדגמה במקום ניסוי:</strong> קומקום חשמלי רותח, וסביבון מחושות קל שמוחזק במקל מעל הפתח. התלמידים מסתכלים ממרחק ומסמנים בתרשים המסלול איפה הם רואים את הדוד, את הקיטור ואת הטורבינה. המורה בלבד מחזיק את הסביבון.</li>
+          <li><strong>תפיסות שגויות:</strong> "האש הופכת לחשמל" ו"העשן מסובב את הטורבינה". שאלת הניבוי בפתיחה מזהה את שתיהן.</li>
+          <li><strong>בטיחות בהדגמה:</strong> קיטור שורף. התלמידים עומדים במרחק מטר לפחות, והסביבון מוחזק במקל ארוך.</li>
+          <li><strong>זמן:</strong> התחנה קצרה יותר כי היא משתפת את שבוע 4 עם תחנת ההשוואה. את ההדגמה אפשר לעשות בשעה הפרונטלית.</li>
+        </ul>
+        <p class="t-meta"><span data-checkpoint-link="stations4and5"></span> <a href="station-4.html">לתחנה 4</a></p>
+      </details>
+
+      <details class="card t-station">
+        <summary>תחנה 5: השוואה</summary>
+        <p><strong>מטרות:</strong> להשוות בין שלוש התחנות לפי קריטריונים, ולהבין שאין פתרון מושלם.</p>
+        <ul>
+          <li><strong>הרעיון המרכזי של התחנה:</strong> שתלמידים ישימו את "מסובבת מחולל" בכל שלוש התחנות בעצמם. תלמיד שלא עושה זאת צריך שיחה קצרה.</li>
+          <li><strong>הצעה לשעה הפרונטלית:</strong> להעלות את ישיבת המועצה כמשחק תפקידים: קבוצה אחת מייצגת כל תחנה ומשכנעת את המועצה.</li>
+        </ul>
+        <p class="t-meta"><span data-checkpoint-link="stations4and5"></span> <a href="station-5.html">לתחנה 5</a></p>
+      </details>
+
+      <details class="card t-station">
+        <summary>אתגר: אי האנרגיה</summary>
+        <ul>
+          <li><strong>תוכנית שעובדת בניסיון הראשון היא סימן אזהרה, לא הצלחה:</strong> המחוון מעריך תהליך של שיפור. תלמיד כזה מקבל משימה: "מצא תוכנית שעולה פחות כסף או מזהמת פחות".</li>
+          <li><strong>שיעור מסכם מומלץ:</strong> להציג על הלוח שלוש תוכניות שונות מהכיתה, ולהראות שאין תשובה אחת נכונה.</li>
+        </ul>
+        <h3>תוכניות לדוגמה</h3>
+        <p>מתוך הכיול (<code>docs/calibration.md</code>). אפשר להדביק כל קוד ב"טעינת תוכנית" בעמוד האתגר.</p>
+        <div class="table-scroll">
+          <table class="ch-table">
+            <thead><tr><th scope="col">תוכנית</th><th scope="col">עלות</th><th scope="col">שעות חושך (סוער / שקט / קיץ)</th><th scope="col">עשן</th><th scope="col">קוד</th></tr></thead>
+            <tbody>
+              <tr><td>6 טורבינות ברכס + סכר</td><td>95</td><td class="ch-num">0 / 1 / 0</td><td>נקי</td><td><code>W600-H1111-S0-0000</code></td></tr>
+              <tr><td>3 טורבינות ברכס + סכר + קיטורית קטנה רק בערב</td><td>94</td><td class="ch-num">0 / 0 / 0</td><td>מעט</td><td><code>W300-H1111-S1-0001</code></td></tr>
+              <tr><td>2 טורבינות ברכס + סכר + קיטורית קטנה מהבוקר עד הערב</td><td>84</td><td class="ch-num">0 / 0 / 0</td><td>הרבה</td><td><code>W200-H1111-S1-0111</code></td></tr>
+              <tr><td>סכר + קיטורית גדולה, בלי טורבינות</td><td>91</td><td class="ch-num">0 / 0 / 0</td><td>הרבה</td><td><code>W000-H1001-S2-0111</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="t-meta"><span data-form-link="challengeForm"></span> <a href="print.html?rubric=1">מחוון להדפסה</a> <a href="challenge.html">לאתגר</a></p>
+      </details>
+    </section>
+
+    <!-- ===== מקורות ===== -->
+    <section class="t-section" aria-labelledby="t-sources">
+      <h2 id="t-sources">מקורות לתיבות "ובישראל?"</h2>
+      <div class="card">
+        <div class="table-scroll">
+          <table class="ch-table">
+            <thead><tr><th scope="col">עובדה</th><th scope="col">מקור</th></tr></thead>
+            <tbody>
+              <tr><td>רשת החשמל של ישראל לא מחוברת לרשתות של מדינות שכנות</td><td><a href="https://en.wikipedia.org/wiki/Electricity_sector_in_Israel" target="_blank" rel="noopener">Electricity sector in Israel</a></td></tr>
+              <tr><td>חוות הרוח בעמק הבכא, רמת הגולן, הופעלה ב-2022</td><td><a href="https://gem.wiki/Emek_HaBacha_wind_farm" target="_blank" rel="noopener">Emek HaBacha wind farm</a></td></tr>
+              <tr><td>תחנת נהריים: נפתחה ב-1932, הקים פנחס רוטנברג, פעלה עד 1948, על הירדן והירמוך</td><td><a href="https://en.wikipedia.org/wiki/First_Jordan_Hydro-Electric_Power_House" target="_blank" rel="noopener">First Jordan Hydro-Electric Power House</a></td></tr>
+              <tr><td>התחנה השאובה בגלבוע: שני מאגרים, פועלת מאז 2020</td><td><a href="https://www.renewableenergyworld.com/energy-storage/pumped-storage/israels-300-mw-mount-gilboa-pumped-storage-begins-operating/" target="_blank" rel="noopener">Renewable Energy World</a></td></tr>
+              <tr><td>אורות רבין: התחנה הגדולה בישראל, בחדרה, מקוררת במי ים, עוברת מפחם לגז</td><td><a href="https://en.wikipedia.org/wiki/Orot_Rabin" target="_blank" rel="noopener">Orot Rabin</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>ברוב המקורות המספרים משתנים משנה לשנה, ולכן התיבות כתובות בלי אחוזים ובלי מגה-וואט.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module">
+    import { config } from "./js/config.js";
+    import { linkButton } from "./js/ui/links.js";
+
+    // כפתורי נקודות הביקורת וטופס ההגשה
+    document.querySelectorAll("[data-checkpoint-link]").forEach((el) => {
+      el.replaceWith(linkButton(config.checkpoints[el.dataset.checkpointLink], "נקודת הביקורת", "btn-secondary"));
+    });
+    document.querySelectorAll("[data-form-link]").forEach((el) => {
+      el.replaceWith(linkButton(config[el.dataset.formLink], "טופס ההגשה", "btn-secondary"));
+    });
+
+    // מצב הקישורים בקובץ ההגדרות
+    const rows = [
+      ["סרטון: איך מחולל עובד (תחנה 1)", config.videos.station1.video1],
+      ["סרטון: מחולל אמיתי בתחנת כוח (תחנה 1)", config.videos.station1.video2],
+      ["סרטון: איך עובדת טורבינת רוח (תחנה 2)", config.videos.station2.video1],
+      ["סרטון: בתוך בית המכונות (תחנה 2)", config.videos.station2.video2],
+      ["סרטון: איך עובדת תחנה הידרואלקטרית (תחנה 3)", config.videos.station3.video1],
+      ["סרטון: איך עובדת תחנת כוח קיטורית (תחנה 4)", config.videos.station4.video1],
+      ["נקודת ביקורת: המחולל", config.checkpoints.station1],
+      ["נקודת ביקורת: טורבינת רוח", config.checkpoints.station2],
+      ["נקודת ביקורת: תחנה הידרואלקטרית", config.checkpoints.station3],
+      ["נקודת ביקורת: קיטור והשוואה", config.checkpoints.stations4and5],
+      ["Classroom", config.classroom],
+      ["יומן מהנדס (Google Docs)", config.journalDoc],
+      ["טופס הגשת האתגר", config.challengeForm],
+    ];
+    document.getElementById("t-links").innerHTML = rows.map(([name, v]) =>
+      `<li class="${v ? "is-set" : "is-missing"}"><span class="t-link-state">${v ? "✓ יש קישור" : "○ חסר"}</span> ${name}</li>`).join("");
+  </script>
+</body>
+</html>

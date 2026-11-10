@@ -1,0 +1,35 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>דף להדפסה · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<!--
+  דפי הדפסה (A4, קריאים בשחור-לבן). הדף נבנה מתוך עמודי התחנות עצמם,
+  כך שכל תיקון בטקסט של תחנה מופיע גם בדף ההדפסה.
+    print.html?sheet=s1     דף ניסוי לתחנה 1 (גם s2, s3)
+    print.html?card=s1      כרטיס הוראות לשולחן הניסוי (גם s2, s3)
+    print.html?rubric=1     מחוון האתגר
+  נפתח מעמוד המורה (teacher.html).
+-->
+<body data-page="print" class="print-page">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <main id="main" class="page">
+    <div class="print-bar">
+      <a class="btn btn-secondary" href="teacher.html">לעמוד המורה</a>
+      <button type="button" class="btn btn-primary" id="print-now"></button>
+    </div>
+    <article id="sheet" class="sheet"></article>
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/print-sheet.js"></script>
+</body>
+</html>
