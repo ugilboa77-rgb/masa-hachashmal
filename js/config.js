@@ -15,7 +15,7 @@ export const config = {
   // ----- סרטונים: מזהה YouTube לכל תחנה -----
   videos: {
     station1: {
-      video1: "",            // איך מחולל עובד
+      video1: "TovN1VKPNOA", // איך מחולל עובד
       video2: "",            // [אם יש זמן] מחולל אמיתי בתחנת כוח
     },
     station2: {
