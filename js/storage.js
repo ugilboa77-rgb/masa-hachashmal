@@ -27,13 +27,25 @@ export function isAvailable() {
   return available;
 }
 
-/** קריאת ערך. אם אין ערך או שהוא פגום – מחזיר את ברירת המחדל. */
+/** האם הערך השמור מאותו סוג כמו ברירת המחדל (רשימה, אובייקט, מחרוזת...)? */
+function sameKind(value, fallback) {
+  if (value === null) return false;
+  if (fallback === null || fallback === undefined) return true;
+  if (Array.isArray(fallback)) return Array.isArray(value);
+  if (typeof fallback === "object") return typeof value === "object" && !Array.isArray(value);
+  return typeof value === typeof fallback;
+}
+
+/** קריאת ערך. אם אין ערך, או שהוא פגום או מסוג לא צפוי – מחזיר את ברירת המחדל. */
 export function load(key, fallback = null) {
   const fullKey = PREFIX + key;
   try {
     if (isAvailable()) {
       const raw = window.localStorage.getItem(fullKey);
-      if (raw !== null) return JSON.parse(raw);
+      if (raw !== null) {
+        const value = JSON.parse(raw);
+        if (sameKind(value, fallback)) return value;
+      }
     }
   } catch {
     // ערך פגום או אחסון חסום – ממשיכים לגיבוי

@@ -175,9 +175,9 @@ host.innerHTML = `
 
   <div class="ch-results" hidden>
     <div class="ch-metrics">
-      <div class="ch-metric">${METRIC_ICONS.dark}<p><span class="ch-metric-name">חושך</span><strong class="ch-m-dark"></strong></p></div>
-      <div class="ch-metric">${METRIC_ICONS.money}<p><span class="ch-metric-name">כסף</span><strong class="ch-m-money"></strong></p></div>
-      <div class="ch-metric">${METRIC_ICONS.air}<p><span class="ch-metric-name">אוויר</span><strong class="ch-m-air"></strong></p></div>
+      <div class="ch-metric">${METRIC_ICONS.dark}<p><span class="ch-metric-name">חושך</span><strong class="ch-m-dark"></strong><span class="ch-metric-desc">כמה שעות בשלושת הימים הכפר היה בלי חשמל.</span></p></div>
+      <div class="ch-metric">${METRIC_ICONS.money}<p><span class="ch-metric-name">כסף</span><strong class="ch-m-money"></strong><span class="ch-metric-desc">כמה מטבעות הוצאו, כולל דלק.</span></p></div>
+      <div class="ch-metric">${METRIC_ICONS.air}<p><span class="ch-metric-name">אוויר</span><strong class="ch-m-air"></strong><span class="ch-metric-desc">כמה עשן עלה מעל האי (נקי / מעט עשן / הרבה עשן).</span></p></div>
     </div>
     <p class="feedback feedback-note ch-naama" hidden></p>
     <ul class="ch-events"></ul>

@@ -62,7 +62,9 @@ export function createLoop(host, tick) {
  * מד חשמל 0–10.
  * מחזיר אובייקט עם set(value) – הערך יכול להיות שבר, המספר מוצג שלם.
  */
+let meterCount = 0;
 export function createMeter(host, { label = "מד חשמל" } = {}) {
+  const labelId = `meter-label-${++meterCount}`;
   const cx = 100, cy = 104, r = 80;
   const point = (v, rad) => {
     const a = Math.PI - (v / 10) * Math.PI;
@@ -80,7 +82,7 @@ export function createMeter(host, { label = "מד חשמל" } = {}) {
   const box = document.createElement("div");
   box.className = "meter";
   box.innerHTML = `
-    <p class="meter-label" id="${host.id || "m"}-meter-label">${label}</p>
+    <p class="meter-label" id="${labelId}">${label}</p>
     <svg class="meter-svg" viewBox="0 0 200 118" aria-hidden="true" focusable="false">
       <path class="meter-track" d="M20 104 A80 80 0 0 1 180 104"/>
       <path class="meter-fill" d="M20 104 A80 80 0 0 1 180 104" pathLength="100"/>
