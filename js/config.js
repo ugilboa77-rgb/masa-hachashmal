@@ -27,6 +27,7 @@ export const config = {
     },
     station4: {
       video1: "z9xtwRLtKkI", // איך עובדת תחנת כוח קיטורית
+      video2: "n7e65NONaME", // [אם יש זמן] תחנת הכוח התרמו-סולרית באשלים (קיטור מחום השמש)
     },
   },
 

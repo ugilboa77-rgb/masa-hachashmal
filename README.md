@@ -48,7 +48,7 @@ checkpoints: {
 | `videos.station1.video1` / `video2` | תחנה 1: איך מחולל עובד / מחולל אמיתי בתחנת כוח |
 | `videos.station2.video1` / `video2` | תחנה 2: איך עובדת טורבינת רוח / בתוך בית המכונות |
 | `videos.station3.video1` | תחנה 3: איך עובדת תחנה הידרואלקטרית |
-| `videos.station4.video1` | תחנה 4: איך עובדת תחנת כוח קיטורית |
+| `videos.station4.video1` / `video2` | תחנה 4: איך עובדת תחנת כוח קיטורית / תחנת הכוח באשלים |
 | `checkpoints.station1` … `station3` | נקודות הביקורת של תחנות 1–3 |
 | `checkpoints.stations4and5` | נקודת הביקורת המשותפת לתחנות 4 ו-5 |
 | `classroom` | הכיתה ב-Classroom |
