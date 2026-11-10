@@ -1,0 +1,337 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תחנה 3: תחנה הידרואלקטרית · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  תחנה 3: תחנה הידרואלקטרית
+  הטקסטים מתוך docs/content/תחנה 3 הידרואלקטרית.md
+  ההדמיות: js/sims/hydro.js. החיבורים של העמוד: js/station-3.js
+-->
+<body data-page="s3" data-station="s3" data-reminder="station2">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">תחנה 3</p>
+      <h1>תחנה הידרואלקטרית</h1>
+      <p class="station-hero-question">איך המפל בצפון האי יכול להדליק אור בכפר?</p>
+      <div class="station-hero-learn">
+        <p>בתחנה הזו תלמדו:</p>
+        <ul>
+          <li>איך מים נופלים מסובבים מחולל.</li>
+          <li>מה משפיע על כמות החשמל.</li>
+          <li>למה סכר מאפשר לייצר חשמל מתי שצריך.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="page station-page">
+
+    <nav id="station-progress"></nav>
+
+    <!-- ===== 1. פתיחה מהאי ===== -->
+    <section class="part" data-title="פתיחה מהאי" data-tag="core" data-time="5 דק'">
+      <h2>פתיחה מהאי</h2>
+      <figure class="story">
+        <svg class="story-svg" viewBox="0 0 800 340" role="img" aria-label="מפל השחף: הנחל נופל מצוק גבוה אל בריכה עמוקה.">
+          <rect width="800" height="340" fill="#E6EFF9"/>
+          <path d="M0 60 L120 20 L260 70 L300 40 L360 300 H0 Z" fill="#A9B5C6"/>
+          <path d="M800 90 L700 50 L560 90 L500 70 L440 300 H800 Z" fill="#A9B5C6"/>
+          <path d="M260 70 L360 60 L420 64 L520 74 L470 160 L330 160 Z" fill="#8C99AD"/>
+          <!-- הנחל למעלה והמפל -->
+          <path d="M300 64 C 340 58, 420 58, 470 66 L456 82 C 420 76, 360 76, 320 80 Z" fill="#4F86C6"/>
+          <path d="M360 80 h70 l18 200 h-108 z" fill="#7FB1E3"/>
+          <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.8">
+            <path d="M372 96 v60"/><path d="M392 110 v80"/><path d="M412 90 v70"/><path d="M430 120 v90"/><path d="M380 190 v60"/><path d="M420 210 v50"/>
+          </g>
+          <!-- הבריכה -->
+          <ellipse cx="400" cy="296" rx="220" ry="34" fill="#4F86C6"/>
+          <g fill="#FFFFFF" opacity="0.85"><circle cx="330" cy="272" r="6"/><circle cx="350" cy="262" r="4"/><circle cx="460" cy="266" r="6"/><circle cx="480" cy="276" r="4"/><circle cx="400" cy="258" r="5"/></g>
+          <!-- שיחים -->
+          <g fill="#9DB57F"><circle cx="90" cy="300" r="26"/><circle cx="130" cy="310" r="20"/><circle cx="690" cy="300" r="28"/><circle cx="730" cy="312" r="20"/></g>
+        </svg>
+      </figure>
+      <p class="story-text">השביל לצפון האי עולה בין סלעים ושיחים, והמשלחת של המועצה שומעת את המפל עוד לפני שהיא רואה אותו. בסוף העלייה מופיע נחל השחף במלוא כוחו: הוא נופל מצוק גבוה אל בריכה עמוקה, והרסיסים מרטיבים את כולם ממרחק של עשרה מטרים. אברהם הדייג מספר שכשהיה ילד, פעם אחת הנחל סחף איתו גזע עץ ענק כאילו היה קיסם. "בחורף הוא חזק מאוד", הוא אומר. "אבל בסוף הקיץ נשאר ממנו רק פלג קטן."</p>
+      <blockquote class="quote">
+        <p><strong>נעמה אומרת:</strong> "כל השנים המים פשוט נופלים שם. אולי הם יכולים לעשות בשבילנו משהו?"</p>
+      </blockquote>
+      <fieldset class="card" data-journal="s3.predict" data-journal-label="הניבוי שלי בפתיחה" id="s3-predict">
+        <legend>מה ייצר יותר חשמל: מים שנופלים מגובה נמוך, או מגובה רב? או שזה לא משנה?</legend>
+        <label class="choice"><input type="radio" name="s3-predict" value="מגובה נמוך"> מגובה נמוך</label>
+        <label class="choice"><input type="radio" name="s3-predict" value="מגובה רב"> מגובה רב</label>
+        <label class="choice"><input type="radio" name="s3-predict" value="זה לא משנה"> זה לא משנה</label>
+      </fieldset>
+    </section>
+
+    <!-- ===== 2. מה צריך לדעת ===== -->
+    <section class="part" data-title="מה צריך לדעת" data-tag="core" data-time="10 דק'">
+      <h2>מה צריך לדעת</h2>
+      <div class="slides" aria-label="כרטיסי מידע">
+        <article class="slide card info-card">
+          <h3>מים מסובבים</h3>
+          <p>מים נופלים דוחפים את הכפות של ה<strong>טורבינה</strong>, גלגל עם כפות. הטורבינה מסתובבת ומסובבת מחולל. שוב אותו מחולל!</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>הסכר</h3>
+          <p><strong>סכר</strong> הוא קיר ענק שעוצר את הנהר. מאחוריו נוצר אגם גדול, המאגר. כשפותחים שער בסכר, המים נופלים דרך צינור אל הטורבינה שלמטה.</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 600 300" role="img" aria-label="מאגר מאחורי סכר. בתחתית הסכר שער, וממנו צינור יורד אל טורבינה ומחולל. אחרי הטורבינה המים ממשיכים בנהר.">
+              <rect width="600" height="300" rx="14" fill="#F6F8FB"/>
+              <path d="M0 230 H600 V300 H0 Z" fill="#B9C79E"/>
+              <path d="M0 70 H196 L206 230 H0 Z" fill="#7FB1E3"/>
+              <path d="M196 40 L214 40 L240 230 L190 230 Z" fill="#8C99AD" stroke="#4A5870" stroke-width="2"/>
+              <rect x="212" y="196" width="16" height="22" fill="#A5561F"/>
+              <path d="M226 207 C 290 207, 330 214, 380 214" fill="none" stroke="#4A5870" stroke-width="12" stroke-linecap="round"/>
+              <path d="M226 207 C 290 207, 330 214, 380 214" fill="none" stroke="#7FB1E3" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="398" cy="214" r="20" fill="#E6EDF7" stroke="#4A5870" stroke-width="3"/>
+              <path d="M398 194 V234 M378 214 H418" stroke="#4A5870" stroke-width="3"/>
+              <path d="M418 214 H440" stroke="#4A5870" stroke-width="5"/>
+              <rect x="440" y="198" width="30" height="32" rx="4" fill="#A5561F"/>
+              <path d="M470 236 C 520 236, 560 240, 600 240" stroke="#4F86C6" stroke-width="10" fill="none"/>
+              <g font-family="Rubik, Assistant, sans-serif" font-size="20" font-weight="600" fill="#12284A" text-anchor="middle">
+                <text x="90" y="120">מאגר</text>
+                <text x="215" y="28">סכר</text>
+                <path d="M220 218 V258" stroke="#12284A" stroke-width="2"/><text x="220" y="280">שער</text>
+                <path d="M310 210 V172" stroke="#12284A" stroke-width="2"/><text x="310" y="162">צינור</text>
+                <path d="M398 194 V140" stroke="#12284A" stroke-width="2"/><text x="398" y="130">טורבינה</text>
+                <path d="M455 198 V96" stroke="#12284A" stroke-width="2"/><text x="470" y="86">מחולל</text>
+                <text x="555" y="272">נהר</text>
+              </g>
+            </svg>
+          </figure>
+        </article>
+        <article class="slide card info-card">
+          <h3>גובה וכמות</h3>
+          <p>ככל שהמים נופלים מגובה רב יותר, הם מסובבים חזק יותר. וככל שעוברים יותר מים, יש יותר חשמל.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>חשמל לפי הזמנה</h3>
+          <p>הרוח מגיעה מתי שהיא רוצה. אבל מים שעומדים במאגר מחכים לנו. פותחים את השער בדיוק כשצריך חשמל, למשל בערב. זה ההבדל החשוב בין מים לרוח.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3. צופים ===== -->
+    <section class="part" data-title="צופים" data-tag="core" data-time="10 דק'">
+      <h2>צופים</h2>
+      <p class="watch-before"><strong>לפני הצפייה:</strong> שימו לב: מה קורה למים מהרגע שהם יוצאים מהמאגר ועד שהם חוזרים לנהר?</p>
+      <div class="video-slot" data-video="station3.video1" data-video-title="איך עובדת תחנה הידרואלקטרית"></div>
+      <div class="card watch-after">
+        <h3>אחרי הצפייה</h3>
+        <label class="question" for="s3-watch1">1. איפה נמצאת הטורבינה: למעלה או למטה? למה?</label>
+        <textarea id="s3-watch1" rows="2" data-journal="s3.watch1" data-journal-label="איפה נמצאת הטורבינה: למעלה או למטה? למה?"></textarea>
+        <label class="question q-gap" for="s3-watch2">2. האם המים נעלמים בדרך?</label>
+        <textarea id="s3-watch2" rows="2" data-journal="s3.watch2" data-journal-label="האם המים נעלמים בדרך?"></textarea>
+      </div>
+    </section>
+
+    <!-- ===== 4. מעבדה ===== -->
+    <section class="part part-wide" data-title="מעבדה" data-tag="core" data-time="15–20 דק'">
+      <h2>מעבדה: הסכר של נחל השחף</h2>
+      <div class="lab-wrap">
+        <div class="lab-sim-col">
+          <div id="hydro-sim"></div>
+        </div>
+
+        <div class="lab">
+          <!-- ניסוי 1 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 1: גובה הנפילה</h3>
+              <div class="exp-step">
+                <label for="s3-e1-predict"><span class="step-word">ניבוי:</span> מה יקרה למד כשנגביה את הסכר?</label>
+                <textarea id="s3-e1-predict" rows="2" data-journal="s3.e1.predict" data-journal-label="ניסוי 1 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> השאירו את השער פתוח בחצי. שנו רק את גובה הנפילה ורשמו את המד.</p>
+                <table class="lab-table">
+                  <thead><tr><th scope="col">גובה הנפילה</th><th scope="col">מד חשמל (0–10)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" id="s3-e1-r1">נמוך</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s3-e1-r1" data-journal="s3.e1.low" data-journal-label="ניסוי 1 – נמוך"></td></tr>
+                    <tr><th scope="row" id="s3-e1-r2">בינוני</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s3-e1-r2" data-journal="s3.e1.mid" data-journal-label="ניסוי 1 – בינוני"></td></tr>
+                    <tr><th scope="row" id="s3-e1-r3">גבוה</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s3-e1-r3" data-journal="s3.e1.high" data-journal-label="ניסוי 1 – גבוה"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exp-step">
+                <label for="s3-e1-explain"><span class="step-word">הסבירו:</span> למה בונים תחנות כאלה באזורים הרריים?</label>
+                <textarea id="s3-e1-explain" rows="3" data-explain data-journal="s3.e1.explain" data-journal-label="ניסוי 1 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e1">
+                  <p class="hint" data-level="1">השוו את המד בגובה הנמוך למד בגובה הגבוה.</p>
+                  <p class="hint" data-level="2">באיזה מקום מים נופלים מגובה רב: בהרים או במישור?</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>נכון. נפילה מגובה גדול יותר מסובבת חזק יותר, ולכן מייצרת יותר חשמל. לכן בונים סכרים בהרים.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 2 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 2: כמות המים</h3>
+              <div class="exp-step">
+                <label for="s3-e2-predict"><span class="step-word">ניבוי:</span> מה יקרה כשנפתח את השער יותר?</label>
+                <textarea id="s3-e2-predict" rows="2" data-journal="s3.e2.predict" data-journal-label="ניסוי 2 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> השאירו את הגובה קבוע. פתחו את השער ברבע, בחצי ולגמרי. שימו לב גם למים שבמאגר.</p>
+                <table class="lab-table">
+                  <thead><tr><th scope="col">פתיחת השער</th><th scope="col">מד חשמל (0–10)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" id="s3-e2-r1">ברבע</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s3-e2-r1" data-journal="s3.e2.quarter" data-journal-label="ניסוי 2 – ברבע"></td></tr>
+                    <tr><th scope="row" id="s3-e2-r2">בחצי</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s3-e2-r2" data-journal="s3.e2.half" data-journal-label="ניסוי 2 – בחצי"></td></tr>
+                    <tr><th scope="row" id="s3-e2-r3">לגמרי</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s3-e2-r3" data-journal="s3.e2.full" data-journal-label="ניסוי 2 – לגמרי"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exp-step">
+                <label for="s3-e2-explain"><span class="step-word">הסבירו:</span> מה קרה למאגר כשהשער היה פתוח לגמרי? למה לא תמיד פותחים אותו עד הסוף?</label>
+                <textarea id="s3-e2-explain" rows="3" data-explain data-journal="s3.e2.explain" data-journal-label="ניסוי 2 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e2">
+                  <p class="hint" data-level="1">הסתכלו על מפלס המים במאגר בזמן שהשער פתוח.</p>
+                  <p class="hint" data-level="2">מה יקרה בערב אם המאגר יתרוקן כבר בצהריים?</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>שער פתוח יותר מייצר יותר חשמל, אבל גם מרוקן את המאגר מהר יותר. צריך לתכנן.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 3 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 3: קיץ יבש</h3>
+              <div class="exp-step">
+                <label for="s3-e3-predict"><span class="step-word">ניבוי:</span> בסוף הקיץ זורמים בנחל מעט מים. מה זה יעשה לחשמל?</label>
+                <textarea id="s3-e3-predict" rows="2" data-journal="s3.e3.predict" data-journal-label="ניסוי 3 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> בחרו "חורף" ואחר כך "סוף הקיץ". הפעילו שבוע שלם בכל עונה. נסו לשמור מים לערבים.</p>
+                <div id="hydro-week"></div>
+              </div>
+              <div class="exp-step">
+                <label for="s3-e3-explain"><span class="step-word">הסבירו:</span> באיזו עונה הסכר מספיק לכפר, ובאיזו לא? מה עזר לכם לחסוך מים?</label>
+                <textarea id="s3-e3-explain" rows="3" data-explain data-journal="s3.e3.explain" data-journal-label="ניסוי 3 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e3">
+                  <p class="hint" data-level="1">מתי הכפר צריך הכי הרבה חשמל? שם כדאי לפתוח את השער.</p>
+                  <p class="hint" data-level="2">בשעות שבהן כמעט לא צריכים חשמל, נסו לסגור את השער.</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>בחורף הסכר מספיק, בקיץ רק חלק. רשמו לעצמכם: גם הסכר לבדו לא יספיק כל השנה.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="s3-lab-copy"></div>
+    </section>
+
+    <!-- ===== 5. ניסוי בידיים ===== -->
+    <section class="part" data-title="ניסוי בידיים" data-tag="core" data-time="20 דק'">
+      <h2>ניסוי בידיים: גלגל מים</h2>
+      <p class="goal"><strong>מטרה:</strong> לבדוק איך גובה הנפילה משפיע על סיבוב הגלגל.</p>
+
+      <div class="card">
+        <h3>חומרים</h3>
+        <ul class="materials">
+          <li>גלגל מים מוכן: פקק שעם שמונה כפיות פלסטיק, על שיפוד</li>
+          <li>מגש או גיגית</li>
+          <li>בקבוק של ליטר</li>
+          <li>סרגל</li>
+          <li>מגבת</li>
+        </ul>
+      </div>
+
+      <div class="hands-grid">
+        <div class="card">
+          <h3>שלבים</h3>
+          <ol class="steps-list">
+            <li>עבדו רק מעל המגש. אחד מחזיק את השיפוד משני הצדדים.</li>
+            <li>שפכו מים מגובה 10 ס״מ מעל הגלגל. ספרו כמה סיבובים הוא עושה ב-10 שניות. סמנו כף אחת בטוש כדי שיהיה קל לספור.</li>
+            <li>חזרו על זה מגובה 30 ס״מ ו-50 ס״מ.</li>
+            <li>נסו לשפוך תמיד באותו קצב. למה זה חשוב?</li>
+          </ol>
+        </div>
+        <div class="card stopwatch"></div>
+      </div>
+
+      <div class="card">
+        <h3>טבלת תצפיות</h3>
+        <table class="obs-table">
+          <thead><tr><th scope="col">גובה השפיכה</th><th scope="col">סיבובים ב-10 שניות</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" id="s3-o1">10 ס״מ</th><td><input type="number" inputmode="numeric" min="0" aria-labelledby="s3-o1" data-journal="s3.hands.h10" data-journal-label="10 ס״מ – סיבובים ב-10 שניות"></td></tr>
+            <tr><th scope="row" id="s3-o2">30 ס״מ</th><td><input type="number" inputmode="numeric" min="0" aria-labelledby="s3-o2" data-journal="s3.hands.h30" data-journal-label="30 ס״מ – סיבובים ב-10 שניות"></td></tr>
+            <tr><th scope="row" id="s3-o3">50 ס״מ</th><td><input type="number" inputmode="numeric" min="0" aria-labelledby="s3-o3" data-journal="s3.hands.h50" data-journal-label="50 ס״מ – סיבובים ב-10 שניות"></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>מסקנות</h3>
+        <label class="question" for="s3-c1">1. מאיזה גובה הגלגל סב הכי מהר?</label>
+        <textarea id="s3-c1" rows="2" data-journal="s3.hands.c1" data-journal-label="מאיזה גובה הגלגל סב הכי מהר?"></textarea>
+        <label class="question q-gap" for="s3-c2">2. איך זה מתאים למה שראיתם במעבדה?</label>
+        <textarea id="s3-c2" rows="2" data-journal="s3.hands.c2" data-journal-label="איך זה מתאים למה שראיתם במעבדה?"></textarea>
+        <label class="question q-gap" for="s3-c3">3. מה עוד אפשר לשנות כדי שהגלגל יסתובב מהר יותר?</label>
+        <textarea id="s3-c3" rows="2" data-journal="s3.hands.c3" data-journal-label="מה עוד אפשר לשנות כדי שהגלגל יסתובב מהר יותר?"></textarea>
+      </div>
+
+      <div id="s3-hands-copy"></div>
+    </section>
+
+    <!-- ===== 6. מה מסובב כאן את המחולל? ===== -->
+    <section class="part" data-title="מה מסובב כאן את המחולל?" data-tag="core" data-time="3 דק'">
+      <h2>מה מסובב כאן את המחולל?</h2>
+      <div class="card summary-card">
+        <ol class="chain" aria-label="מים נופלים, טורבינה, מחולל, חשמל">
+          <li class="chain-step">מים נופלים</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">טורבינה</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">מחולל</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step chain-end">חשמל</li>
+        </ol>
+        <p>כאן מים נופלים מסובבים את המחולל. זה נקי, ואפשר לבחור מתי לייצר. אבל צריך נהר, גובה, ומספיק מים.</p>
+      </div>
+      <aside class="card israel">
+        <h3>ובישראל?</h3>
+        <p>בשנת 1932 נפתחה בנהריים, במקום שבו הירמוך פוגש את הירדן, תחנת כוח שעבדה עם מים. הקים אותה פנחס רוטנברג, והיא פעלה עד 1948. היום פועלת בהר הגלבוע תחנה שאובה: כשיש חשמל מיותר, היא מעלה מים למאגר העליון. כשצריך חשמל, המים נופלים בחזרה ומסובבים מחוללים.</p>
+      </aside>
+    </section>
+
+    <!-- ===== 7. דיווח למועצה ונקודת ביקורת ===== -->
+    <section class="part" data-title="דיווח למועצה" data-tag="core" data-time="12 דק'">
+      <h2>דיווח למועצה ונקודת ביקורת</h2>
+      <div class="card checkpoint-card">
+        <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
+        <div>
+          <p>סיימתם? עכשיו מדווחים למועצה. פתחו את המשימה "נקודת ביקורת: תחנה הידרואלקטרית" ב-Classroom. זה ייקח כ-10 דקות.</p>
+          <div data-checkpoint="station3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. רוצים עוד? ===== -->
+    <section class="part" data-title="רוצים עוד?" data-tag="extra"
+             data-next-label="לתחנה 4: תחנה קיטורית" data-next-href="station-4.html">
+      <h2>רוצים עוד?</h2>
+      <div class="card">
+        <p>תכננו תחנה שאובה לאי האלמוג, כמו בגלבוע. מאיפה תעלו את המים, לאן, ובאילו שעות בימה? רמז: מתי באי יש הרבה רוח ומעט צריכה?</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/station-3.js"></script>
+</body>
+</html>

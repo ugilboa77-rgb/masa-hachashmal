@@ -1463,3 +1463,41 @@ input[type="number"]:focus { border-color: var(--blue-grid); }
 
 .table-scroll { overflow-x: auto; }
 .obs-table input[type="number"] { width: 5rem; }
+
+/* =========================================================
+   תחנה 3: סכר ומאגר
+   ========================================================= */
+.h-water { fill: #7FB1E3; }
+.h-dam { fill: #8C99AD; stroke: var(--text-2); stroke-width: 2; }
+.h-pipe { fill: none; stroke: var(--text-2); stroke-width: 14; stroke-linecap: round; }
+.h-flow { fill: none; stroke: #BFDDF7; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 10 12; transition: opacity 0.3s; }
+.h-river { fill: none; }
+.level { margin-top: var(--sp-3); text-align: center; }
+.level-bar {
+  position: relative;
+  width: 3.5rem;
+  height: 7rem;
+  margin: var(--sp-1) auto 0;
+  border: 2px solid var(--text-2);
+  border-radius: var(--radius-s);
+  background: var(--surface);
+  overflow: hidden;
+}
+.level-fill { position: absolute; inset-inline: 0; bottom: 0; background: #7FB1E3; }
+.schedule { margin: var(--sp-3) 0; }
+.schedule-title { margin: 0 0 var(--sp-1); font-family: var(--font-head); font-weight: 600; color: var(--blue-dark); }
+.schedule-row {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr) 6.5rem;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.schedule-row label { line-height: 1.2; }
+.schedule-name { font-weight: 700; }
+.schedule-hours { display: block; font-size: var(--fs-small); color: var(--text-2); direction: ltr; text-align: end; }
+.schedule-val { font-family: var(--font-head); font-weight: 600; color: var(--blue-dark); }
+@media (max-width: 480px) {
+  .schedule-row { grid-template-columns: 1fr 5.5rem; }
+  .schedule-row input { grid-column: 1 / -1; grid-row: 2; }
+}
+.legend-bar { display: inline-block; width: 1rem; height: 1rem; background: #BFDDF7; border: 1px solid #7FB1E3; flex: none; }
