@@ -51,10 +51,17 @@ const MAP_SITES = { ridge: "ridge", coast: "coast", valley: "valley", falls: "fa
 
 // ----- שמירה -----
 function loadState() {
-  const s = load("challenge", null);
-  const plan = s && s.plan && M.parseCode(M.planCode(s.plan)) ? s.plan : M.emptyPlan();
-  const attempts = (s && Array.isArray(s.attempts)) ? s.attempts : [];
-  return { plan: { ...M.emptyPlan(), ...plan }, attempts };
+  // אם מה שנשמר פגום – מתחילים מתוכנית ריקה, בלי לקרוס
+  try {
+    const s = load("challenge", null);
+    const plan = s && s.plan ? M.parseCode(M.planCode(s.plan)) : null;
+    const attempts = (s && Array.isArray(s.attempts))
+      ? s.attempts.filter((a) => a && a.code && Array.isArray(a.dark))
+      : [];
+    return { plan: plan || M.emptyPlan(), attempts };
+  } catch {
+    return { plan: M.emptyPlan(), attempts: [] };
+  }
 }
 const state = loadState();
 const persist = () => save("challenge", { plan: state.plan, attempts: state.attempts });
