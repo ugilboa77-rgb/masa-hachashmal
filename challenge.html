@@ -1,0 +1,107 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>אתגר: אי האנרגיה · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  אתגר הסיכום: אי האנרגיה
+  הטקסטים מתוך docs/content/אתגר הסיכום.md
+  החישוב: js/challenge/model.js (כל המספרים והכיול)
+  המסך: js/challenge/simulator.js
+-->
+<body data-page="challenge" data-station="challenge" data-reminder="stations4and5">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">אתגר הסיכום</p>
+      <h1>אי האנרגיה</h1>
+    </div>
+  </div>
+
+  <main id="main" class="page challenge-page">
+
+    <!-- ===== 1. המכתב האחרון של נעמה ===== -->
+    <section class="ch-section" aria-labelledby="ch-letter-title">
+      <h2 id="ch-letter-title">המכתב האחרון של נעמה</h2>
+      <div class="letter">
+        <p>לצוות המהנדסים שלנו,</p>
+        <p>כשכתבתי לכם בפעם הראשונה, האי היה חשוך ולא ידענו מאיפה להתחיל. מאז פתחתם מחולל, מדדתם רוחות על הרכס, בדקתם את המפל בצפון ושמעתם את ההצעה של האונייה. בישיבת המועצה הבנו כולנו דבר אחד: אין תחנה אחת שתפתור הכול.</p>
+        <p>לכן אני מבקשת מכם דבר אחרון וגדול. תכננו לאי מערכת חשמל שלמה, שיכולה לשלב כמה סוגי תחנות. הקופה של המועצה יכולה לשלם 100 מטבעות אי, לא יותר.</p>
+        <p>יש לנו שלוש בקשות. שהמרפאה והמאפייה לא יישארו בחושך, גם ביום בלי רוח וגם בסוף קיץ יבש. שלא נבזבז כסף. ושהשמיים מעל האי יישארו נקיים ככל האפשר. אני יודעת שאי אפשר לקבל הכול במלואו. לכן חשוב לי שתסבירו לנו על מה בחרתם לוותר, ולמה.</p>
+        <p class="letter-sign">כל האי מחכה לתוכנית שלכם,<br>נעמה גל</p>
+      </div>
+    </section>
+
+    <!-- ===== 2. הכללים ===== -->
+    <section class="ch-section" aria-labelledby="ch-rules-title">
+      <h2 id="ch-rules-title">הכללים</h2>
+      <ol class="card rules">
+        <li>יש לכם 100 מטבעות.</li>
+        <li>גררו תחנות למפה. לכל תחנה יש מקומות שמתאימים לה.</li>
+        <li>לחצו "בדיקת התוכנית". האי יעבור שלושה ימים שונים.</li>
+        <li>שפרו ונסו שוב. כל ניסיון נשמר.</li>
+        <li>כשאתם מרוצים, לחצו "הכנת ההגשה".</li>
+      </ol>
+
+      <div class="ch-two">
+        <div class="card">
+          <h3>התחנות</h3>
+          <div class="table-scroll">
+            <table class="ch-table">
+              <thead><tr><th scope="col">תחנה</th><th scope="col">מחיר הקמה</th><th scope="col">איפה אפשר לבנות</th><th scope="col">מה צריך לדעת</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">טורבינת רוח</th><td>10 מטבעות לכל טורבינה</td><td>רכס הרוחות, החוף, עמק התאנים</td><td>ברכס הכי הרבה רוח. אפשר לבנות עד 6 טורבינות</td></tr>
+                <tr><th scope="row">סכר ותחנה הידרואלקטרית</th><td>35 מטבעות</td><td>רק נחל השחף</td><td>אפשר לקבוע באילו שעות פותחים את השער</td></tr>
+                <tr><th scope="row">תחנה קיטורית קטנה</th><td>20 מטבעות, ועוד דלק בכל יום שהיא עובדת</td><td>רק ליד נמל הדייגים</td><td>אפשר לקבוע באילו שעות היא עובדת</td></tr>
+                <tr><th scope="row">תחנה קיטורית גדולה</th><td>35 מטבעות, ועוד דלק בכל יום</td><td>רק ליד נמל הדייגים</td><td>מייצרת הרבה, ומזהמת הרבה</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h3>שלושת הימים של הבדיקה</h3>
+          <dl class="ch-days" id="ch-days"></dl>
+        </div>
+      </div>
+
+      <details class="card rubric">
+        <summary>המחוון</summary>
+        <div class="table-scroll">
+          <table class="ch-table">
+            <thead><tr><th scope="col">קריטריון</th><th scope="col">מצוין</th><th scope="col">טוב</th><th scope="col">בדרך</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">התוכנית עובדת</th><td>עד שעה אחת של חושך, בתוך התקציב</td><td>כמה שעות חושך ביום אחד</td><td>חושך ביותר מיום אחד</td></tr>
+              <tr><th scope="row">מה מסובב את המחולל</th><td>נכון ומוסבר לכל התחנות</td><td>נכון לרוב התחנות</td><td>חלקי או חסר</td></tr>
+              <tr><th scope="row">נימוק הבחירות</th><td>מסביר את הפשרה ומקשר לתרחישים</td><td>מסביר בחירה אחת לפחות</td><td>מתאר בלי לנמק</td></tr>
+              <tr><th scope="row">תהליך השיפור</th><td>שלושה ניסיונות או יותר, והסבר למה שינו</td><td>שני ניסיונות</td><td>ניסיון אחד</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- ===== 3. הסימולטור ===== -->
+    <section class="ch-section" aria-labelledby="ch-sim-title">
+      <h2 id="ch-sim-title">התוכנית שלכם</h2>
+      <div id="ch-sim"></div>
+    </section>
+
+    <!-- ===== 4. הכנת ההגשה ===== -->
+    <section class="ch-section" aria-labelledby="ch-submit-title" id="ch-submit">
+      <h2 id="ch-submit-title">הכנת ההגשה</h2>
+      <div id="ch-submit-body"></div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/challenge/simulator.js"></script>
+</body>
+</html>

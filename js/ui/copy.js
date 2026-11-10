@@ -53,12 +53,12 @@ async function copyText(text, textarea) {
  *   message – השורה שמעל הבלוק (מתוך מסמך התוכן)
  *   getText – פונקציה שמחזירה את הטקסט להעתקה (נקראת מחדש בכל פעם)
  */
-export function createCopyPoint(host, { message, getText }) {
+export function createCopyPoint(host, { message, getText, link = null }) {
   const box = document.createElement("div");
   box.className = "copy-point";
   const uid = `copy-${Math.random().toString(36).slice(2, 8)}`;
   box.innerHTML = `
-    <p class="copy-message">${message}</p>
+    ${message ? `<p class="copy-message">${message}</p>` : ""}
     <label class="visually-hidden" for="${uid}">הטקסט להעתקה</label>
     <textarea id="${uid}" class="copy-text" readonly rows="8" dir="rtl"></textarea>
     <div class="copy-actions">
@@ -70,8 +70,9 @@ export function createCopyPoint(host, { message, getText }) {
 
   const textarea = box.querySelector(".copy-text");
   const status = box.querySelector(".copy-status");
+  // הקישור שליד כפתור ההעתקה: היומן, או קישור אחר (למשל טופס ההגשה באתגר)
   box.querySelector(".copy-journal-link").append(
-    linkButton(config.journalDoc, "פתיחת היומן", "btn-secondary")
+    link ? linkButton(link.url, link.label, "btn-secondary") : linkButton(config.journalDoc, "פתיחת היומן", "btn-secondary")
   );
 
   function refresh() {

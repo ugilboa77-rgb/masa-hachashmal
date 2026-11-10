@@ -16,7 +16,7 @@ export const stations = [
   { id: "s5", num: 5, title: "השוואה",             sub: "ישיבת מועצה",      href: "station-5.html", ready: true  },
 ];
 
-export const challenge = { id: "challenge", title: "אתגר", sub: "התוכנית שלכם", href: "challenge.html", ready: false };
+export const challenge = { id: "challenge", title: "אתגר", sub: "התוכנית שלכם", href: "challenge.html", ready: true };
 
 // כלים שמופיעים בתפריט מימין לתחנות
 export const tools = [
