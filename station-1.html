@@ -101,7 +101,7 @@
         <label class="choice"><input type="radio" name="s1-predict" value="משהו בתוכו צריך להסתובב."> משהו בתוכו צריך להסתובב.</label>
         <label class="choice"><input type="radio" name="s1-predict" value="צריך לחמם אותו."> צריך לחמם אותו.</label>
         <label class="choice"><input type="radio" name="s1-predict" value="אין לי מושג."> אין לי מושג.</label>
-        <p class="feedback feedback-note" id="s1-predict-after" role="status" hidden>רשמנו את הניבוי שלכם. בעוד רבע שעה תבדקו אם צדקתם.</p>
+        <p class="feedback feedback-note" data-show-after="s1-predict" role="status" hidden>רשמנו את הניבוי שלכם. בעוד רבע שעה תבדקו אם צדקתם.</p>
       </fieldset>
     </section>
 
@@ -417,7 +417,7 @@
         <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
         <div>
           <p>סיימתם? עכשיו מדווחים למועצה. פתחו את המשימה "נקודת ביקורת: המחולל" ב-Classroom. זה ייקח כ-10 דקות.</p>
-          <div id="s1-checkpoint"></div>
+          <div data-checkpoint="station1"></div>
         </div>
       </div>
     </section>

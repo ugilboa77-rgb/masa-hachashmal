@@ -1,0 +1,333 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תחנה 2: טורבינת רוח · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  תחנה 2: טורבינת רוח
+  הטקסטים מתוך docs/content/תחנה 2 טורבינת רוח.md
+  ההדמיות: js/sims/wind.js. החיבורים של העמוד: js/station-2.js
+-->
+<body data-page="s2" data-station="s2" data-reminder="station1">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">תחנה 2</p>
+      <h1>טורבינת רוח</h1>
+      <p class="station-hero-question">האם הרוח של אי האלמוג יכולה להאיר את הכפר?</p>
+      <div class="station-hero-learn">
+        <p>בתחנה הזו תלמדו:</p>
+        <ul>
+          <li>איך הרוח מסובבת מחולל.</li>
+          <li>מה משפיע על כמות החשמל מהרוח.</li>
+          <li>מתי טורבינת רוח לא מייצרת חשמל.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="page station-page">
+
+    <nav id="station-progress"></nav>
+
+    <!-- ===== 1. פתיחה מהאי ===== -->
+    <section class="part" data-title="פתיחה מהאי" data-tag="core" data-time="5 דק'">
+      <h2>פתיחה מהאי</h2>
+      <p class="story-text">על שולחן המועצה פרושה מפה ישנה של אי האלמוג. מעליה שרבטו הדייגים חצים בעיפרון. במשך דורות הם סימנו בה מאיפה נושבת הרוח וכמה היא חזקה, כדי לדעת מתי בטוח לצאת לדוג. נעמה מעבירה אצבע על רכס הרוחות, הגבעה הגבוהה שבמערב האי. שם החצים הכי עבים. אף אחד לא בונה שם בית, כי הרוח שם חזקה כל כך שאפילו העצים גדלים עקומים. פתאום נעמה מחייכת. "מה שמפריע לבנות בית", היא אומרת, "אולי דווקא מתאים למשהו אחר."</p>
+      <blockquote class="quote">
+        <p><strong>נעמה אומרת:</strong> "באי שלנו יש הרבה רוח, בעיקר על רכס הרוחות. אולי הרוח תסובב לנו מחולל?"</p>
+      </blockquote>
+      <figure class="story">
+        <svg class="story-svg" id="s2-wind-map" viewBox="0 0 640 400" role="img" aria-label="מפת הרוחות: חצים עבים על רכס הרוחות, בינוניים על החוף, וכמעט בלי חצים בעמק התאנים."></svg>
+      </figure>
+      <div class="card">
+        <fieldset data-journal="s2.predict" data-journal-label="איפה הייתם מציבים טורבינת רוח?" id="s2-predict">
+          <legend>איפה הייתם מציבים טורבינת רוח?</legend>
+          <label class="choice"><input type="radio" name="s2-predict" value="רכס הרוחות"> רכס הרוחות</label>
+          <label class="choice"><input type="radio" name="s2-predict" value="החוף"> החוף</label>
+          <label class="choice"><input type="radio" name="s2-predict" value="עמק התאנים"> עמק התאנים</label>
+        </fieldset>
+        <label class="question" for="s2-predict-why">ולמה?</label>
+        <textarea id="s2-predict-why" rows="2" data-journal="s2.predictWhy" data-journal-label="ולמה?"></textarea>
+      </div>
+    </section>
+
+    <!-- ===== 2. מה צריך לדעת ===== -->
+    <section class="part" data-title="מה צריך לדעת" data-tag="core" data-time="10 דק'">
+      <h2>מה צריך לדעת</h2>
+      <div class="slides" aria-label="כרטיסי מידע">
+        <article class="slide card info-card">
+          <h3>הרוח מסובבת</h3>
+          <p>הרוח דוחפת את הלהבים והם מסתובבים, כמו סביבון נייר. הלהבים מסובבים ציר, והציר מסובב מחולל. זה אותו מחולל מתחנה 1!</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>חלקי הטורבינה</h3>
+          <div class="explore">
+            <svg class="explore-svg" viewBox="0 0 300 380" role="img" aria-label="טורבינת רוח: להבים, בית המכונות ותורן">
+              <rect width="300" height="380" rx="14" fill="#E6EFF9"/>
+              <path d="M0 340 C 80 320, 220 318, 300 336 V380 H0 Z" fill="#B9C79E"/>
+              <g data-spot="tower" class="spot"><path d="M138 352 L144 120 h12 L162 352 Z" fill="#FFFFFF" stroke="#8C99AD" stroke-width="2"/></g>
+              <g data-spot="nacelle" class="spot">
+                <rect x="126" y="98" width="62" height="30" rx="9" fill="#FFFFFF" stroke="#8C99AD" stroke-width="2"/>
+                <g class="spot-inside"><path d="M140 113 H176" stroke="#4A5870" stroke-width="3"/><rect x="160" y="105" width="18" height="16" rx="3" fill="#A5561F"/></g>
+              </g>
+              <g data-spot="blades" class="spot">
+                <path d="M138 113 L128 10 Q138 2 148 10 Z" fill="#FFFFFF" stroke="#8C99AD" stroke-width="2"/>
+                <path d="M138 113 L128 10 Q138 2 148 10 Z" fill="#FFFFFF" stroke="#8C99AD" stroke-width="2" transform="rotate(120 138 113)"/>
+                <path d="M138 113 L128 10 Q138 2 148 10 Z" fill="#FFFFFF" stroke="#8C99AD" stroke-width="2" transform="rotate(240 138 113)"/>
+                <circle cx="138" cy="113" r="9" fill="#E6EDF7" stroke="#4A5870" stroke-width="2"/>
+              </g>
+            </svg>
+            <ul class="explore-list">
+              <li><button type="button" class="btn btn-secondary" data-explore="blades">להבים</button>
+                <p class="explore-text"><strong>להבים:</strong> תופסים את הרוח. בטורבינה גדולה כל להב ארוך יותר מאוטובוס.</p></li>
+              <li><button type="button" class="btn btn-secondary" data-explore="nacelle">בית המכונות</button>
+                <p class="explore-text"><strong>בית המכונות:</strong> התא שלמעלה. בתוכו הציר והמחולל.</p></li>
+              <li><button type="button" class="btn btn-secondary" data-explore="tower">תורן</button>
+                <p class="explore-text"><strong>תורן:</strong> מחזיק את הכול גבוה. למעלה הרוח חזקה יותר.</p></li>
+            </ul>
+          </div>
+        </article>
+        <article class="slide card info-card">
+          <h3>לא חלש מדי, לא חזק מדי</h3>
+          <p>כשהרוח חלשה מדי, הלהבים לא מסתובבים. כשהרוח חזקה מדי, בסערה, עוצרים את הטורבינה כדי שלא תישבר. בשני המקרים לא נוצר חשמל.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>אי אפשר להזמין רוח</h3>
+          <p>הרוח מגיעה מתי שהיא רוצה. יש ימים סוערים ויש ימים שקטים. הרוח לא מזהמת את האוויר ולא נגמרת, אבל אי אפשר לקבוע מתי היא תנשב.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3. צופים ===== -->
+    <section class="part" data-title="צופים" data-tag="core" data-time="10 דק'">
+      <h2>צופים</h2>
+      <p class="watch-before"><strong>לפני הצפייה:</strong> שימו לב: איפה נמצא המחולל בטורבינת הרוח?</p>
+      <div class="video-slot" data-video="station2.video1" data-video-title="איך עובדת טורבינת רוח"></div>
+      <div class="card watch-after">
+        <h3>אחרי הצפייה</h3>
+        <label class="question" for="s2-watch1">1. איפה נמצא המחולל?</label>
+        <textarea id="s2-watch1" rows="2" data-journal="s2.watch1" data-journal-label="איפה נמצא המחולל?"></textarea>
+        <label class="question q-gap" for="s2-watch2">2. למה מציבים טורבינות על תורן גבוה?</label>
+        <textarea id="s2-watch2" rows="2" data-journal="s2.watch2" data-journal-label="למה מציבים טורבינות על תורן גבוה?"></textarea>
+      </div>
+      <div class="extra-block">
+        <h3>בתוך בית המכונות של טורבינה אמיתית <span class="tag tag-extra">אם יש זמן</span></h3>
+        <div class="video-slot" data-video="station2.video2" data-video-title="בתוך בית המכונות של טורבינה אמיתית"></div>
+      </div>
+    </section>
+
+    <!-- ===== 4. מעבדה ===== -->
+    <section class="part part-wide" data-title="מעבדה" data-tag="core" data-time="15–20 דק'">
+      <h2>מעבדה: טורבינה ברוח</h2>
+      <div class="lab-wrap">
+        <div class="lab-sim-col">
+          <div id="wind-sim"></div>
+        </div>
+
+        <div class="lab">
+          <!-- ניסוי 1 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 1: מהירות הרוח</h3>
+              <fieldset class="exp-step" data-journal="s2.e1.predict" data-journal-label="ניסוי 1 – הניבוי שלי">
+                <legend><span class="step-word">ניבוי:</span> באיזו רוח הטורבינה תייצר הכי הרבה חשמל?</legend>
+                <label class="choice"><input type="radio" name="s2-e1-predict" value="בריזה"> בריזה</label>
+                <label class="choice"><input type="radio" name="s2-e1-predict" value="רוח חזקה"> רוח חזקה</label>
+                <label class="choice"><input type="radio" name="s2-e1-predict" value="סערה"> סערה</label>
+              </fieldset>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> עברו על ארבעת מצבי הרוח ורשמו את המד בכל אחד.</p>
+                <table class="lab-table">
+                  <thead><tr><th scope="col">מהירות הרוח</th><th scope="col">מד חשמל (0–10)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" id="s2-e1-r1">שקט</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s2-e1-r1" data-journal="s2.e1.calm" data-journal-label="ניסוי 1 – שקט"></td></tr>
+                    <tr><th scope="row" id="s2-e1-r2">בריזה</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s2-e1-r2" data-journal="s2.e1.breeze" data-journal-label="ניסוי 1 – בריזה"></td></tr>
+                    <tr><th scope="row" id="s2-e1-r3">רוח חזקה</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s2-e1-r3" data-journal="s2.e1.strong" data-journal-label="ניסוי 1 – רוח חזקה"></td></tr>
+                    <tr><th scope="row" id="s2-e1-r4">סערה</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s2-e1-r4" data-journal="s2.e1.storm" data-journal-label="ניסוי 1 – סערה"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exp-step">
+                <label for="s2-e1-explain"><span class="step-word">הסבירו:</span> למה בסערה המד ירד לאפס?</label>
+                <textarea id="s2-e1-explain" rows="3" data-explain data-journal="s2.e1.explain" data-journal-label="ניסוי 1 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e1">
+                  <p class="hint" data-level="1">מה קרה ללהבים בסערה? האם הם המשיכו להסתובב?</p>
+                  <p class="hint" data-level="2">חזרו לכרטיס 3 בחלק "מה צריך לדעת".</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>רוח חזקה יותר מייצרת יותר חשמל, עד גבול מסוים. בסערה עוצרים את הטורבינה כדי לשמור עליה.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 2 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 2: כיוון הרוח</h3>
+              <div class="exp-step">
+                <label for="s2-e2-predict"><span class="step-word">ניבוי:</span> הרוח משנה כיוון ומגיעה מהצד. מה יקרה לחשמל?</label>
+                <textarea id="s2-e2-predict" rows="2" data-journal="s2.e2.predict" data-journal-label="ניסוי 2 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> שנו את כיוון הרוח. אחר כך לחצו "סובבו את הראש מול הרוח".</p>
+              </div>
+              <div class="exp-step">
+                <label for="s2-e2-explain"><span class="step-word">הסבירו:</span> למה בית המכונות של טורבינה יכול להסתובב על התורן?</label>
+                <textarea id="s2-e2-explain" rows="3" data-explain data-journal="s2.e2.explain" data-journal-label="ניסוי 2 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e2">
+                  <p class="hint" data-level="1">מתי הרוח דוחפת את הלהבים הכי טוב?</p>
+                  <p class="hint" data-level="2">נסו להשלים: "הטורבינה מסתובבת כדי …"</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>נכון. הטורבינה מסתובבת מול הרוח, כדי שהרוח תפגע בלהבים ישר מקדימה.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 3 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 3: יום שלם באי</h3>
+              <div class="exp-step">
+                <label for="s2-e3-predict"><span class="step-word">ניבוי:</span> הצבתם טורבינה אחת. האם היא תספיק חשמל לכפר לאורך כל הימה?</label>
+                <textarea id="s2-e3-predict" rows="2" data-journal="s2.e3.predict" data-journal-label="ניסוי 3 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> גררו את הטורבינה לרכס הרוחות, לחוף ולעמק. בכל מקום לחצו "הפעילו ימה" וצפו בגרף.</p>
+                <div id="wind-day"></div>
+              </div>
+              <div class="exp-step">
+                <label for="s2-e3-explain"><span class="step-word">הסבירו:</span> איפה הכי כדאי להציב טורבינה? ומה קורה לכפר בשעות שבהן אין רוח?</label>
+                <textarea id="s2-e3-explain" rows="3" data-explain data-journal="s2.e3.explain" data-journal-label="ניסוי 3 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e3">
+                  <p class="hint" data-level="1">מצאו בגרף שעות שבהן הקו הכחול נמוך מהקו הכתום.</p>
+                  <p class="hint" data-level="2">מה הכפר עושה בשעות האלה?</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>רכס הרוחות הוא המקום הטוב ביותר. אבל גם שם יש שעות בלי רוח. רשמו לעצמכם: טורבינות רוח לבד לא יספיקו לאי.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="s2-lab-copy"></div>
+    </section>
+
+    <!-- ===== 5. ניסוי בידיים ===== -->
+    <section class="part" data-title="ניסוי בידיים" data-tag="core" data-time="20 דק'">
+      <h2>ניסוי בידיים: טורבינה שמרימה משקל</h2>
+      <p class="goal"><strong>מטרה:</strong> לבדוק איך חוזק הרוח משפיע על העבודה שטורבינה יכולה לעשות.</p>
+
+      <div class="card">
+        <h3>חומרים</h3>
+        <ul class="materials">
+          <li>טורבינה מוכנה מנייר קשיח על שיפוד עץ שעובר בתוך קש</li>
+          <li>חוט באורך 40 ס״מ קשור לשיפוד</li>
+          <li>אטב בקצה החוט</li>
+          <li>מאוורר</li>
+          <li>סרגל</li>
+        </ul>
+      </div>
+
+      <div class="hands-grid">
+        <div class="card">
+          <h3>שלבים</h3>
+          <ol class="steps-list">
+            <li>החזיקו את הקש כך שהטורבינה מסתובבת חופשי והאטב תלוי למטה.</li>
+            <li>הציבו את המאוורר במרחק 100 ס״מ. הפעילו את השעון שבאתר, ומדדו כמה זמן לוקח להרים את האטב עד למעלה.</li>
+            <li>חזרו על זה במרחק 50 ס״מ ובמרחק 25 ס״מ.</li>
+            <li>כל מדידה עושים פעמיים ורושמים את שתי התוצאות.</li>
+          </ol>
+        </div>
+        <div class="card stopwatch"></div>
+      </div>
+
+      <div class="card">
+        <h3>טבלת תצפיות</h3>
+        <div class="table-scroll">
+          <table class="obs-table">
+            <thead><tr><th scope="col">מרחק מהמאוורר</th><th scope="col">זמן הרמה, מדידה 1</th><th scope="col">זמן הרמה, מדידה 2</th></tr></thead>
+            <tbody>
+              <tr><th scope="row" id="s2-o1">100 ס״מ (רוח חלשה)</th>
+                <td><input type="number" inputmode="decimal" min="0" step="0.1" aria-label="100 ס״מ, מדידה 1" data-journal="s2.hands.d100a" data-journal-label="100 ס״מ, מדידה 1"></td>
+                <td><input type="number" inputmode="decimal" min="0" step="0.1" aria-label="100 ס״מ, מדידה 2" data-journal="s2.hands.d100b" data-journal-label="100 ס״מ, מדידה 2"></td></tr>
+              <tr><th scope="row" id="s2-o2">50 ס״מ</th>
+                <td><input type="number" inputmode="decimal" min="0" step="0.1" aria-label="50 ס״מ, מדידה 1" data-journal="s2.hands.d50a" data-journal-label="50 ס״מ, מדידה 1"></td>
+                <td><input type="number" inputmode="decimal" min="0" step="0.1" aria-label="50 ס״מ, מדידה 2" data-journal="s2.hands.d50b" data-journal-label="50 ס״מ, מדידה 2"></td></tr>
+              <tr><th scope="row" id="s2-o3">25 ס״מ (רוח חזקה)</th>
+                <td><input type="number" inputmode="decimal" min="0" step="0.1" aria-label="25 ס״מ, מדידה 1" data-journal="s2.hands.d25a" data-journal-label="25 ס״מ, מדידה 1"></td>
+                <td><input type="number" inputmode="decimal" min="0" step="0.1" aria-label="25 ס״מ, מדידה 2" data-journal="s2.hands.d25b" data-journal-label="25 ס״מ, מדידה 2"></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>מסקנות</h3>
+        <label class="question" for="s2-c1">1. באיזה מרחק האטב עלה הכי מהר? למה?</label>
+        <textarea id="s2-c1" rows="2" data-journal="s2.hands.c1" data-journal-label="באיזה מרחק האטב עלה הכי מהר? למה?"></textarea>
+        <label class="question q-gap" for="s2-c2">2. למה מדדנו כל פעם פעמיים?</label>
+        <textarea id="s2-c2" rows="2" data-journal="s2.hands.c2" data-journal-label="למה מדדנו כל פעם פעמיים?"></textarea>
+        <label class="question q-gap" for="s2-c3">3. בטורבינה אמיתית, מה מסובב הציר במקום להרים אטב?</label>
+        <textarea id="s2-c3" rows="2" data-journal="s2.hands.c3" data-journal-label="בטורבינה אמיתית, מה מסובב הציר במקום להרים אטב?"></textarea>
+      </div>
+
+      <div id="s2-hands-copy"></div>
+    </section>
+
+    <!-- ===== 6. מה מסובב כאן את המחולל? ===== -->
+    <section class="part" data-title="מה מסובב כאן את המחולל?" data-tag="core" data-time="3 דק'">
+      <h2>מה מסובב כאן את המחולל?</h2>
+      <div class="card summary-card">
+        <ol class="chain" aria-label="רוח, להבים, ציר, מחולל, חשמל">
+          <li class="chain-step">רוח</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">להבים</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">ציר</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">מחולל</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step chain-end">חשמל</li>
+        </ol>
+        <p>כאן הרוח מסובבת את המחולל. זה נקי ולא נגמר, אבל רק כשיש רוח.</p>
+      </div>
+      <aside class="card israel">
+        <h3>ובישראל?</h3>
+        <p>ברמת הגולן פועלות כמה חוות רוח. אחת הגדולות בהן, בעמק הבכא, התחילה לפעול ב-2022. הן נמצאות שם כי ברמה נושבות רוחות חזקות יותר מבמרבית הארץ.</p>
+      </aside>
+    </section>
+
+    <!-- ===== 7. דיווח למועצה ונקודת ביקורת ===== -->
+    <section class="part" data-title="דיווח למועצה" data-tag="core" data-time="12 דק'">
+      <h2>דיווח למועצה ונקודת ביקורת</h2>
+      <div class="card checkpoint-card">
+        <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
+        <div>
+          <p>סיימתם? עכשיו מדווחים למועצה. פתחו את המשימה "נקודת ביקורת: טורבינת רוח" ב-Classroom. זה ייקח כ-10 דקות.</p>
+          <div data-checkpoint="station2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. רוצים עוד? ===== -->
+    <section class="part" data-title="רוצים עוד?" data-tag="extra"
+             data-next-label="לתחנה 3: תחנה הידרואלקטרית" data-next-href="station-3.html">
+      <h2>רוצים עוד?</h2>
+      <div class="card">
+        <p>לרוב הטורבינות הגדולות יש שלושה להבים. בניסוי בידיים, נסו טורבינה עם 2, 3 ו-6 להבים, באותו מרחק מהמאוורר. מה גיליתם? ציירו להב משופר.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/station-2.js"></script>
+</body>
+</html>

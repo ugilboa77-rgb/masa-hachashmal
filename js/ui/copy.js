@@ -9,6 +9,18 @@
 import { config } from "../config.js";
 import { icon } from "./icons.js";
 import { linkButton } from "./links.js";
+import { getJournalEntry } from "../progress.js";
+
+// המשפט שמעל נקודת ההעתקה – מתוך לשונית הסקירה במסמך התוכן
+export const LAB_MESSAGE = "סיימתם את המעבדה! העתיקו את העבודה שלכם ליומן המהנדס ב-Classroom.";
+// [ממתין לאישור אודי] במסמך יש נוסח רק למעבדה. זה הנוסח הזמני לסוף הניסוי בידיים
+export const HANDS_MESSAGE = "סיימתם את הניסוי! העתיקו את העבודה שלכם ליומן המהנדס ב-Classroom.";
+
+/** הערך שהתלמיד כתב ביומן, או "..." אם עוד לא כתב */
+export function journalValue(stationId, key) {
+  const e = getJournalEntry(stationId, key);
+  return e && e.value ? e.value : "...";
+}
 
 /** תאריך ושעה בפורמט של היומן: 12.11, 10:42 */
 export function stamp(d = new Date()) {

@@ -1,64 +1,25 @@
 // =========================================================
 // station-1.js – החיבורים של תחנה 1 (המחולל)
 //
-// • סרטונים מתוך config.js
+// מה שמשותף לכל התחנות (סרטונים, משוב, נקודת ביקורת) נמצא
+// ב-js/ui/station-kit.js. כאן רק מה שמיוחד לתחנה הזו:
 // • הדמיית המחולל ומשימת התיקון
-// • המשפט שמופיע אחרי הניבוי בפתיחה
-// • משוב אחרי ההסבר בכל ניסוי
+// • המשוב של ניסוי 4
 // • שתי נקודות העתקה ליומן: סוף המעבדה וסוף הניסוי בידיים
-// • כפתור נקודת הביקורת
 // =========================================================
 
-import { config } from "./config.js";
-import { embedVideo, linkButton } from "./ui/links.js";
-import { createCopyPoint, stamp } from "./ui/copy.js";
-import { getJournalEntry, hintsUsed } from "./progress.js";
-import { MIN_EXPLAIN } from "./ui/lock.js";
+import { createCopyPoint, stamp, journalValue, HANDS_MESSAGE, LAB_MESSAGE } from "./ui/copy.js";
+import { hintsUsed } from "./progress.js";
 import { createGeneratorSim } from "./sims/generator.js";
 import { createRepairSim } from "./sims/repair.js";
 
 const STATION = "s1";
 const $ = (sel) => document.querySelector(sel);
-const v = (key) => {
-  const e = getJournalEntry(STATION, key);
-  return e && e.value ? e.value : "...";
-};
-
-// ----- סרטונים -----
-document.querySelectorAll(".video-slot[data-video]").forEach((slot) => {
-  const [station, name] = slot.dataset.video.split(".");
-  const id = (config.videos[station] || {})[name] || "";
-  embedVideo(slot, id, slot.dataset.videoTitle || "");
-});
+const v = (key) => journalValue(STATION, key);
 
 // ----- הדמיות -----
 createGeneratorSim($("#gen-sim"));
 createRepairSim($("#repair-sim"));
-
-// ----- פתיחה: המשפט אחרי הבחירה -----
-const predict = $("#s1-predict");
-const after = $("#s1-predict-after");
-const syncPredict = () => { after.hidden = !predict.querySelector("input:checked"); };
-predict.addEventListener("change", syncPredict);
-syncPredict();
-
-// ----- משוב אחרי ההסבר (ניסויים 1–3) -----
-// המשוב מופיע כשהתלמיד כתב הסבר של 10 תווים לפחות ועצר לרגע
-document.querySelectorAll(".experiment").forEach((exp) => {
-  const text = exp.querySelector("[data-explain]");
-  const fb = exp.querySelector(".exp-feedback");
-  if (!text || !fb) return;
-  let timer = 0;
-  const check = () => {
-    if (text.value.trim().length >= MIN_EXPLAIN) fb.hidden = false;
-  };
-  text.addEventListener("input", () => {
-    clearTimeout(timer);
-    timer = setTimeout(check, 1500);
-  });
-  text.addEventListener("change", check);
-  check();
-});
 
 // ----- ניסוי 4: המשוב מופיע אחרי ניבוי, ואחרי שסובבו את הסליל -----
 const e4Predict = $("#s1-e4-predict");
@@ -77,7 +38,7 @@ e4Predict.addEventListener("input", checkE4);
 
 // ----- נקודת העתקה: סוף המעבדה (הפורמט מתוך לשונית הסקירה) -----
 createCopyPoint($("#s1-lab-copy"), {
-  message: "סיימתם את המעבדה! העתיקו את העבודה שלכם ליומן המהנדס ב-Classroom.",
+  message: LAB_MESSAGE,
   getText: () => [
     `תחנה 1: המחולל – מעבדה | ${stamp()}`,
     `הניבוי שלי בפתיחה: ${v("s1.predict")}`,
@@ -92,9 +53,8 @@ createCopyPoint($("#s1-lab-copy"), {
 });
 
 // ----- נקודת העתקה: סוף הניסוי בידיים -----
-// [ממתין לאישור אודי] המשפט שמעל הבלוק – במסמך יש נוסח רק למעבדה
 createCopyPoint($("#s1-hands-copy"), {
-  message: "סיימתם את הניסוי! העתיקו את העבודה שלכם ליומן המהנדס ב-Classroom.",
+  message: HANDS_MESSAGE,
   getText: () => [
     `תחנה 1: המחולל – ניסוי בידיים | ${stamp()}`,
     `הכנסה מהירה: ${v("s1.hands.fastIn")}`,
@@ -106,8 +66,3 @@ createCopyPoint($("#s1-hands-copy"), {
     `למה הרחקנו את המצפן מהמגנט? ${v("s1.hands.c3")}`,
   ].join("\n"),
 });
-
-// ----- נקודת ביקורת -----
-$("#s1-checkpoint").append(
-  linkButton(config.checkpoints.station1, "פתיחת נקודת הביקורת", "btn-primary btn-large")
-);

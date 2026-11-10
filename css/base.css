@@ -1398,3 +1398,68 @@ input[type="number"]:focus { border-color: var(--blue-grid); }
 .repair-bulb-state .icon { width: 2rem; height: 2rem; }
 .repair-bulb-state.is-on { color: var(--blue-dark); }
 .repair-turn { margin-top: var(--sp-3); }
+
+/* =========================================================
+   תחנה 2 ורכיבים משותפים: שעון עצר, איור נפתח, מפה וגרף
+   ========================================================= */
+
+.chain-step { min-width: 6rem; }
+
+/* ----- שעון עצר ----- */
+.stopwatch { text-align: center; }
+.sw-label { margin: 0; font-family: var(--font-head); font-weight: 600; color: var(--blue-dark); }
+.sw-time { margin: var(--sp-2) 0 var(--sp-3); font-family: var(--font-head); color: var(--blue-dark); }
+.sw-num { font-size: 3rem; font-weight: 700; font-variant-numeric: tabular-nums; direction: ltr; display: inline-block; }
+.sw-unit { color: var(--text-2); }
+.sw-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--sp-2); }
+.stopwatch.is-running .sw-num { color: var(--copper); }
+
+/* ----- איור שנפתח בלחיצה ----- */
+.explore { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); gap: var(--sp-5); align-items: start; }
+.explore-svg { display: block; width: 100%; height: auto; }
+.explore-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.explore-list .btn[aria-expanded="true"] { background: var(--blue-grid); color: #fff; }
+.explore-list .btn[aria-expanded="true"]::before { content: "✓"; }
+.explore-text { margin: var(--sp-2) 0 0; padding: var(--sp-3) var(--sp-4); background: var(--bg); border-radius: var(--radius-s); }
+.explore .spot { cursor: pointer; }
+.explore .spot.is-on path, .explore .spot.is-on rect:first-child { stroke: var(--copper); stroke-width: 4; }
+.explore .spot-inside { opacity: 0; transition: opacity 0.2s; }
+.explore .spot.is-on .spot-inside { opacity: 1; }
+@media (max-width: 560px) {
+  .explore { grid-template-columns: 1fr; }
+  .explore-svg { max-width: 12rem; margin: 0 auto; }
+}
+
+/* ----- טורבינה ----- */
+.w-rotor path { fill: #FFFFFF; stroke: #8C99AD; stroke-width: 2; }
+.w-streaks path { stroke: #7FA6D9; stroke-width: 3; stroke-linecap: round; opacity: 0.8; }
+.w-brake { opacity: 0; }
+.w-compass-label { font-family: var(--font-head); font-size: 18px; font-weight: 600; fill: var(--blue-dark); text-anchor: middle; }
+.w-face { width: 100%; }
+
+/* ----- יום שלם: מפה וגרף ----- */
+.sim-day { box-shadow: none; }
+.day-map { background: var(--bg); border-radius: var(--radius-m); margin: var(--sp-3) 0; }
+.map-svg { display: block; width: 100%; height: auto; }
+.map-spot { fill: rgba(255, 255, 255, 0.55); stroke: var(--blue-grid); stroke-width: 2.5; stroke-dasharray: 6 5; }
+.map-spot.is-on { stroke: var(--copper); stroke-dasharray: none; stroke-width: 4; }
+.map-token { cursor: grab; touch-action: none; }
+.map-token.is-dragging { cursor: grabbing; }
+.day-where { margin-bottom: var(--sp-3); }
+.day-run { margin-bottom: var(--sp-3); }
+.chart-svg { display: block; width: 100%; height: auto; }
+.chart-grid line { stroke: var(--line); stroke-width: 1; }
+.chart-grid text { font-family: var(--font-head); font-size: 13px; fill: var(--text-2); direction: ltr; }
+.chart-y { text-anchor: end; }
+.chart-x { text-anchor: middle; }
+.chart-gaps rect { fill: rgba(18, 40, 74, 0.09); }
+.chart-now { stroke: var(--copper); stroke-width: 2; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); margin: var(--sp-2) 0 0; font-size: var(--fs-small); }
+.legend-item { display: inline-flex; align-items: center; gap: var(--sp-2); }
+.legend-line { display: inline-block; width: 2rem; height: 0; border-top: 4px solid; flex: none; }
+.legend-blue { border-color: #1D3A66; }
+.legend-orange { border-color: #C2611F; border-top-style: dashed; }
+.legend-gap { width: 1.2rem; height: 1rem; background: rgba(18, 40, 74, 0.12); border: 0; }
+
+.table-scroll { overflow-x: auto; }
+.obs-table input[type="number"] { width: 5rem; }
