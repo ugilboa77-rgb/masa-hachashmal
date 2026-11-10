@@ -18,8 +18,7 @@ function entriesOf(stationData) {
     .sort((a, b) => (a.part - b.part) || (a.order - b.order));
 }
 
-// התחנות, ובסוף עמוד הבדיקה של שלב 1 (רק אם כתבו בו משהו)
-const SECTIONS = [...stations, { id: "demo", num: "✎", title: "עמוד בדיקה" }];
+const SECTIONS = stations;
 
 function asText(journal) {
   const lines = [];

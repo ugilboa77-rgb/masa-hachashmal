@@ -1037,3 +1037,364 @@ legend {
   z-index: 2;
 }
 .order.is-correct .order-item { border-color: var(--success); }
+
+/* =========================================================
+   תחנה 1 ורכיבים שחוזרים בכל התחנות
+   ========================================================= */
+
+.station-hero-learn { margin-top: var(--sp-4); }
+.station-hero-learn p { margin: 0 0 var(--sp-1); font-weight: 600; color: #F3C9A7; }
+.station-hero-learn ul { margin: 0; padding-inline-start: 1.25rem; }
+
+/* ----- סיפור ----- */
+.story { margin: 0 0 var(--sp-4); }
+.story-svg { display: block; width: 100%; height: auto; border-radius: var(--radius-m); }
+.story-text { font-size: 1.1875rem; line-height: 1.75; }
+.quote {
+  margin: 0 0 var(--sp-5);
+  padding: var(--sp-4) var(--sp-5);
+  background: #FFFDF8;
+  border-inline-start: 5px solid var(--copper);
+  border-radius: var(--radius-s);
+  font-size: 1.1875rem;
+}
+.quote p { margin: 0; }
+.feedback-note { background: #EEF3FA; color: var(--blue-dark); border: 2px solid var(--blue-grid); }
+
+/* ----- כרטיסי מידע ----- */
+.slides .slide { margin-bottom: 0; }
+.slides-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+.slides-count { margin: 0; font-family: var(--font-head); font-weight: 600; color: var(--blue-dark); }
+.slides-nav .btn:disabled { opacity: 0.4; cursor: default; }
+.slides-dots { display: flex; justify-content: center; gap: 6px; margin-top: var(--sp-3); }
+.slides-dots span { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.slides-dots span.is-on { background: var(--copper); }
+.diagram { margin: var(--sp-4) 0 0; }
+.diagram svg { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; }
+@media (max-width: 420px) {
+  .slides-nav .btn { padding-inline: var(--sp-3); }
+}
+
+/* ----- צופים ----- */
+.watch-before { font-size: 1.1875rem; }
+.video-slot { margin-bottom: var(--sp-5); }
+.q-gap { margin-top: var(--sp-5); }
+.extra-block h3 { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); }
+.extra-block .tag, .experiment h3 .tag { font-size: var(--fs-small); }
+
+/* ----- הדמיה (משותף לכל התחנות) ----- */
+.sim {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-card);
+  padding: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+.sim-bar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; }
+.sim-name { margin: 0; font-family: var(--font-head); font-size: 1.25rem; font-weight: 700; color: var(--blue-dark); }
+.sim-intro { color: var(--text-2); margin: var(--sp-2) 0 var(--sp-3); }
+.sim-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10.5rem;
+  gap: var(--sp-4);
+  align-items: center;
+}
+.sim-stage { background: var(--bg); border-radius: var(--radius-m); }
+.gen-svg { display: block; width: 100%; height: auto; }
+.sim-tip { color: var(--text-2); font-size: var(--fs-small); margin: var(--sp-1) 0 0; }
+.sim-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--line);
+}
+.sim-speed { grid-column: 1 / -1; }
+.sim-control > label, .sim-control > legend {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--blue-dark);
+  margin-bottom: var(--sp-1);
+  padding: 0;
+}
+fieldset.sim-control { border: 0; padding: 0; margin: 0; }
+input[type="range"] {
+  width: 100%;
+  height: var(--tap);
+  margin: 0;
+  accent-color: var(--copper);
+  cursor: pointer;
+}
+input[type="range"]:disabled { cursor: not-allowed; opacity: 0.45; }
+.range-ends { display: flex; justify-content: space-between; color: var(--text-2); font-size: var(--fs-small); }
+@media (max-width: 560px) {
+  .sim-main { grid-template-columns: 1fr; }
+  .sim-side { max-width: 13rem; width: 100%; margin: 0 auto; }
+}
+
+/* מסך מלא */
+.sim.is-full { background: var(--bg); padding: var(--sp-5) var(--sp-6); overflow: auto; }
+.sim.is-full .sim-main { grid-template-columns: minmax(0, 1fr) 15rem; }
+.sim.is-full .gen-svg, .sim.is-full .repair-svg { max-height: 64vh; }
+.sim.is-pseudo-full { position: fixed; inset: 0; z-index: 1500; margin: 0; border-radius: 0; }
+html.has-pseudo-full { overflow: hidden; }
+
+/* כפתורי בחירה בצורת גלולה */
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.seg label { position: relative; display: inline-flex; }
+.seg input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.seg span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: 0 var(--sp-4);
+  border: 2px solid #A9B5C6;
+  border-radius: 999px;
+  background: var(--surface);
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+.seg label:hover span { border-color: var(--copper); }
+.seg input:checked + span { background: var(--blue-grid); border-color: var(--blue-grid); color: #fff; }
+.seg input:checked + span::before { content: "✓"; margin-inline-end: 0.35em; }
+.seg input:focus-visible + span { outline: var(--focus-ring); outline-offset: 2px; }
+
+/* מד החשמל */
+.meter { text-align: center; }
+.meter-label { margin: 0; font-family: var(--font-head); font-weight: 600; color: var(--blue-dark); }
+.meter-svg { display: block; width: 100%; max-width: 13rem; height: auto; margin: 0 auto; }
+.meter-track, .meter-fill { fill: none; stroke-width: 14; stroke-linecap: round; }
+.meter-track { stroke: var(--line); }
+.meter-fill { stroke: var(--light); stroke-dasharray: 0 100; }
+.meter-ticks line { stroke: var(--text-2); stroke-width: 2; }
+.meter-ticks text { font-family: var(--font-head); font-size: 11px; font-weight: 600; fill: var(--text-2); text-anchor: middle; }
+.meter-needle { stroke: var(--blue-dark); stroke-width: 4; stroke-linecap: round; }
+.meter-hub { fill: var(--blue-dark); }
+.meter-value { margin: 0; font-family: var(--font-head); color: var(--blue-dark); line-height: 1.1; }
+.meter-num { font-size: 2.5rem; font-weight: 700; }
+.meter-of { font-size: var(--fs-small); color: var(--text-2); }
+
+/* ציור המחולל */
+.gen-house { fill: #EEF3FA; stroke: #A9B5C6; stroke-width: 3; }
+.gen-core { fill: #8C99AD; }
+.gen-wind rect { fill: #B8692E; stroke: #7A3C12; stroke-width: 1.5; }
+.gen-mag-a { fill: var(--copper); }
+.gen-mag-b { fill: var(--blue-grid); }
+.gen-axle { fill: #E6EDF7; stroke: var(--text-2); stroke-width: 3; }
+.gen-grip { fill: #fff; stroke: var(--blue-dark); stroke-width: 3; }
+.gen-hit { fill: transparent; cursor: grab; touch-action: none; }
+.sim.is-dragging .gen-hit { cursor: grabbing; }
+.gen-wires path { fill: none; stroke: var(--copper); stroke-width: 5; stroke-linejoin: round; }
+.gen-flow path { fill: none; stroke: var(--light); stroke-width: 3; stroke-dasharray: 4 16; stroke-linecap: round; }
+.gen-flow { transition: opacity 0.3s; }
+.gen-glass { fill: #fff; stroke: var(--text-2); stroke-width: 3; }
+.gen-light { fill: var(--light); opacity: 0; }
+.gen-glow { opacity: 0; pointer-events: none; }
+.gen-rays path { stroke: #E0A800; stroke-width: 4; stroke-linecap: round; }
+.gen-rays { opacity: 0; }
+.gen-filament { fill: none; stroke: #8593A8; stroke-width: 3; stroke-linejoin: round; }
+.gen-filament.is-on { stroke: var(--warn); }
+.gen-base { fill: var(--text-2); }
+.gen-labels text { font-family: var(--font-head); font-size: 21px; font-weight: 600; fill: var(--blue-dark); text-anchor: middle; }
+.gen-spin-arrows { opacity: 0; }
+.gen-spin-arrows path { fill: none; stroke: var(--blue-grid); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ----- מעבדה ----- */
+.lab .experiment { margin-bottom: var(--sp-4); }
+.exp-step { margin: var(--sp-4) 0 0; }
+.exp-step > label, .exp-step > p:first-child { display: block; font-weight: 600; margin-bottom: var(--sp-2); }
+.exp-step legend { padding: 0; margin-bottom: var(--sp-1); font-family: var(--font-body); font-size: var(--fs-body); }
+fieldset.exp-step { border: 0; padding: 0; }
+.step-word { font-family: var(--font-head); font-weight: 700; color: var(--copper); }
+.lab-table { width: auto; min-width: 16rem; }
+.lab-table td { padding-block: var(--sp-1); }
+input[type="number"] {
+  font: inherit;
+  font-weight: 700;
+  width: 5.5rem;
+  min-height: var(--tap);
+  color: var(--text);
+  background: var(--surface);
+  border: 2px solid #A9B5C6;
+  border-radius: var(--radius-s);
+  padding: var(--sp-1) var(--sp-3);
+  text-align: center;
+}
+input[type="number"]:focus { border-color: var(--blue-grid); }
+.exp-extra { border-style: dashed; border-color: var(--copper); }
+
+@media (min-width: 1180px) {
+  .station-page:has(.part-wide:not([hidden])) { max-width: 80rem; }
+  .lab-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: var(--sp-5);
+    align-items: start;
+  }
+  .lab-sim-col { position: sticky; top: 5rem; }
+  .lab-sim-col .sim { margin-bottom: 0; }
+  .lab-sim-col .sim-intro { font-size: var(--fs-small); }
+  .lab-sim-col .sim:not(.is-full) .gen-svg { max-height: 44vh; }
+}
+
+/* ----- ניסוי בידיים ----- */
+.goal { font-size: 1.1875rem; }
+.side-note {
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--copper-light);
+  border-radius: var(--radius-s);
+  color: #5A2C0C;
+}
+.side-note a { color: #5A2C0C; font-weight: 700; }
+.hands-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 var(--sp-5); }
+.materials, .steps-list { margin: 0; padding-inline-start: 1.4rem; }
+.materials li, .steps-list li { margin-bottom: var(--sp-2); }
+.steps-list li::marker { font-family: var(--font-head); font-weight: 700; color: var(--copper); }
+.safety { border-inline-start: 5px solid var(--warn); background: #FFF9EA; }
+.safety h3 { color: #7A4800; }
+.safety p:last-child { margin-bottom: 0; }
+.obs-table th[scope="row"] { font-weight: 600; }
+.obs-table fieldset { margin: 0; border: 0; padding: 0; }
+.obs-table .seg span { padding: 0 var(--sp-3); font-size: var(--fs-small); }
+
+/* ----- סיכום: שרשרת האנרגיה ----- */
+.chain {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin: 0 0 var(--sp-5);
+  padding: 0;
+}
+.chain-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-2);
+  min-width: 8rem;
+  padding: var(--sp-3) var(--sp-4);
+  border: 2px solid var(--blue-grid);
+  border-radius: var(--radius-m);
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--blue-dark);
+  background: #EEF3FA;
+}
+.chain-end { border-color: var(--warn); background: #FFF6D9; }
+.chain-icon svg { width: 48px; height: 48px; display: block; }
+.chain-arrow { font-size: 2rem; color: var(--copper); font-weight: 700; }
+@media (max-width: 560px) {
+  .chain { flex-direction: column; }
+  .chain-arrow { transform: rotate(-90deg); }
+}
+.israel { border-inline-start: 5px solid var(--copper); }
+.israel h3 { color: var(--copper); }
+.israel p:last-child { margin-bottom: 0; }
+.checkpoint-card { display: flex; align-items: flex-start; gap: var(--sp-4); }
+.checkpoint-card img { flex: none; }
+@media (max-width: 480px) {
+  .checkpoint-card { flex-direction: column; }
+}
+
+/* ----- משימת תיקון ----- */
+.repair-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: var(--sp-4);
+  margin-top: var(--sp-3);
+}
+@media (max-width: 760px) {
+  .repair-layout { grid-template-columns: 1fr; }
+}
+.repair-head { margin: 0 0 var(--sp-2); font-family: var(--font-head); font-weight: 600; color: var(--blue-dark); }
+.repair-parts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--sp-2);
+}
+.repair-part {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  width: 100%;
+  min-height: 3rem;
+  padding: var(--sp-1) var(--sp-3);
+  border: 2px solid #A9B5C6;
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  font: inherit;
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: var(--blue-dark);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+.repair-part:hover { border-color: var(--copper); }
+.repair-part.is-in { background: #EEF3FA; border-color: var(--blue-grid); }
+.part-icon { width: 28px; height: 30px; flex: none; }
+.repair-part-in { display: none; margin-inline-start: auto; color: var(--success); }
+.repair-part.is-in .repair-part-in { display: inline-flex; }
+.repair-ghost {
+  position: fixed;
+  z-index: 2000;
+  width: 9rem;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 8px 20px rgba(18, 40, 74, 0.25);
+  border-color: var(--copper);
+}
+.repair-bench {
+  border: 2px dashed #A9B5C6;
+  border-radius: var(--radius-m);
+  padding: var(--sp-3);
+  background: var(--surface);
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.repair-bench.is-drop { border-color: var(--copper); background: #FFFDF8; }
+.repair-svg { display: block; width: 100%; height: auto; }
+.repair-floor { fill: var(--bg); }
+.r-axle { stroke: var(--text-2); stroke-width: 8; stroke-linecap: round; }
+.r-coil ellipse { fill: none; stroke: #B8692E; stroke-width: 5; }
+.r-arm { stroke: var(--text-2); stroke-width: 6; stroke-linecap: round; }
+.r-knob { fill: var(--copper); }
+.r-hub { fill: #E6EDF7; stroke: var(--text-2); stroke-width: 3; }
+.r-fan ellipse { fill: #6F86AA; }
+.r-wires path, .r-wire { fill: none; stroke: var(--copper); stroke-width: 4; stroke-linejoin: round; }
+.r-battery rect { fill: var(--text-2); }
+.r-glass { fill: #fff; stroke: var(--text-2); stroke-width: 3; }
+.r-light { fill: var(--light); opacity: 0; }
+.r-glow { fill: rgba(255, 207, 74, 0.5); opacity: 0; }
+.r-base { fill: var(--text-2); }
+.repair-out { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; margin-top: var(--sp-2); }
+.repair-meter { width: 11rem; }
+.repair-bulb-state { display: flex; align-items: center; gap: var(--sp-2); margin: 0; font-family: var(--font-head); font-weight: 700; color: var(--text-2); }
+.repair-bulb-state .icon { width: 2rem; height: 2rem; }
+.repair-bulb-state.is-on { color: var(--blue-dark); }
+.repair-turn { margin-top: var(--sp-3); }

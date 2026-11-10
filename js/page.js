@@ -16,12 +16,14 @@ import { setupLocks } from "./ui/lock.js";
 import { bindJournalFields } from "./ui/journal-fields.js";
 import { setupReminder } from "./ui/reminder.js";
 import { setupOrders } from "./ui/order.js";
+import { setupSlides } from "./ui/slides.js";
 
 renderHeader();
 renderTrafficLight();
 
 if (document.body.dataset.station) {
   bindJournalFields();
+  setupSlides();
   setupHints();
   setupLocks();
   setupOrders();

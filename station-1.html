@@ -1,0 +1,445 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תחנה 1: המחולל · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  תחנה 1: המחולל
+  הטקסטים מתוך docs/content/תחנה 1 המחולל.md
+  כל <section class="part"> הוא חלק אחד בתחנה.
+  ההדמיות נבנות מתוך js/sims/generator.js ו-js/sims/repair.js,
+  והחיבורים של העמוד (סרטונים, העתקה, משוב) נמצאים ב-js/station-1.js
+-->
+<body data-page="s1" data-station="s1">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">תחנה 1</p>
+      <h1>המחולל</h1>
+      <p class="station-hero-question">איך אפשר לייצר חשמל רק מסיבוב של משהו?</p>
+      <div class="station-hero-learn">
+        <p>בתחנה הזו תלמדו:</p>
+        <ul>
+          <li>מה יש בתוך מחולל.</li>
+          <li>שמחולל הופך סיבוב לחשמל.</li>
+          <li>מה משפיע על כמות החשמל.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="page station-page">
+
+    <nav id="station-progress"></nav>
+
+    <!-- ===== 1. פתיחה מהאי ===== -->
+    <section class="part" data-title="פתיחה מהאי" data-tag="core" data-time="5 דק'">
+      <h2>פתיחה מהאי</h2>
+      <figure class="story">
+        <svg class="story-svg" viewBox="0 0 800 380" role="img" aria-labelledby="s1-scene-desc">
+          <desc id="s1-scene-desc">מחסן קטן ומאובק. בתוכו מחולל ישן עם מכסה פתוח: גלגל מתכת, הרבה חוטי נחושת מלופפים, ובאמצע חלק כבד שמושך אליו מברג.</desc>
+          <!-- קיר ורצפה -->
+          <rect width="800" height="380" fill="#F3E3D6"/>
+          <g stroke="#E2C9B2" stroke-width="3"><path d="M0 70 H800 M0 140 H800 M0 210 H800"/></g>
+          <rect y="270" width="800" height="110" fill="#D9C2A8"/>
+          <!-- חול שהסערה העיפה -->
+          <path d="M0 300 C 90 280, 160 290, 230 300 C 300 310, 330 290, 380 300 L380 380 L0 380 Z" fill="#E9D3A9"/>
+          <path d="M560 310 C 620 290, 700 296, 800 286 V380 H560 Z" fill="#E9D3A9"/>
+          <!-- חלון קטן -->
+          <rect x="620" y="60" width="120" height="90" rx="6" fill="#FFF6D9" stroke="#A5561F" stroke-width="4"/>
+          <path d="M680 60 V150 M620 105 H740" stroke="#A5561F" stroke-width="3"/>
+          <!-- המחולל: גוף -->
+          <rect x="230" y="150" width="340" height="150" rx="16" fill="#8C99AD" stroke="#4A5870" stroke-width="4"/>
+          <!-- מכסה פתוח -->
+          <path d="M226 150 L250 56 H550 L574 150 Z" fill="#A9B5C6" stroke="#4A5870" stroke-width="4"/>
+          <!-- בפנים: חלל כהה -->
+          <rect x="250" y="162" width="300" height="120" rx="10" fill="#3A4A63"/>
+          <!-- סלילי נחושת -->
+          <g fill="#B8692E" stroke="#7A3C12" stroke-width="2">
+            <rect x="264" y="176" width="70" height="92" rx="8"/>
+            <rect x="466" y="176" width="70" height="92" rx="8"/>
+          </g>
+          <g stroke="#E7A877" stroke-width="2.5">
+            <path d="M272 180 v84 M282 180 v84 M292 180 v84 M302 180 v84 M312 180 v84 M322 180 v84"/>
+            <path d="M474 180 v84 M484 180 v84 M494 180 v84 M504 180 v84 M514 180 v84 M524 180 v84"/>
+          </g>
+          <!-- גלגל מתכת שנתקע -->
+          <circle cx="400" cy="222" r="54" fill="#C7D0DC" stroke="#4A5870" stroke-width="4"/>
+          <g stroke="#4A5870" stroke-width="4"><path d="M400 168 V276 M346 222 H454 M362 184 L438 260 M438 184 L362 260"/></g>
+          <!-- החלק הכבד באמצע (המגנט) -->
+          <rect x="374" y="200" width="26" height="44" rx="4" fill="#A5561F" stroke="#5A2C0C" stroke-width="2"/>
+          <rect x="400" y="200" width="26" height="44" rx="4" fill="#1D3A66" stroke="#0E1D36" stroke-width="2"/>
+          <!-- מברג שנמשך למגנט -->
+          <g transform="rotate(-28 520 120)">
+            <rect x="470" y="112" width="70" height="18" rx="8" fill="#FFCF4A" stroke="#9A5B00" stroke-width="2"/>
+            <path d="M470 121 H420" stroke="#4A5870" stroke-width="6" stroke-linecap="round"/>
+          </g>
+          <g stroke="#1D3A66" stroke-width="3" stroke-linecap="round" fill="none">
+            <path d="M440 150 q8 -6 16 0"/><path d="M434 136 q10 -8 20 0"/>
+          </g>
+          <!-- אבק -->
+          <g fill="#FFFFFF" opacity="0.6">
+            <circle cx="300" cy="120" r="3"/><circle cx="350" cy="96" r="2"/><circle cx="470" cy="84" r="2.5"/>
+            <circle cx="520" cy="66" r="2"/><circle cx="600" cy="190" r="2"/>
+          </g>
+        </svg>
+      </figure>
+      <p class="story-text">המחולל הישן עומד במחסן קטן מאחורי המאפייה, מכוסה באבק ובחול שהסערה העיפה. נעמה ושני עובדי מועצה פותחים את המכסה הכבד שלו בפעם הראשונה אחרי שנים. בפנים הם מוצאים גלגל מתכת שנתקע במקום, הרבה מאוד חוטי נחושת מלופפים סביב לו, ובאמצע חלק כבד שמושך אליו את המברג שביד של אחד העובדים. אף אחד מהם לא יודע מה בדיוק היה התפקיד של כל חלק. המחולל פשוט תמיד עבד, עד שהפסיק.</p>
+      <blockquote class="quote">
+        <p><strong>נעמה אומרת:</strong> "פתחנו את המחולל הישן. אף אחד כאן לא יודע מה מהחלקים האלה עושה. תעזרו לנו להבין?"</p>
+      </blockquote>
+      <fieldset class="card" data-journal="s1.predict" data-journal-label="הניבוי שלי בפתיחה" id="s1-predict">
+        <legend>מה לדעתכם צריך לקרות במחולל כדי שייצא ממנו חשמל?</legend>
+        <label class="choice"><input type="radio" name="s1-predict" value="צריך להכניס לתוכו סוללה."> צריך להכניס לתוכו סוללה.</label>
+        <label class="choice"><input type="radio" name="s1-predict" value="משהו בתוכו צריך להסתובב."> משהו בתוכו צריך להסתובב.</label>
+        <label class="choice"><input type="radio" name="s1-predict" value="צריך לחמם אותו."> צריך לחמם אותו.</label>
+        <label class="choice"><input type="radio" name="s1-predict" value="אין לי מושג."> אין לי מושג.</label>
+        <p class="feedback feedback-note" id="s1-predict-after" role="status" hidden>רשמנו את הניבוי שלכם. בעוד רבע שעה תבדקו אם צדקתם.</p>
+      </fieldset>
+    </section>
+
+    <!-- ===== 2. מה צריך לדעת ===== -->
+    <section class="part" data-title="מה צריך לדעת" data-tag="core" data-time="10 דק'">
+      <h2>מה צריך לדעת</h2>
+      <div class="slides" aria-label="כרטיסי מידע">
+        <article class="slide card info-card">
+          <h3>מחולל הופך סיבוב לחשמל</h3>
+          <p><strong>מחולל</strong> הוא מכונה שמייצרת חשמל. הוא עובד רק כשמשהו מסובב אותו. כשהוא מסתובב, יוצא ממנו חשמל. כשהוא עומד, לא יוצא כלום.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>מה יש בפנים?</h3>
+          <p>בתוך כל מחולל יש שני חלקים חשובים: <strong>מגנט</strong>, ו<strong>סליל</strong> של חוט נחושת. סליל הוא חוט ארוך שמלופף הרבה פעמים. אחד מהם מסתובב, והשני נשאר במקום.</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 560 300" role="img" aria-labelledby="s1-parts-desc">
+              <desc id="s1-parts-desc">מחולל פתוח. באמצע מגנט על ציר, ומשני הצדדים סלילי נחושת.</desc>
+              <rect x="60" y="40" width="440" height="220" rx="24" fill="#EEF3FA" stroke="#A9B5C6" stroke-width="3"/>
+              <!-- סלילים -->
+              <g>
+                <rect x="90" y="100" width="70" height="100" rx="6" fill="#8C99AD"/>
+                <rect x="400" y="100" width="70" height="100" rx="6" fill="#8C99AD"/>
+                <g fill="#B8692E" stroke="#7A3C12" stroke-width="1.5">
+                  <rect x="94" y="92" width="9" height="116" rx="3"/><rect x="108" y="92" width="9" height="116" rx="3"/><rect x="122" y="92" width="9" height="116" rx="3"/><rect x="136" y="92" width="9" height="116" rx="3"/><rect x="150" y="92" width="7" height="116" rx="3"/>
+                  <rect x="404" y="92" width="9" height="116" rx="3"/><rect x="418" y="92" width="9" height="116" rx="3"/><rect x="432" y="92" width="9" height="116" rx="3"/><rect x="446" y="92" width="9" height="116" rx="3"/><rect x="460" y="92" width="7" height="116" rx="3"/>
+                </g>
+              </g>
+              <!-- מגנט על ציר -->
+              <rect x="210" y="130" width="70" height="40" rx="5" fill="#A5561F"/>
+              <rect x="280" y="130" width="70" height="40" rx="5" fill="#1D3A66"/>
+              <circle cx="280" cy="150" r="10" fill="#E6EDF7" stroke="#4A5870" stroke-width="3"/>
+              <!-- תוויות -->
+              <g font-family="Rubik, Assistant, sans-serif" font-size="22" font-weight="600" fill="#12284A" text-anchor="middle">
+                <path d="M280 130 V84" stroke="#12284A" stroke-width="2"/><text x="280" y="74">מגנט</text>
+                <path d="M125 208 V236" stroke="#12284A" stroke-width="2"/><text x="125" y="286">סליל נחושת</text>
+                <path d="M435 208 V236" stroke="#12284A" stroke-width="2"/><text x="435" y="286">סליל נחושת</text>
+                <path d="M290 158 L330 236" stroke="#12284A" stroke-width="2"/><text x="330" y="286">ציר</text>
+              </g>
+            </svg>
+          </figure>
+        </article>
+        <article class="slide card info-card">
+          <h3>מגנט שזז, חשמל שנוצר</h3>
+          <p>כשמגנט זז ליד חוט נחושת, נוצר בחוט חשמל. זה כל הסוד. מגנט שעומד במקום לא מייצר כלום, גם אם הוא חזק מאוד.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>מחולל אינו סוללה</h3>
+          <p><strong>סוללה</strong> שומרת חשמל שכבר נוצר, עד שהוא נגמר. מחולל לא שומר כלום. הוא מייצר חשמל רק בזמן שמסובבים אותו. וגם את האנרגיה הוא לא יוצר מכלום: הוא הופך את הסיבוב לחשמל.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3. צופים ===== -->
+    <section class="part" data-title="צופים" data-tag="core" data-time="10 דק'">
+      <h2>צופים</h2>
+      <p class="watch-before"><strong>לפני הצפייה:</strong> שימו לב: מה זז בתוך המחולל, ומה נשאר במקום?</p>
+      <div class="video-slot" data-video="station1.video1" data-video-title="איך מחולל עובד"></div>
+      <div class="card watch-after">
+        <h3>אחרי הצפייה</h3>
+        <label class="question" for="s1-watch1">1. מה סובב במחולל שראיתם?</label>
+        <textarea id="s1-watch1" rows="2" data-journal="s1.watch1" data-journal-label="מה סובב במחולל שראיתם?"></textarea>
+        <label class="question q-gap" for="s1-watch2">2. מה היה מופתע אתכם בסרטון?</label>
+        <textarea id="s1-watch2" rows="2" data-journal="s1.watch2" data-journal-label="מה היה מופתע אתכם בסרטון?"></textarea>
+      </div>
+      <div class="extra-block">
+        <h3>מחולל אמיתי בתחנת כוח <span class="tag tag-extra">אם יש זמן</span></h3>
+        <div class="video-slot" data-video="station1.video2" data-video-title="מחולל אמיתי בתחנת כוח"></div>
+      </div>
+    </section>
+
+    <!-- ===== 4. מעבדה ===== -->
+    <section class="part part-wide" data-title="מעבדה" data-tag="core" data-time="15–20 דק'">
+      <h2>מעבדה: מה משפיע על החשמל?</h2>
+      <div class="lab-wrap">
+        <div class="lab-sim-col">
+          <div id="gen-sim"></div>
+        </div>
+
+        <div class="lab">
+          <!-- ניסוי 1 -->
+          <article class="experiment card" data-exp="1">
+            <div class="experiment-body">
+              <h3>ניסוי 1: מהירות הסיבוב</h3>
+              <fieldset class="exp-step" data-journal="s1.e1.predict" data-journal-label="ניסוי 1 – הניבוי שלי">
+                <legend><span class="step-word">ניבוי:</span> מה יקרה לנורה כשתסובבו מהר יותר?</legend>
+                <label class="choice"><input type="radio" name="s1-e1-predict" value="תאיר חזק יותר"> תאיר חזק יותר</label>
+                <label class="choice"><input type="radio" name="s1-e1-predict" value="תאיר חלש יותר"> תאיר חלש יותר</label>
+                <label class="choice"><input type="radio" name="s1-e1-predict" value="לא ישתנה כלום"> לא ישתנה כלום</label>
+              </fieldset>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> הזיזו את המחוון מהתחלה עד הסוף. רשמו בטבלה את המד בשלוש מהירויות: לאט, בינוני, מהר.</p>
+                <table class="lab-table">
+                  <thead><tr><th scope="col">מהירות</th><th scope="col">מד חשמל (0–10)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" id="s1-e1-r1">לאט</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e1-r1" data-journal="s1.e1.slow" data-journal-label="ניסוי 1 – לאט"></td></tr>
+                    <tr><th scope="row" id="s1-e1-r2">בינוני</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e1-r2" data-journal="s1.e1.mid" data-journal-label="ניסוי 1 – בינוני"></td></tr>
+                    <tr><th scope="row" id="s1-e1-r3">מהר</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e1-r3" data-journal="s1.e1.fast" data-journal-label="ניסוי 1 – מהר"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exp-step">
+                <label for="s1-e1-explain"><span class="step-word">הסבירו:</span> מה הקשר בין מהירות הסיבוב לכמות החשמל?</label>
+                <textarea id="s1-e1-explain" rows="3" data-explain data-journal="s1.e1.explain" data-journal-label="ניסוי 1 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e1">
+                  <p class="hint" data-level="1">הסתכלו על המד במהירות הנמוכה ובמהירות הגבוהה. האם המספר זהה?</p>
+                  <p class="hint" data-level="2">נסו להשלים: "ככל שמסובבים מהר יותר, החשמל …"</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>סיבוב מהיר יותר מייצר יותר חשמל. שמתם לב שבמהירות נמוכה הנורה מהבהבת?</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 2 -->
+          <article class="experiment card" data-exp="2">
+            <div class="experiment-body">
+              <h3>ניסוי 2: חוזק המגנט</h3>
+              <div class="exp-step">
+                <label for="s1-e2-predict"><span class="step-word">ניבוי:</span> נחליף את המגנט במגנט חזק יותר, באותה מהירות. מה יקרה?</label>
+                <textarea id="s1-e2-predict" rows="2" data-journal="s1.e2.predict" data-journal-label="ניסוי 2 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> קבעו מהירות בינונית. החליפו בין שלושה מגנטים: חלש, בינוני, חזק. רשמו את המד.</p>
+                <table class="lab-table">
+                  <thead><tr><th scope="col">מגנט</th><th scope="col">מד חשמל (0–10)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" id="s1-e2-r1">חלש</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e2-r1" data-journal="s1.e2.weak" data-journal-label="ניסוי 2 – מגנט חלש"></td></tr>
+                    <tr><th scope="row" id="s1-e2-r2">בינוני</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e2-r2" data-journal="s1.e2.mid" data-journal-label="ניסוי 2 – מגנט בינוני"></td></tr>
+                    <tr><th scope="row" id="s1-e2-r3">חזק</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e2-r3" data-journal="s1.e2.strong" data-journal-label="ניסוי 2 – מגנט חזק"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exp-step">
+                <label for="s1-e2-explain"><span class="step-word">הסבירו:</span> למה חשוב שהמהירות תישאר אותו דבר כשמחליפים מגנט?</label>
+                <textarea id="s1-e2-explain" rows="3" data-explain data-journal="s1.e2.explain" data-journal-label="ניסוי 2 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e2">
+                  <p class="hint" data-level="1">אם גם המהירות תשתנה, תוכלו לדעת מה גרם לשינוי?</p>
+                  <p class="hint" data-level="2">כשמשנים שני דברים ביחד, אי אפשר לדעת מי מהם השפיע.</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>מגנט חזק יותר מייצר יותר חשמל. ועשיתם כמו מדענים: שיניתם רק דבר אחד.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 3 -->
+          <article class="experiment card" data-exp="3">
+            <div class="experiment-body">
+              <h3>ניסוי 3: מספר הליפופים</h3>
+              <div class="exp-step">
+                <label for="s1-e3-predict"><span class="step-word">ניבוי:</span> מה יקרה אם נלפף את החוט הרבה יותר פעמים?</label>
+                <textarea id="s1-e3-predict" rows="2" data-journal="s1.e3.predict" data-journal-label="ניסוי 3 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> בחרו סליל עם 10, 50 ו-100 ליפופים. אל תשנו את המגנט ואת המהירות.</p>
+                <table class="lab-table">
+                  <thead><tr><th scope="col">ליפופים</th><th scope="col">מד חשמל (0–10)</th></tr></thead>
+                  <tbody>
+                    <tr><th scope="row" id="s1-e3-r1">10</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e3-r1" data-journal="s1.e3.t10" data-journal-label="ניסוי 3 – 10 ליפופים"></td></tr>
+                    <tr><th scope="row" id="s1-e3-r2">50</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e3-r2" data-journal="s1.e3.t50" data-journal-label="ניסוי 3 – 50 ליפופים"></td></tr>
+                    <tr><th scope="row" id="s1-e3-r3">100</th><td><input type="number" inputmode="numeric" min="0" max="10" aria-labelledby="s1-e3-r3" data-journal="s1.e3.t100" data-journal-label="ניסוי 3 – 100 ליפופים"></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="exp-step">
+                <label for="s1-e3-explain"><span class="step-word">הסבירו:</span> אילו שלושה דברים מגדילים את כמות החשמל שמחולל מייצר?</label>
+                <textarea id="s1-e3-explain" rows="3" data-explain data-journal="s1.e3.explain" data-journal-label="ניסוי 3 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e3">
+                  <p class="hint" data-level="1">חזרו לטבלת המעבדה. מה שיניתם בכל אחד משלושת הניסויים?</p>
+                  <p class="hint" data-level="2">התשובה בנויה מהתשובות של ניסוי 1, 2 ו-3.</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>מעולה! סיבוב מהיר, מגנט חזק והרבה ליפופים. כך בונים מחוללים בתחנות כוח אמיתיות.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 4 – אם יש זמן -->
+          <article class="experiment card exp-extra" data-exp="4">
+            <div class="experiment-body">
+              <h3>ניסוי 4: מה אם הסליל מסתובב? <span class="tag tag-extra">אם יש זמן</span></h3>
+              <div class="exp-step">
+                <label for="s1-e4-predict"><span class="step-word">ניבוי:</span> הפעם המגנט עומד, והסליל מסתובב סביבו. האם ייווצר חשמל?</label>
+                <textarea id="s1-e4-predict" rows="2" data-journal="s1.e4.predict" data-journal-label="ניסוי 4 – הניבוי שלי"></textarea>
+              </div>
+              <p class="feedback feedback-ok exp-feedback" id="s1-e4-feedback" hidden>כן! מה שחשוב הוא שהמגנט והסליל זזים אחד ליד השני. לא משנה מי מהם מסתובב.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="s1-lab-copy"></div>
+    </section>
+
+    <!-- ===== 5. ניסוי בידיים ===== -->
+    <section class="part" data-title="ניסוי בידיים" data-tag="core" data-time="20 דק'">
+      <h2>ניסוי בידיים: חשמל ממגנט</h2>
+      <p class="goal"><strong>מטרה:</strong> לראות שמגנט שזז בתוך סליל מייצר חשמל אמיתי.</p>
+      <p class="side-note">כל הערכות תפוסות? <a href="#part-4">עברו למעבדה בהדמיה</a> וחזרו לכאן אחר כך.</p>
+
+      <div class="hands-grid">
+        <div class="card">
+          <h3>חומרים</h3>
+          <ul class="materials">
+            <li>גליל קרטון (מגליל נייר מטבח) עם סליל מוכן של כ-100 ליפופים</li>
+            <li>מצפן עם כ-20 ליפופים של אותו חוט סביבו</li>
+            <li>מגנט חזק שנכנס לתוך הגליל</li>
+            <li>סרגל או מסורת ארוכה</li>
+          </ul>
+        </div>
+        <div class="card safety">
+          <h3>בטיחות</h3>
+          <p>מגנטים חזקים קופצים זה לזה וצובטים את האצבעות. הרחיקו אותם מטלפונים וממחשבים.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>שלבים</h3>
+        <ol class="steps-list">
+          <li>הניחו את המצפן רחוק מהגליל, לפחות 50 ס״מ. מדדו עם הסרגל.</li>
+          <li>חכו שהמחט תעמוד במקום.</li>
+          <li>הכניסו את המגנט לגליל במהירות. אחד מכם מסתכל על המצפן.</li>
+          <li>הוציאו אותו במהירות. מה קרה למחט?</li>
+          <li>עכשיו אותו דבר, לאט מאוד.</li>
+          <li>השאירו את המגנט בתוך הגליל בלי להזיז.</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <h3>טבלת תצפיות</h3>
+        <table class="obs-table">
+          <thead><tr><th scope="col">מה עשינו</th><th scope="col">מה קרה למחט? (זזה הרבה / קצת / לא זזה)</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">הכנסה מהירה</th><td>
+              <fieldset class="obs" data-journal="s1.hands.fastIn" data-journal-label="מה קרה למחט? הכנסה מהירה">
+                <legend class="visually-hidden">הכנסה מהירה: מה קרה למחט?</legend>
+                <div class="seg">
+                  <label><input type="radio" name="s1-obs-fastIn" value="זזה הרבה"><span>זזה הרבה</span></label>
+                  <label><input type="radio" name="s1-obs-fastIn" value="קצת"><span>קצת</span></label>
+                  <label><input type="radio" name="s1-obs-fastIn" value="לא זזה"><span>לא זזה</span></label>
+                </div>
+              </fieldset></td></tr>
+            <tr><th scope="row">הוצאה מהירה</th><td>
+              <fieldset class="obs" data-journal="s1.hands.fastOut" data-journal-label="מה קרה למחט? הוצאה מהירה">
+                <legend class="visually-hidden">הוצאה מהירה: מה קרה למחט?</legend>
+                <div class="seg">
+                  <label><input type="radio" name="s1-obs-fastOut" value="זזה הרבה"><span>זזה הרבה</span></label>
+                  <label><input type="radio" name="s1-obs-fastOut" value="קצת"><span>קצת</span></label>
+                  <label><input type="radio" name="s1-obs-fastOut" value="לא זזה"><span>לא זזה</span></label>
+                </div>
+              </fieldset></td></tr>
+            <tr><th scope="row">הכנסה איטית</th><td>
+              <fieldset class="obs" data-journal="s1.hands.slowIn" data-journal-label="מה קרה למחט? הכנסה איטית">
+                <legend class="visually-hidden">הכנסה איטית: מה קרה למחט?</legend>
+                <div class="seg">
+                  <label><input type="radio" name="s1-obs-slowIn" value="זזה הרבה"><span>זזה הרבה</span></label>
+                  <label><input type="radio" name="s1-obs-slowIn" value="קצת"><span>קצת</span></label>
+                  <label><input type="radio" name="s1-obs-slowIn" value="לא זזה"><span>לא זזה</span></label>
+                </div>
+              </fieldset></td></tr>
+            <tr><th scope="row">מגנט עומד בתוך הגליל</th><td>
+              <fieldset class="obs" data-journal="s1.hands.still" data-journal-label="מה קרה למחט? מגנט עומד בתוך הגליל">
+                <legend class="visually-hidden">מגנט עומד בתוך הגליל: מה קרה למחט?</legend>
+                <div class="seg">
+                  <label><input type="radio" name="s1-obs-still" value="זזה הרבה"><span>זזה הרבה</span></label>
+                  <label><input type="radio" name="s1-obs-still" value="קצת"><span>קצת</span></label>
+                  <label><input type="radio" name="s1-obs-still" value="לא זזה"><span>לא זזה</span></label>
+                </div>
+              </fieldset></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>מסקנות</h3>
+        <label class="question" for="s1-c1">1. מתי המחט זזה הכי הרבה?</label>
+        <textarea id="s1-c1" rows="2" data-journal="s1.hands.c1" data-journal-label="מתי המחט זזה הכי הרבה?"></textarea>
+        <label class="question q-gap" for="s1-c2">2. מה קרה כשהמגנט עמד? מה זה אומר על מחוללים?</label>
+        <textarea id="s1-c2" rows="2" data-journal="s1.hands.c2" data-journal-label="מה קרה כשהמגנט עמד? מה זה אומר על מחוללים?"></textarea>
+        <label class="question q-gap" for="s1-c3">3. למה הרחקנו את המצפן מהמגנט?</label>
+        <textarea id="s1-c3" rows="2" data-journal="s1.hands.c3" data-journal-label="למה הרחקנו את המצפן מהמגנט?"></textarea>
+      </div>
+
+      <div id="s1-hands-copy"></div>
+    </section>
+
+    <!-- ===== 6. מה מסובב כאן את המחולל? ===== -->
+    <section class="part" data-title="מה מסובב כאן את המחולל?" data-tag="core" data-time="3 דק'">
+      <h2>מה מסובב כאן את המחולל?</h2>
+      <div class="card summary-card">
+        <ol class="chain" aria-label="סיבוב, מגנט וסליל, חשמל">
+          <li class="chain-step"><span class="chain-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M38 24a14 14 0 1 1-4.1-9.9" fill="none" stroke="#1D3A66" stroke-width="4" stroke-linecap="round"/><path d="M35 6v9h-9" fill="none" stroke="#1D3A66" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>סיבוב</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step"><span class="chain-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="6" y="16" width="18" height="16" rx="3" fill="#A5561F"/><rect x="24" y="16" width="18" height="16" rx="3" fill="#1D3A66"/></svg>
+          </span>מגנט וסליל</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step chain-end"><span class="chain-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><path d="M24 6a12 12 0 0 0-7.2 21.6c1.6 1.2 2.2 2.8 2.2 4.4h10c0-1.6.6-3.2 2.2-4.4A12 12 0 0 0 24 6z" fill="#FFCF4A" stroke="#9A5B00" stroke-width="2.5"/><path d="M19 37h10M21 42h6" stroke="#4A5870" stroke-width="3" stroke-linecap="round"/></svg>
+          </span>חשמל</li>
+        </ol>
+        <p>מחולל הופך סיבוב לחשמל. בלי סיבוב אין חשמל. מעכשיו, בכל תחנה נשאל שאלה אחת: <strong>מה מסובב כאן את המחולל?</strong></p>
+      </div>
+      <aside class="card israel">
+        <h3>ובישראל?</h3>
+        <p>כמעט כל החשמל בישראל מיוצר במחוללים ענקיים, בתחנות כוח. חוץ מחשמל שמגיע מלוחות סולאריים: הם מייצרים חשמל בלי לסובב כלום.</p>
+      </aside>
+    </section>
+
+    <!-- ===== 7. דיווח למועצה ונקודת ביקורת ===== -->
+    <section class="part" data-title="דיווח למועצה" data-tag="core" data-time="12 דק'">
+      <h2>דיווח למועצה ונקודת ביקורת</h2>
+      <div class="card checkpoint-card">
+        <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
+        <div>
+          <p>סיימתם? עכשיו מדווחים למועצה. פתחו את המשימה "נקודת ביקורת: המחולל" ב-Classroom. זה ייקח כ-10 דקות.</p>
+          <div id="s1-checkpoint"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. רוצים עוד? ===== -->
+    <section class="part" data-title="רוצים עוד?" data-tag="extra"
+             data-next-label="לתחנה 2: טורבינת רוח" data-next-href="station-2.html">
+      <h2>רוצים עוד?</h2>
+      <div class="card">
+        <h3>משימת תיקון</h3>
+        <p>בהדמיה מופיעים חלקים פזורים: מגנט, סליל, ציר, ידית, סוללה, מאוורר ונורה. הרכיבו מחולל שמדליק את הנורה. שימו לב: לא כל החלקים נחוצים.</p>
+      </div>
+      <div id="repair-sim"></div>
+      <div class="card">
+        <h3>שאלת מחשבה</h3>
+        <p>לאופניים רבים יש פנס עם דינמו, מחולל קטן שהגלגל מסובב. מה קורה לפנס כשעוצרים ברמזור? תכננו פנס שלא נכבה. ציירו אותו במחברת.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/station-1.js"></script>
+</body>
+</html>
