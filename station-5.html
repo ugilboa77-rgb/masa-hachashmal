@@ -1,0 +1,156 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תחנה 5: השוואה · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  תחנה 5: השוואה
+  הטקסטים מתוך docs/content/תחנה 5 השוואה.md
+  אין בתחנה הזו סרטון ואין ניסוי פיזי.
+  המיון: js/ui/sort.js. החיבורים של העמוד: js/station-5.js
+-->
+<body data-page="s5" data-station="s5">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">תחנה 5</p>
+      <h1>השוואה</h1>
+      <p class="station-hero-question">אם יש שלוש דרכים לסובב מחולל, איזו מהן מתאימה לאי האלמוג?</p>
+    </div>
+  </div>
+
+  <main id="main" class="page station-page">
+
+    <nav id="station-progress"></nav>
+
+    <!-- ===== 1. ישיבת המועצה ===== -->
+    <section class="part" data-title="ישיבת המועצה" data-tag="core" data-time="5 דק'">
+      <h2>ישיבת המועצה</h2>
+      <figure class="story">
+        <svg class="story-svg" viewBox="0 0 800 300" role="img" aria-label="אולם בית הספר מלא אנשים. שלושה פנסים תלויים מהתקרה, ונעמה עומדת על הבמה.">
+          <rect width="800" height="300" fill="#F3E3D6"/>
+          <rect y="230" width="800" height="70" fill="#D9C2A8"/>
+          <!-- במה -->
+          <rect x="300" y="170" width="200" height="60" fill="#A5561F"/>
+          <!-- נעמה -->
+          <circle cx="400" cy="112" r="16" fill="#1D3A66"/>
+          <path d="M380 170 q20 -50 40 0 z" fill="#1D3A66"/>
+          <!-- פנסים -->
+          <g>
+            <path d="M200 0 V40 M400 0 V30 M600 0 V40" stroke="#4A5870" stroke-width="3"/>
+            <circle cx="200" cy="56" r="40" fill="#FFCF4A" opacity="0.35"/><circle cx="400" cy="46" r="40" fill="#FFCF4A" opacity="0.35"/><circle cx="600" cy="56" r="40" fill="#FFCF4A" opacity="0.35"/>
+            <rect x="190" y="40" width="20" height="28" rx="4" fill="#FFCF4A" stroke="#9A5B00" stroke-width="2"/>
+            <rect x="390" y="30" width="20" height="28" rx="4" fill="#FFCF4A" stroke="#9A5B00" stroke-width="2"/>
+            <rect x="590" y="40" width="20" height="28" rx="4" fill="#FFCF4A" stroke="#9A5B00" stroke-width="2"/>
+          </g>
+          <!-- קהל -->
+          <g fill="#4A5870">
+            <circle cx="60" cy="220" r="14"/><circle cx="110" cy="214" r="15"/><circle cx="160" cy="222" r="13"/><circle cx="210" cy="216" r="15"/><circle cx="260" cy="224" r="12"/>
+            <circle cx="540" cy="222" r="13"/><circle cx="590" cy="214" r="15"/><circle cx="640" cy="220" r="14"/><circle cx="690" cy="216" r="15"/><circle cx="740" cy="224" r="13"/>
+            <circle cx="90" cy="262" r="16"/><circle cx="170" cy="268" r="15"/><circle cx="250" cy="262" r="16"/><circle cx="330" cy="268" r="15"/><circle cx="410" cy="262" r="16"/><circle cx="490" cy="268" r="15"/><circle cx="570" cy="262" r="16"/><circle cx="650" cy="268" r="15"/><circle cx="730" cy="262" r="16"/>
+          </g>
+        </svg>
+      </figure>
+      <p class="story-text">אולם בית הספר של אי האלמוג מלא עד אחרון הכיסאות. האור מגיע משלושה פנסים שתלויים מהתקרה. הדייגים הגיעו, וגם הרופאה, האופה ורבים מהילדים.</p>
+      <p class="story-text">נעמה עולה לבמה. "בשבועות האחרונים צוות המהנדסים שלנו בדק שלוש דרכים לייצר חשמל", היא אומרת. "רוח מרכס הרוחות, מים מנחל השחף, ודלק שמגיע באונייה. כל אחת מהן טובה במשהו, וכל אחת מהן מסתבכת במשהו אחר. הערב נסדר את כל מה שידוע לנו, כדי שנוכל להחליט."</p>
+      <p class="story-text">מהשורה הראשונה קם דייג זקן. "ומה עם המחולל הישן?" הוא שואל. "הוא עבד אצלנו עשרים שנה." נעמה מחייכת. "זה הדבר המעניין, אברהם. בכל אחת משלוש הדרכים יש מחולל. השאלה היא רק מה יסובב אותו."</p>
+    </section>
+
+    <!-- ===== 2. מיון ===== -->
+    <section class="part" data-title="מיון" data-tag="core" data-time="12 דק'">
+      <h2>מיון: מה מתאים לאיזו תחנה?</h2>
+      <ul class="instructions">
+        <li>גררו כל כרטיס לתחנה המתאימה.</li>
+        <li>כרטיס יכול להתאים ליותר מתחנה אחת. אז שימו אותו בכמה מקומות.</li>
+        <li>לחצו "בדיקה" כשסיימתם.</li>
+      </ul>
+      <div class="sorter card" data-sort-key="s5.sort">
+        <!-- הסדר כאן מעורבב. data-answer = התחנות הנכונות (מפתח התשובות מהמסמך) -->
+        <ul class="sort-cards">
+          <li data-answer="wind">נעצרת בסערה</li>
+          <li data-answer="steam">מרתיחה מים</li>
+          <li data-answer="wind water steam">מסובבת מחולל</li>
+          <li data-answer="water">צריכה נהר והפרש גובה</li>
+          <li data-answer="wind water">לא צריכה דלק</li>
+          <li data-answer="steam">מזהמת את האוויר</li>
+          <li data-answer="wind">תלויה ברוח</li>
+          <li data-answer="water steam">אפשר להחליט מתי היא מייצרת חשמל</li>
+          <li data-answer="water">מייצרת פחות בקיץ יבש</li>
+          <li data-answer="wind water steam">משתמשת בטורבינה</li>
+          <li data-answer="steam">צריכה אספקה של דלק כל הזמן</li>
+          <li data-answer="wind">מתאימה למקום גבוה ופתוח</li>
+        </ul>
+        <p class="feedback feedback-retry" data-fb="wrong" role="status">הכרטיס הזה עוד לא במקום. חשבו על מה שראיתם במעבדה של התחנה הזו.</p>
+        <p class="feedback feedback-retry" data-fb="missing" role="status">יש כרטיס שמתאים לעוד תחנה. איזה?</p>
+        <p class="feedback feedback-ok" data-fb="done" role="status">כל הכרטיסים במקום. מכאן נבנית טבלת ההשוואה שלכם.</p>
+        <p class="feedback feedback-note" data-fb="generator" role="status">זה הרעיון החשוב ביותר במסע. שלוש תחנות שונות מאוד, וכולן עושות בסוף את אותו דבר: מסובבות מחולל.</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. טבלת ההשוואה ===== -->
+    <section class="part" data-title="טבלת ההשוואה" data-tag="core" data-time="10 דק'">
+      <h2>טבלת ההשוואה של המועצה</h2>
+      <p>השלימו את הטבלה. משפט קצר בכל משבצת.</p>
+      <div class="card compare-wrap">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col">שאלה</th><th scope="col">טורבינת רוח</th><th scope="col">תחנה הידרואלקטרית</th><th scope="col">תחנה קיטורית</th></tr>
+          </thead>
+          <tbody id="compare-body">
+            <tr><th scope="row" id="cmp-r1">מה מסובב את המחולל?</th><td data-col="טורבינת רוח"><textarea rows="2" aria-label="טורבינת רוח: מה מסובב את המחולל?" data-journal="s5.table.r1.wind" data-journal-label="טורבינת רוח: מה מסובב את המחולל?"></textarea></td><td data-col="תחנה הידרואלקטרית"><textarea rows="2" aria-label="תחנה הידרואלקטרית: מה מסובב את המחולל?" data-journal="s5.table.r1.water" data-journal-label="תחנה הידרואלקטרית: מה מסובב את המחולל?"></textarea></td><td data-col="תחנה קיטורית"><textarea rows="2" aria-label="תחנה קיטורית: מה מסובב את המחולל?" data-journal="s5.table.r1.steam" data-journal-label="תחנה קיטורית: מה מסובב את המחולל?"></textarea></td></tr>
+            <tr><th scope="row" id="cmp-r2">מתי היא לא עובדת?</th><td data-col="טורבינת רוח"><textarea rows="2" aria-label="טורבינת רוח: מתי היא לא עובדת?" data-journal="s5.table.r2.wind" data-journal-label="טורבינת רוח: מתי היא לא עובדת?"></textarea></td><td data-col="תחנה הידרואלקטרית"><textarea rows="2" aria-label="תחנה הידרואלקטרית: מתי היא לא עובדת?" data-journal="s5.table.r2.water" data-journal-label="תחנה הידרואלקטרית: מתי היא לא עובדת?"></textarea></td><td data-col="תחנה קיטורית"><textarea rows="2" aria-label="תחנה קיטורית: מתי היא לא עובדת?" data-journal="s5.table.r2.steam" data-journal-label="תחנה קיטורית: מתי היא לא עובדת?"></textarea></td></tr>
+            <tr><th scope="row" id="cmp-r3">איפה באי אפשר לבנות אותה?</th><td data-col="טורבינת רוח"><textarea rows="2" aria-label="טורבינת רוח: איפה באי אפשר לבנות אותה?" data-journal="s5.table.r3.wind" data-journal-label="טורבינת רוח: איפה באי אפשר לבנות אותה?"></textarea></td><td data-col="תחנה הידרואלקטרית"><textarea rows="2" aria-label="תחנה הידרואלקטרית: איפה באי אפשר לבנות אותה?" data-journal="s5.table.r3.water" data-journal-label="תחנה הידרואלקטרית: איפה באי אפשר לבנות אותה?"></textarea></td><td data-col="תחנה קיטורית"><textarea rows="2" aria-label="תחנה קיטורית: איפה באי אפשר לבנות אותה?" data-journal="s5.table.r3.steam" data-journal-label="תחנה קיטורית: איפה באי אפשר לבנות אותה?"></textarea></td></tr>
+            <tr><th scope="row" id="cmp-r4">מה היתרון הגדול שלה?</th><td data-col="טורבינת רוח"><textarea rows="2" aria-label="טורבינת רוח: מה היתרון הגדול שלה?" data-journal="s5.table.r4.wind" data-journal-label="טורבינת רוח: מה היתרון הגדול שלה?"></textarea></td><td data-col="תחנה הידרואלקטרית"><textarea rows="2" aria-label="תחנה הידרואלקטרית: מה היתרון הגדול שלה?" data-journal="s5.table.r4.water" data-journal-label="תחנה הידרואלקטרית: מה היתרון הגדול שלה?"></textarea></td><td data-col="תחנה קיטורית"><textarea rows="2" aria-label="תחנה קיטורית: מה היתרון הגדול שלה?" data-journal="s5.table.r4.steam" data-journal-label="תחנה קיטורית: מה היתרון הגדול שלה?"></textarea></td></tr>
+            <tr><th scope="row" id="cmp-r5">מה החסרון הגדול שלה?</th><td data-col="טורבינת רוח"><textarea rows="2" aria-label="טורבינת רוח: מה החסרון הגדול שלה?" data-journal="s5.table.r5.wind" data-journal-label="טורבינת רוח: מה החסרון הגדול שלה?"></textarea></td><td data-col="תחנה הידרואלקטרית"><textarea rows="2" aria-label="תחנה הידרואלקטרית: מה החסרון הגדול שלה?" data-journal="s5.table.r5.water" data-journal-label="תחנה הידרואלקטרית: מה החסרון הגדול שלה?"></textarea></td><td data-col="תחנה קיטורית"><textarea rows="2" aria-label="תחנה קיטורית: מה החסרון הגדול שלה?" data-journal="s5.table.r5.steam" data-journal-label="תחנה קיטורית: מה החסרון הגדול שלה?"></textarea></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="field-note">הטבלה נשמרת ביומן המהנדס. תצטרכו אותה באתגר.</p>
+    </section>
+
+    <!-- ===== 4. חזרה לנקודת הזינוק ===== -->
+    <section class="part" data-title="חזרה לנקודת הזינוק" data-tag="core" data-time="3 דק'">
+      <h2>חזרה לנקודת הזינוק</h2>
+      <p><strong>קראו:</strong> בתחנה 0 כתבתם מאיפה מגיע החשמל שבשקע. הנה מה שכתבתם אז:</p>
+      <blockquote class="quote then-answer" id="s5-then"></blockquote>
+      <div class="card">
+        <label class="question" for="s5-now">מה הייתם כותבים עכשיו? מה הדבר החשוב ביותר שלמדתם במסע?</label>
+        <textarea id="s5-now" rows="4" data-journal="s5.now" data-journal-label="מה הייתם כותבים עכשיו? מה הדבר החשוב ביותר שלמדתם במסע?"></textarea>
+      </div>
+    </section>
+
+    <!-- ===== 5. דיווח למועצה ונקודת ביקורת ===== -->
+    <section class="part" data-title="דיווח למועצה" data-tag="core" data-time="משותפת לתחנות 4 ו-5">
+      <h2>דיווח למועצה ונקודת ביקורת</h2>
+      <div class="card checkpoint-card">
+        <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
+        <div>
+          <p>סיימתם? עכשיו מדווחים למועצה. פתחו את המשימה "נקודת ביקורת: קיטור והשוואה" ב-Classroom. זה ייקח כ-10 דקות.</p>
+          <div data-checkpoint="stations4and5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. מה עכשיו? ===== -->
+    <section class="part" data-title="מה עכשיו?" data-tag="core"
+             data-next-label="לאתגר: אי האנרגיה" data-next-href="challenge.html">
+      <h2>מה עכשיו?</h2>
+      <div class="letter">
+        <p>אחרי הישיבה נעמה נשארה לבד באולם, מול המפה. "עכשיו אני מבינה למה זה קשה", היא אמרה לעצמה. "אין תחנה אחת שעושה הכול." ואז עלה לה רעיון. מה אם לא צריך לבחור רק אחת?</p>
+        <p>זה האתגר שלכם. תכננו לאי מערכת חשמל שלמה, ותבדקו אותה בסערה, בשקט ובקיץ יבש.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/station-5.js"></script>
+</body>
+</html>
