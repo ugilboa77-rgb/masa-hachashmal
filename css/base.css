@@ -1501,3 +1501,45 @@ input[type="number"]:focus { border-color: var(--blue-grid); }
   .schedule-row input { grid-column: 1 / -1; grid-row: 2; }
 }
 .legend-bar { display: inline-block; width: 1rem; height: 1rem; background: #BFDDF7; border: 1px solid #7FB1E3; flex: none; }
+
+/* =========================================================
+   תחנה 4: התחנה הקיטורית
+   ========================================================= */
+.steam-labels text { font-size: 18px; }
+.s-boil-water { fill: #7FB1E3; }
+.s-pipe { fill: none; stroke: var(--text-2); stroke-width: 12; stroke-linecap: round; }
+.s-steam { fill: none; stroke: #FFFFFF; stroke-width: 5; stroke-dasharray: 8 10; stroke-linecap: round; }
+.s-fuel-feed { fill: none; stroke: var(--text-2); stroke-width: 6; stroke-dasharray: 4 4; }
+.s-sea-pipe { fill: none; stroke: #4F86C6; stroke-width: 10; }
+.s-sea-flow { fill: none; stroke: #BFDDF7; stroke-width: 3; stroke-dasharray: 8 10; }
+.s-return { fill: none; stroke: #4F86C6; stroke-width: 8; }
+.s-return-flow { fill: none; stroke: #BFDDF7; stroke-width: 3; stroke-dasharray: 6 10; }
+.s-wire { fill: none; stroke: var(--copper); stroke-width: 4; }
+.s-light { fill: var(--light); opacity: 0; }
+.s-glow { fill: rgba(255, 207, 74, 0.45); opacity: 0; }
+.s-smoke circle { fill: #6F7F96; }
+.s-ship { transition: opacity 0.5s; opacity: 0; }
+.steam-side { display: grid; gap: var(--sp-2); }
+.steam-side .meter-num { font-size: 1.75rem; }
+.meter-smoke .meter-fill { stroke: #8593A8; }
+.level-fuel .level-fill { background: #8C6A4A; }
+.legend-fuel { background: #D9C2A8; border-color: #8C6A4A; }
+.weeks-actions { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.weeks-delay[aria-pressed="true"] { background: var(--warn); border-color: var(--warn); color: #fff; }
+.weeks-delay[aria-pressed="true"]::before { content: "✓"; }
+.plant-diagram { margin: 0 0 var(--sp-4); }
+.plant-diagram .gen-svg { border-radius: var(--radius-m); }
+/* שלושה מדים בשורה אחת מתחת לציור */
+.sim-main:has(.steam-side) { grid-template-columns: minmax(0, 1fr); }
+.steam-side { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: end; }
+.steam-side .meter-svg { max-width: 9rem; }
+.steam-side .level-bar { height: 4.5rem; }
+/* אם ההדמיה גבוהה מהמסך – אפשר לגלול בתוכה */
+@media (min-width: 1180px) {
+  .lab-sim-col { max-height: calc(100vh - 5.5rem); overflow-y: auto; }
+}
+@media (min-width: 1180px) {
+  .lab-sim-col .sim:not(.is-full) .gen-svg { max-height: 40vh; }
+  .lab-sim-col .sim-controls:has(.steam-x), #steam-sim .sim-controls { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+  #steam-sim .sim-speed { grid-column: auto; }
+}

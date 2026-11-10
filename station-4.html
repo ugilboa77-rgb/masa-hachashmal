@@ -1,0 +1,238 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תחנה 4: תחנה קיטורית · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  תחנה 4: תחנה קיטורית
+  הטקסטים מתוך docs/content/תחנה 4 קיטורית.md
+  בתחנה הזו אין ניסוי של תלמידים (אש ומים רותחים). יש הדגמת מורה או סרטון.
+  ההדמיות: js/sims/steam.js. החיבורים של העמוד: js/station-4.js
+-->
+<body data-page="s4" data-station="s4" data-reminder="station3">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">תחנה 4</p>
+      <h1>תחנה קיטורית</h1>
+      <p class="station-hero-question">איך אש יכולה לסובב מחולל?</p>
+      <div class="station-hero-learn">
+        <p>בתחנה הזו תלמדו:</p>
+        <ul>
+          <li>איך שריפת דלק הופכת מים לקיטור, והקיטור מסובב מחולל.</li>
+          <li>למה תחנה קיטורית עובדת יום ולילה.</li>
+          <li>מה המחיר של שריפת דלק.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" class="page station-page">
+
+    <nav id="station-progress"></nav>
+
+    <!-- ===== 1. פתיחה מהאי ===== -->
+    <section class="part" data-title="פתיחה מהאי" data-tag="core" data-time="5 דק'">
+      <h2>פתיחה מהאי</h2>
+      <figure class="story">
+        <svg class="story-svg" viewBox="0 0 800 320" role="img" aria-label="אונייה גדולה ואפורה נכנסת לנמל הדייגים, ליד סירות הדיג הקטנות של האי.">
+          <rect width="800" height="320" fill="#E6EFF9"/>
+          <path d="M0 210 H800 V320 H0 Z" fill="#7FB1E3"/>
+          <g stroke="#BFDDF7" stroke-width="3" fill="none" stroke-linecap="round"><path d="M60 250 q14 -8 28 0 t28 0"/><path d="M640 280 q14 -8 28 0 t28 0"/><path d="M300 296 q14 -8 28 0 t28 0"/></g>
+          <!-- רציף -->
+          <path d="M0 196 H220 V214 H0 Z" fill="#A5561F"/>
+          <g fill="#7A3C12"><rect x="30" y="214" width="10" height="40"/><rect x="110" y="214" width="10" height="40"/><rect x="190" y="214" width="10" height="40"/></g>
+          <!-- סירות דיג קטנות -->
+          <g fill="#FFFFFF" stroke="#4A5870" stroke-width="2"><path d="M40 234 h70 l-10 14 h-50 z"/><path d="M130 240 h60 l-8 12 h-44 z"/></g>
+          <path d="M75 234 V196 l22 30 z" fill="#F3E3D6" stroke="#4A5870" stroke-width="2"/>
+          <!-- האונייה הגדולה -->
+          <path d="M330 180 H760 L730 240 H360 Z" fill="#6F7F96" stroke="#3A4A63" stroke-width="3"/>
+          <rect x="560" y="120" width="140" height="60" rx="6" fill="#A9B5C6" stroke="#3A4A63" stroke-width="3"/>
+          <rect x="600" y="80" width="30" height="40" fill="#4A5870"/>
+          <g fill="#FFF6D9"><rect x="575" y="136" width="18" height="14" rx="2"/><rect x="605" y="136" width="18" height="14" rx="2"/><rect x="635" y="136" width="18" height="14" rx="2"/><rect x="665" y="136" width="18" height="14" rx="2"/></g>
+          <!-- חביות דלק על הסיפון -->
+          <g fill="#A5561F" stroke="#5A2C0C" stroke-width="2"><rect x="380" y="150" width="30" height="30" rx="4"/><rect x="416" y="150" width="30" height="30" rx="4"/><rect x="452" y="150" width="30" height="30" rx="4"/><rect x="398" y="120" width="30" height="30" rx="4"/><rect x="434" y="120" width="30" height="30" rx="4"/></g>
+          <g fill="#C9D6EA" opacity="0.9"><circle cx="615" cy="66" r="12"/><circle cx="628" cy="46" r="16"/><circle cx="648" cy="26" r="18"/></g>
+        </svg>
+      </figure>
+      <p class="story-text">בוקר אחד נכנסה לנמל הדייגים אונייה גדולה ואפורה, הרבה יותר גדולה מסירות הדיג של האי. ממנה ירדה אישה בעניבה ובידה תיק עב. "שמעתי שאתם בחושך", אמרה לנעמה. "יש לי פתרון פשוט. תקימו כאן, ליד הנמל, תחנת כוח קיטורית. אני אביא לכם דלק באונייה פעם בשבוע. התחנה תעבוד בלי הפסקה, יום ולילה, עם רוח או בלי רוח."</p>
+      <p class="story-text">נעמה הסתכלה על האונייה, ואז על השמיים הנקיים שמעל האי. ההצעה נשמעה מפתה. אבל משהו הטריד אותה. היא שלחה את ההצעה לצוות המהנדסים, עם שתי שאלות: איך זה בכלל עובד? ומה עלול להשתבש?</p>
+      <fieldset class="card" data-journal="s4.predict" data-journal-label="הניבוי שלי בפתיחה" id="s4-predict">
+        <legend>מה לדעתכם האש עושה בתחנה הקיטורית?</legend>
+        <label class="choice"><input type="radio" name="s4-predict" value="האש עצמה נהפכת לחשמל."> האש עצמה נהפכת לחשמל.</label>
+        <label class="choice"><input type="radio" name="s4-predict" value="האש מחממת משהו, ומשהו אחר מסובב את המחולל."> האש מחממת משהו, ומשהו אחר מסובב את המחולל.</label>
+        <label class="choice"><input type="radio" name="s4-predict" value="העשן מסובב את המחולל."> העשן מסובב את המחולל.</label>
+      </fieldset>
+    </section>
+
+    <!-- ===== 2. מה צריך לדעת ===== -->
+    <section class="part" data-title="מה צריך לדעת" data-tag="core" data-time="10 דק'">
+      <h2>מה צריך לדעת</h2>
+      <div class="slides" aria-label="כרטיסי מידע">
+        <article class="slide card info-card">
+          <h3>מה קורה כשמים רותחים?</h3>
+          <p>שמתם פעם לב למכסה שמקפץ על סיר של מים רותחים? כשמים רותחים, הם הופכים ל<strong>קיטור</strong>, מים במצב גז. הקיטור תופס הרבה יותר מקום מהמים, ולכן הוא דוחף בכוח כל מה שעומד בדרכו. במכסה של סיר זה נראה קטן. בתחנת כוח, עם דוד ענק, הקיטור מסוגל לסובב טורבינה גדולה מאוד.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>המסלול בתחנה</h3>
+          <div class="diagram plant-diagram" id="plant-diagram"></div>
+          <p>בתחנה קיטורית שורפים דלק, כמו פחם או גז, מתחת ל<strong>דוד</strong>, מיכל ענק מלא מים. המים רותחים והופכים לקיטור. הקיטור נדחף במהירות אל הטורבינה ומסובב אותה, והטורבינה מסובבת מחולל. אחר כך מקררים את הקיטור עם מי ים, הוא חוזר להיות מים, והמים חוזרים לדוד לסיבוב נוסף.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>תמיד זמינה, כל עוד יש דלק</h3>
+          <p>היתרון הגדול של תחנה קיטורית הוא שהיא לא תלויה במזג האוויר. אפשר להפעיל אותה בלילה שקט ובקיץ יבש, ולהגביר אותה כשהכפר צריך יותר חשמל. אבל יש תנאי אחד: צריך כל הזמן להביא עוד דלק. בלי דלק, התחנה נעצרת.</p>
+        </article>
+        <article class="slide card info-card">
+          <h3>המחיר</h3>
+          <p>דלק שנשרף לא חוזר. בשריפה נפלטים לאוויר עשן וגזים שמזהמים את האוויר שאנחנו נושמים, ומחממים את כדור הארץ. פחם מזהם הרבה יותר מגז. ויש גם מחיר של כסף: צריך לקנות דלק בכל שבוע, לתמיד.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== 3. צופים ===== -->
+    <section class="part" data-title="צופים" data-tag="core" data-time="8 דק'">
+      <h2>צופים</h2>
+      <p class="watch-before"><strong>לפני הצפייה:</strong> שימו לב: מה קורה לקיטור אחרי שהוא מסובב את הטורבינה?</p>
+      <div class="video-slot" data-video="station4.video1" data-video-title="איך עובדת תחנת כוח קיטורית"></div>
+      <div class="card watch-after">
+        <h3>אחרי הצפייה</h3>
+        <label class="question" for="s4-watch1">1. מה מסובב את הטורבינה?</label>
+        <textarea id="s4-watch1" rows="2" data-journal="s4.watch1" data-journal-label="מה מסובב את הטורבינה?"></textarea>
+        <label class="question q-gap" for="s4-watch2">2. למה תחנות כוח כאלה נמצאות לרוב ליד הים?</label>
+        <textarea id="s4-watch2" rows="2" data-journal="s4.watch2" data-journal-label="למה תחנות כוח כאלה נמצאות לרוב ליד הים?"></textarea>
+      </div>
+    </section>
+
+    <!-- ===== 4. מעבדה ===== -->
+    <section class="part part-wide" data-title="מעבדה" data-tag="core" data-time="12 דק'">
+      <h2>מעבדה: התחנה שליד הנמל</h2>
+      <div class="lab-wrap">
+        <div class="lab-sim-col">
+          <div id="steam-sim"></div>
+        </div>
+
+        <div class="lab">
+          <!-- ניסוי 1 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 1: כמה דלק שורפים</h3>
+              <div class="exp-step">
+                <label for="s4-e1-predict"><span class="step-word">ניבוי:</span> מה יקרה לחשמל ולעשן כשנשרוף יותר דלק?</label>
+                <textarea id="s4-e1-predict" rows="2" data-journal="s4.e1.predict" data-journal-label="ניסוי 1 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> הזיזו את מחוון הדלק. עקבו אחרי שלושה מדים: חשמל, עשן ומלאי דלק.</p>
+              </div>
+              <div class="exp-step">
+                <label for="s4-e1-explain"><span class="step-word">הסבירו:</span> מה מקבלים כששורפים יותר דלק, ומה משלמים?</label>
+                <textarea id="s4-e1-explain" rows="3" data-explain data-journal="s4.e1.explain" data-journal-label="ניסוי 1 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e1">
+                  <p class="hint" data-level="1">שימו לב לשלושת המדים ביחד, לא רק למד החשמל.</p>
+                  <p class="hint" data-level="2">מה עלה יחד עם החשמל? מה ירד?</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>יותר דלק נותן יותר חשמל, אבל גם יותר עשן, והמלאי נגמר מהר יותר.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 2 -->
+          <article class="experiment card">
+            <div class="experiment-body">
+              <h3>ניסוי 2: האונייה מתעכבת</h3>
+              <div class="exp-step">
+                <label for="s4-e2-predict"><span class="step-word">ניבוי:</span> סערה בים, והאונייה מגיעה באיחור של שבוע. מה יקרה לכפר?</label>
+                <textarea id="s4-e2-predict" rows="2" data-journal="s4.e2.predict" data-journal-label="ניסוי 2 – הניבוי שלי"></textarea>
+              </div>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> לחצו "האונייה מתעכבת" והפעילו שבועיים. נסו לחסוך דלק כדי להחזיק מעמד.</p>
+                <div id="steam-weeks"></div>
+              </div>
+              <div class="exp-step">
+                <label for="s4-e2-explain"><span class="step-word">הסבירו:</span> למה תחנה שתלויה באונייה היא סיכון לאי?</label>
+                <textarea id="s4-e2-explain" rows="3" data-explain data-journal="s4.e2.explain" data-journal-label="ניסוי 2 – ההסבר שלי"></textarea>
+                <div class="hints" data-hint-key="e2">
+                  <p class="hint" data-level="1">מה קרה למלאי הדלק בשבוע השני?</p>
+                  <p class="hint" data-level="2">במה זה שונה מרוח או מנחל? מי מביא את הרוח לאי?</p>
+                </div>
+                <p class="feedback feedback-ok exp-feedback" hidden>בדיוק. התחנה הקיטורית תמיד זמינה, אבל רק כל עוד מישהו מביא דלק. האי נעשה תלוי באונייה.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- ניסוי 3 – אם יש זמן -->
+          <article class="experiment card exp-extra">
+            <div class="experiment-body">
+              <h3>ניסוי 3: פחם או גז? <span class="tag tag-extra">אם יש זמן</span></h3>
+              <div class="exp-step">
+                <p><span class="step-word">נסו:</span> החליפו את סוג הדלק והשוו את מד העשן.</p>
+              </div>
+              <p class="feedback feedback-ok" id="s4-e3-feedback" hidden>שניהם מסובבים את אותה טורבינה. אבל פחם מעלה הרבה יותר עשן מגז.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div id="s4-lab-copy"></div>
+    </section>
+
+    <!-- ===== 5. מה מסובב כאן את המחולל? ===== -->
+    <section class="part" data-title="מה מסובב כאן את המחולל?" data-tag="core" data-time="3 דק'">
+      <h2>מה מסובב כאן את המחולל?</h2>
+      <div class="card summary-card">
+        <ol class="chain" aria-label="דלק, אש, מים רותחים, קיטור, טורבינה, מחולל, חשמל">
+          <li class="chain-step">דלק</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">אש</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">מים רותחים</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">קיטור</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">טורבינה</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step">מחולל</li>
+          <li class="chain-arrow" aria-hidden="true">←</li>
+          <li class="chain-step chain-end">חשמל</li>
+        </ol>
+        <p>כאן הקיטור מסובב את המחולל, והאש רק מחממת את המים. זו השרשרת הארוכה ביותר שפגשתם, אבל בסופה מחכה אותו מחולל מוכר.</p>
+      </div>
+      <aside class="card israel">
+        <h3>ובישראל?</h3>
+        <p>תחנת הכוח הגדולה בישראל, "אורות רבין", עומדת בחדרה, על שפת הים. היא מקררת את הקיטור שלה במי ים. במשך שנים שרפו בה בעיקר פחם. בגלל זיהום האוויר, מסבים אותה בהדרגה לגז טבעי.</p>
+      </aside>
+    </section>
+
+    <!-- ===== 6. דיווח למועצה ===== -->
+    <section class="part" data-title="דיווח למועצה" data-tag="core">
+      <h2>דיווח למועצה</h2>
+      <div class="card checkpoint-card">
+        <img src="assets/images/icon-checkpoint.png" alt="" width="64" height="64">
+        <div>
+          <p>הדיווח על התחנה הזו נמצא בתוך נקודת הביקורת המשותפת עם תחנה 5: "נקודת ביקורת: קיטור והשוואה" ב-Classroom. אפשר לפתוח אותה עכשיו, או בסוף תחנה 5.</p>
+          <div data-checkpoint="stations4and5"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. רוצים עוד? ===== -->
+    <section class="part" data-title="רוצים עוד?" data-tag="extra"
+             data-next-label="לתחנה 5: השוואה" data-next-href="station-5.html">
+      <h2>רוצים עוד?</h2>
+      <div class="card">
+        <p>גם בתחנות כוח גרעיניות, ובחלק מתחנות השמש, מרתיחים מים לקיטור. חפשו מה מחמם את המים בכל אחת מהן. מה משותף לכולן?</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module" src="js/station-4.js"></script>
+</body>
+</html>
