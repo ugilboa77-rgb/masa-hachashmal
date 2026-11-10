@@ -15,6 +15,7 @@ import { setupHints } from "./ui/hints.js";
 import { setupLocks } from "./ui/lock.js";
 import { bindJournalFields } from "./ui/journal-fields.js";
 import { setupReminder } from "./ui/reminder.js";
+import { setupOrders } from "./ui/order.js";
 
 renderHeader();
 renderTrafficLight();
@@ -23,6 +24,7 @@ if (document.body.dataset.station) {
   bindJournalFields();
   setupHints();
   setupLocks();
+  setupOrders();
   setupReminder();
   setupStation();
 }

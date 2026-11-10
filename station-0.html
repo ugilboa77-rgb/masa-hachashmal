@@ -1,0 +1,163 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>תחנה 0: נקודת זינוק · מסע החשמל</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+</head>
+<!--
+  תחנה 0: נקודת זינוק
+  הטקסטים מתוך docs/content/תחנה 0 נקודת זינוק.md
+  כל <section class="part"> הוא חלק אחד בתחנה.
+-->
+<body data-page="s0" data-station="s0">
+  <a class="skip-link" href="#main">דילוג לתוכן</a>
+  <header id="site-header"></header>
+
+  <div class="station-hero">
+    <div class="station-hero-inner">
+      <p class="station-hero-eyebrow">תחנה 0</p>
+      <h1>נקודת זינוק</h1>
+    </div>
+  </div>
+
+  <main id="main" class="page station-page">
+
+    <nav id="station-progress"></nav>
+
+    <!-- ===== 1. האי כבה ===== -->
+    <section class="part" data-title="האי כבה" data-tag="core">
+      <h2>האי כבה</h2>
+      <figure class="scene" id="blackout">
+        <svg class="scene-svg" viewBox="0 0 800 420" role="img" aria-labelledby="blackout-desc">
+          <desc id="blackout-desc">אי האלמוג בלילה, כל האורות דולקים. רעם וברק, והאורות נכבים אחד אחרי השני. נשארים רק כוכבים.</desc>
+          <defs>
+            <radialGradient id="win-glow">
+              <stop offset="0" stop-color="#FFCF4A" stop-opacity="0.7"/>
+              <stop offset="1" stop-color="#FFCF4A" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <!-- שמיים וים -->
+          <rect width="800" height="420" fill="#12284A"/>
+          <rect y="300" width="800" height="120" fill="#0E1F3B"/>
+          <!-- כוכבים: מופיעים בסוף -->
+          <g class="stars" fill="#E6EDF7">
+            <circle cx="70" cy="50" r="2"/><circle cx="160" cy="110" r="1.5"/><circle cx="250" cy="40" r="2"/>
+            <circle cx="380" cy="80" r="1.5"/><circle cx="470" cy="30" r="2"/><circle cx="560" cy="95" r="1.5"/>
+            <circle cx="650" cy="45" r="2"/><circle cx="740" cy="120" r="1.5"/><circle cx="320" cy="150" r="1.2"/>
+            <circle cx="700" cy="200" r="1.2"/><circle cx="110" cy="190" r="1.2"/>
+          </g>
+          <!-- ענני סערה -->
+          <g class="clouds" fill="#2B4170">
+            <ellipse cx="230" cy="70" rx="120" ry="34"/><ellipse cx="320" cy="56" rx="90" ry="30"/>
+            <ellipse cx="560" cy="80" rx="130" ry="36"/><ellipse cx="650" cy="62" rx="80" ry="28"/>
+          </g>
+          <!-- ברק -->
+          <path class="bolt" d="M520 92 l-34 76 h28 l-26 74 l70 -98 h-30 l26 -52 z" fill="#FFFFFF"/>
+          <rect class="flash" width="800" height="420" fill="#FFFFFF"/>
+          <!-- האי -->
+          <path d="M60 310 C 120 250, 210 230, 300 236 C 380 200, 470 204, 540 232 C 620 228, 720 260, 760 310 Z" fill="#1D3A66" stroke="#A5561F" stroke-width="3"/>
+          <!-- מגדלור -->
+          <path d="M690 300 l8 -66 h16 l8 66 z" fill="#3A5784" stroke="#0E1D36" stroke-width="2"/>
+          <!-- בתים. כל בית נכבה בזמן אחר (--d) -->
+          <g class="houses" stroke="#0E1D36" stroke-width="2">
+            <g class="house" style="--d: 2.4s"><circle class="glow" cx="170" cy="268" r="34" fill="url(#win-glow)" stroke="none"/><path d="M148 300 v-30 l22 -18 l22 18 v30 z" fill="#3A5784"/><rect class="win" x="162" y="274" width="16" height="14" rx="2"/></g>
+            <g class="house" style="--d: 3.4s"><circle class="glow" cx="250" cy="258" r="34" fill="url(#win-glow)" stroke="none"/><path d="M226 300 v-40 l24 -20 l24 20 v40 z" fill="#3A5784"/><rect class="win" x="242" y="266" width="16" height="14" rx="2"/></g>
+            <g class="house" style="--d: 2.9s"><circle class="glow" cx="340" cy="248" r="36" fill="url(#win-glow)" stroke="none"/><path d="M312 300 v-46 h56 v46 z" fill="#3A5784"/><rect class="win" x="322" y="262" width="14" height="13" rx="2"/><rect class="win" x="344" y="262" width="14" height="13" rx="2"/></g>
+            <g class="house" style="--d: 4.0s"><circle class="glow" cx="430" cy="258" r="34" fill="url(#win-glow)" stroke="none"/><path d="M406 300 v-36 l24 -20 l24 20 v36 z" fill="#3A5784"/><rect class="win" x="422" y="270" width="16" height="14" rx="2"/></g>
+            <g class="house" style="--d: 3.1s"><circle class="glow" cx="520" cy="262" r="34" fill="url(#win-glow)" stroke="none"/><path d="M496 300 v-34 l24 -20 l24 20 v34 z" fill="#3A5784"/><rect class="win" x="512" y="272" width="16" height="14" rx="2"/></g>
+            <g class="house" style="--d: 3.7s"><circle class="glow" cx="610" cy="270" r="32" fill="url(#win-glow)" stroke="none"/><path d="M588 300 v-28 l22 -18 l22 18 v28 z" fill="#3A5784"/><rect class="win" x="602" y="276" width="16" height="13" rx="2"/></g>
+            <g class="house" style="--d: 4.5s"><circle class="glow" cx="706" cy="230" r="40" fill="url(#win-glow)" stroke="none"/><rect class="win" x="698" y="222" width="16" height="12" rx="2"/></g>
+          </g>
+        </svg>
+        <figcaption class="scene-caption">ליל סערה באי האלמוג. באחת בלילה, הכול כבה.</figcaption>
+      </figure>
+      <button type="button" class="btn btn-secondary scene-replay" id="blackout-replay">הפעלה מחדש</button>
+    </section>
+
+    <!-- ===== 2. מכתב מראש המועצה ===== -->
+    <section class="part" data-title="מכתב מראש המועצה" data-tag="core"
+             data-next-label="מקבלים את המשימה" data-next-href="#part-3">
+      <h2>מכתב מראש המועצה</h2>
+      <div class="letter">
+        <p>לצוות המהנדסים הצעיר שלנו, שלום!</p>
+        <p>אתמול בלילה הייתה סערה חזקה. המחולל הישן של האי נשבר, וכל האי בחושך.</p>
+        <p>המקררים במאפייה לא עובדים. במרפאה משתמשים בפנסים. בבית הספר לומדים ליד החלון.</p>
+        <p>המחולל הזה היה ישן מאוד. הגיע הזמן לתכנן מערכת חשמל חדשה וטובה יותר.</p>
+        <p>אנחנו סומכים עליכם. תלמדו, תנסו, ותביאו לנו תוכנית.</p>
+        <p class="letter-sign">בתקווה לאור,<br>נעמה גל, ראש המועצה של אי האלמוג</p>
+      </div>
+    </section>
+
+    <!-- ===== 3. מה אתם כבר יודעים? ===== -->
+    <section class="part" data-title="מה אתם כבר יודעים?" data-tag="core">
+      <h2>מה אתם כבר יודעים?</h2>
+      <div class="card">
+        <label class="question" for="s0-predict">מאיפה מגיע החשמל שבשקע אצלכם בבית? כתבו מה שאתם חושבים. אין תשובה לא נכונה.</label>
+        <textarea id="s0-predict" rows="4" data-journal="s0.predict"
+                  data-journal-label="מאיפה מגיע החשמל שבשקע אצלכם בבית?"
+                  aria-describedby="s0-predict-note"></textarea>
+        <p class="field-note" id="s0-predict-note">בסוף המסע תחזרו לתשובה הזו ותראו כמה למדתם.</p>
+      </div>
+    </section>
+
+    <!-- ===== 4. הדרך של החשמל ===== -->
+    <section class="part" data-title="הדרך של החשמל" data-tag="core">
+      <h2>הדרך של החשמל</h2>
+      <div class="order card" data-order-key="s0.path">
+        <p class="question" id="s0-order-q">גררו את הכרטיסים לפי הסדר, מהמקום שבו החשמל נוצר ועד המקום שבו משתמשים בו.</p>
+        <!-- הסדר כאן הוא הסדר המעורבב שהתלמיד רואה. data-correct = המקום הנכון -->
+        <ol class="order-list" aria-labelledby="s0-order-q">
+          <li data-correct="4">הבית</li>
+          <li data-correct="2">קווי חשמל גבוהים</li>
+          <li data-correct="5">השקע</li>
+          <li data-correct="1">תחנת כוח</li>
+          <li data-correct="3">עמוד חשמל ברחוב</li>
+        </ol>
+        <button type="button" class="btn btn-primary order-check">בדיקת הסדר</button>
+        <p class="feedback feedback-ok" data-ok>נכון! החשמל נוסע מתחנת הכוח על פני קילומטרים של חוטים, עד אליכם הביתה.</p>
+        <p class="feedback feedback-retry" data-retry>כמעט. שאלו את עצמכם: איפה החשמל נוצר לראשונה?</p>
+      </div>
+    </section>
+
+    <!-- ===== 5. החשמל לא מחכה בשקע ===== -->
+    <section class="part" data-title="החשמל לא מחכה בשקע" data-tag="core">
+      <h2>החשמל לא מחכה בשקע</h2>
+      <div class="card info-card">
+        <p>בשקע אין מחסן של חשמל. החשמל שמדליק עכשיו את המסך שלכם נוצר רק רגע לפני, בתחנת כוח רחוקה.</p>
+        <p>לכן תחנות הכוח עובדות כל הזמן, ביום ובלילה. אם התחנה נעצרת, האור נכבה. בדיוק כמו באי האלמוג.</p>
+      </div>
+    </section>
+
+    <!-- ===== 6. הכלים שלכם ===== -->
+    <section class="part" data-title="הכלים שלכם" data-tag="core"
+             data-next-label="לתחנה 1: המחולל" data-next-href="station-1.html">
+      <h2>הכלים שלכם</h2>
+      <ul class="card tools-list">
+        <li><strong>יומן המהנדס:</strong> כל מה שתכתבו נשמר כאן, במחשב הזה. תוכלו לקרוא בו בכל רגע.</li>
+        <li><strong>כפתור הרמז:</strong> תקועים? לחצו עליו קודם.</li>
+        <li><strong>כרטיס הרמזור:</strong> עדיין תקועים? הפכו אותו לצהוב, והמורה יגיע.</li>
+        <li><strong>נקודת ביקורת:</strong> בסוף כל תחנה תענו על שאלון קצר ב-Classroom.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/page.js"></script>
+  <script type="module">
+    // האנימציה של האי מתחילה כשמגיעים לחלק 1, וכפתור "הפעלה מחדש" מריץ אותה שוב
+    const scene = document.getElementById("blackout");
+    function play() {
+      scene.classList.remove("is-playing");
+      void scene.offsetWidth; // מאפס את האנימציה
+      scene.classList.add("is-playing");
+    }
+    document.getElementById("blackout-replay").addEventListener("click", play);
+    document.getElementById("part-1").addEventListener("part-shown", play);
+    if (!document.getElementById("part-1").hidden) play();
+  </script>
+</body>
+</html>

@@ -18,7 +18,7 @@
 // • שומר את המקום האחרון, בשביל "המשיכו מאיפה שעצרתם".
 // =========================================================
 
-import { stationById } from "../site.js";
+import { stationById, stations } from "../site.js";
 import {
   completedParts, markPartDone, markStationDone, setLastPlace,
 } from "../progress.js";
@@ -101,7 +101,16 @@ export function setupStation() {
     }
 
     let next = null;
-    if (part.dataset.nextHref) {
+    const target = stations.find((s) => s.href === part.dataset.nextHref);
+    if (target && !target.ready) {
+      // התחנה הבאה עוד לא בנויה: כפתור "בקרוב", והחלק נחשב גמור כשמגיעים אליו
+      const soon = document.createElement("span");
+      soon.className = "btn btn-soon part-next";
+      soon.setAttribute("aria-disabled", "true");
+      soon.innerHTML = `<span>${part.dataset.nextLabel || "הבא"}</span><span class="soon-tag">בקרוב</span>`;
+      nav.append(soon);
+      part.addEventListener("part-shown", () => finishPart(i + 1));
+    } else if (part.dataset.nextHref) {
       next = document.createElement("a");
       next.href = part.dataset.nextHref;
       next.innerHTML = `<span>${part.dataset.nextLabel || "הבא"}</span>${icon("next")}`;

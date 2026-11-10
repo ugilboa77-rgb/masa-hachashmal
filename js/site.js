@@ -8,7 +8,7 @@
 // =========================================================
 
 export const stations = [
-  { id: "s0", num: 0, title: "נקודת זינוק",        sub: "האי כבה",          href: "station-0.html", ready: false },
+  { id: "s0", num: 0, title: "נקודת זינוק",        sub: "האי כבה",          href: "station-0.html", ready: true  },
   { id: "s1", num: 1, title: "המחולל",             sub: "סיבוב הופך לחשמל", href: "station-1.html", ready: false },
   { id: "s2", num: 2, title: "טורבינת רוח",        sub: "רוח מסובבת",       href: "station-2.html", ready: false },
   { id: "s3", num: 3, title: "תחנה הידרואלקטרית", sub: "מים מסובבים",      href: "station-3.html", ready: false },
