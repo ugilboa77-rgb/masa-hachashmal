@@ -9,7 +9,7 @@ import { stations } from "../site.js";
 
 import { getJournal, hintsUsed } from "../progress.js";
 import { clearAll, isAvailable } from "../storage.js";
-import { createCopyPoint } from "./copy.js";
+import { createCopyPoint, stamp } from "./copy.js";
 import { icon } from "./icons.js";
 
 function entriesOf(stationData) {
@@ -20,15 +20,22 @@ function entriesOf(stationData) {
 
 const SECTIONS = stations;
 
-function asText(journal) {
-  const lines = [];
-  SECTIONS.forEach((s) => {
+/** בלוק העתקה לכל תחנה שיש בה תשובות: כל שאלה והתשובה שלה */
+function asBlocks(journal) {
+  const when = stamp();
+  return SECTIONS.map((s) => {
     const list = entriesOf(journal[s.id]);
-    if (!list.length) return;
-    lines.push(`תחנה ${s.num}: ${s.title}`);
-    list.forEach((e) => lines.push(`${e.label}`, `${e.value}`, ""));
-  });
-  return lines.join("\n").trim();
+    if (!list.length) return null;
+    const hints = hintsUsed(s.id);
+    return {
+      title: `תחנה ${s.num}: ${s.title}`,
+      stamp: when,
+      items: [
+        ...list.map((e) => ({ type: "qa", q: e.label, a: e.value })),
+        ...(hints ? [{ type: "note", text: `רמזים שהשתמשתי בהם: ${hints}` }] : []),
+      ],
+    };
+  }).filter(Boolean);
 }
 
 export function renderJournalPage() {
@@ -69,7 +76,7 @@ export function renderJournalPage() {
   if (any) {
     createCopyPoint(document.getElementById("journal-copy"), {
       message: "כל היומן כטקסט אחד:",
-      getText: () => asText(getJournal()),
+      getBlocks: () => asBlocks(getJournal()),
     });
   }
 

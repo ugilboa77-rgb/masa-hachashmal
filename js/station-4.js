@@ -5,13 +5,13 @@
 // • נקודת העתקה אחת: סוף המעבדה (אין ניסוי בידיים בתחנה הזו)
 // =========================================================
 
-import { createCopyPoint, stamp, journalValue, LAB_MESSAGE } from "./ui/copy.js";
+import { createCopyPoint, stamp, answerOf, LAB_MESSAGE } from "./ui/copy.js";
 import { hintsUsed } from "./progress.js";
 import { plantDiagram, createSteamSim, createSteamWeeks } from "./sims/steam.js";
 
 const STATION = "s4";
 const $ = (sel) => document.querySelector(sel);
-const v = (key) => journalValue(STATION, key);
+const a = (key) => answerOf(STATION, key);
 
 plantDiagram($("#plant-diagram"));
 createSteamSim($("#steam-sim"));
@@ -27,15 +27,20 @@ $("#steam-sim").addEventListener("sim-change", (e) => {
 });
 document.addEventListener("experiment-unlocked", checkE3);
 
+// נקודת העתקה: סוף המעבדה (השאלות והכותרות – אותן מילים שבעמוד התחנה)
 createCopyPoint($("#s4-lab-copy"), {
   message: LAB_MESSAGE,
-  getText: () => [
-    `תחנה 4: תחנה קיטורית – מעבדה | ${stamp()}`,
-    `הניבוי שלי בפתיחה: ${v("s4.predict")}`,
-    `ניסוי 1 – כמה דלק שורפים`,
-    `ההסבר שלי: ${v("s4.e1.explain")}`,
-    `ניסוי 2 – האונייה מתעכבת`,
-    `ההסבר שלי: ${v("s4.e2.explain")}`,
-    `רמזים שהשתמשתי בהם: ${hintsUsed(STATION)}`,
-  ].join("\n"),
+  getBlocks: () => ({
+    title: "תחנה 4: תחנה קיטורית",
+    part: "מעבדה",
+    stamp: stamp(),
+    items: [
+      { type: "qa", q: "הניבוי שלי בפתיחה", a: a("s4.predict") },
+      { type: "heading", text: "ניסוי 1: כמה דלק שורפים" },
+      { type: "qa", q: "מה מקבלים כששורפים יותר דלק, ומה משלמים?", a: a("s4.e1.explain") },
+      { type: "heading", text: "ניסוי 2: האונייה מתעכבת" },
+      { type: "qa", q: "למה תחנה שתלויה באונייה היא סיכון לאי?", a: a("s4.e2.explain") },
+      { type: "note", text: `רמזים שהשתמשתי בהם: ${hintsUsed(STATION)}` },
+    ],
+  }),
 });

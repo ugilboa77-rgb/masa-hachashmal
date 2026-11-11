@@ -503,18 +503,21 @@ submitBody.innerHTML = `
   </div>`;
 const pick = $("#ch-pick");
 
-function attemptText(a) {
-  if (!a) return "";
+/** בלוק ההעתקה של ניסיון אחד – לפי הפורמט במסמך התוכן ("הכנת ההגשה") */
+function attemptBlock(a) {
+  if (!a) return null;
   const names = M.DAYS.map((d) => d.short);
-  return [
-    `תוכנית לאי האלמוג – ניסיון ${a.n}`,
-    `תחנות: ${a.desc}`,
-    `עלות: ${a.cost} מתוך ${M.BUDGET} מטבעות`,
-    `${names[0]}: ${a.dark[0]} שעות חושך | ${names[1]}: ${a.dark[1]} | ${names[2]}: ${a.dark[2]}`,
-    `עשן: ${a.smoke}`,
-    `מספר ניסיונות: ${state.attempts.length}`,
-    `קוד תוכנית: ${a.code}`,
-  ].join("\n");
+  return {
+    title: `תוכנית לאי האלמוג – ניסיון ${a.n}`,
+    items: [
+      { type: "fact", label: "תחנות", value: a.desc },
+      { type: "fact", label: "עלות", value: `${a.cost} מתוך ${M.BUDGET} מטבעות` },
+      ...names.map((name, i) => ({ type: "fact", label: name, value: `${a.dark[i]} שעות חושך` })),
+      { type: "fact", label: "עשן", value: a.smoke },
+      { type: "fact", label: "מספר ניסיונות", value: String(state.attempts.length) },
+      { type: "fact", label: "קוד תוכנית", value: a.code },
+    ],
+  };
 }
 let userPicked = false; // אם התלמיד בחר ניסיון בעצמו – שומרים על הבחירה שלו
 function renderSubmitOptions() {
@@ -526,7 +529,7 @@ function renderSubmitOptions() {
 }
 const copy = createCopyPoint($("#ch-copy"), {
   message: "",
-  getText: () => attemptText(state.attempts.find((a) => String(a.n) === pick.value)),
+  getBlocks: () => attemptBlock(state.attempts.find((a) => String(a.n) === pick.value)),
   link: { url: config.challengeForm, label: "פתיחת טופס ההגשה" },
 });
 pick.addEventListener("change", () => { userPicked = true; copy.refresh(); });
